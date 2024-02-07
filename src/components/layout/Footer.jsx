@@ -1,7 +1,7 @@
 import logo from './../../assets/logo.svg'
 const Footer = () => {
     return (
-        <footer className="w-full bg-primary">
+        <footer className="w-full bg-primary mt-5">
             <div className=' flex justify-between items-center py-2 px-20'>
                 <div className="footer__logo-box">
                     <img src={logo} alt="Full logo" className="w-20 h-20" />

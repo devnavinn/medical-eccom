@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { steps } from '../contact';
+import { steps } from '../constants';
 const StepHeading = () => {
     const location = useLocation();
     let { pathname } = location;
