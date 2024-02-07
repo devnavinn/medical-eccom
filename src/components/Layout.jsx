@@ -6,12 +6,12 @@ import ProgressStep from './ProgressStep';
 import StepHeading from './StepHeading';
 const Layout = ({ children }) => {
     return (
-        <div className="px-20">
+        <>
             <Navbar />
             <ProgressStep />
             <StepHeading />
             {/* Main content */}
-            <section className=' flex flex-row'>
+            <section className=' flex flex-row space-x-5'>
                 <div className='w-1/2'>
                     {children}
                 </div>
@@ -19,9 +19,7 @@ const Layout = ({ children }) => {
                     <Cart />
                 </div>
             </section>
-
-
-        </div>
+        </>
     );
 }
 
