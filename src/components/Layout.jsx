@@ -6,7 +6,7 @@ import ProgressStep from './ProgressStep';
 import StepHeading from './StepHeading';
 const Layout = ({ children }) => {
     return (
-        <>
+        <div>
             <Navbar />
             <ProgressStep />
             <StepHeading />
@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
                     <Cart />
                 </div>
             </section>
-        </>
+        </div>
     );
 }
 

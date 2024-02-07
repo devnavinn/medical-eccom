@@ -15,19 +15,19 @@ const ProgressStep = () => {
             </div>
             <div className='flex flex-row items-center'>
                 <div className='w-10 h-10 rounded-full flex justify-center items-center border border-[#003780]'>
-                    1
+                    3
                 </div>
                 <span className='ml-2 text-xs'>Define Delivery</span>
             </div>
             <div className='flex flex-row items-center'>
                 <div className='w-10 h-10 rounded-full flex justify-center items-center border border-[#003780]'>
-                    1
+                    4
                 </div>
                 <span className='ml-2 text-xs'>Complete Application</span>
             </div>
             <div className='flex flex-row items-center'>
                 <div className='w-10 h-10 rounded-full flex justify-center items-center border border-[#003780]'>
-                    1
+                    5
                 </div>
                 <span className='ml-2 text-xs'>Recieve Curabox</span>
             </div>
