@@ -8,17 +8,22 @@ import {
 } from "@/components/ui/card"
 import product from './../assets/product.png'
 import AddToCart from "./AddToCart"
-const ProductCard = () => {
+const ProductCard = ({ data }) => {
+    const { _id, image, product_name, package_size, unit, isPG51, isGlove } = data;
     return (
-        <Card>
+        <Card className='flex flex-col justify-between'>
             <CardHeader>
-                <img src={product} alt="Product" />
-                <CardTitle>Disposable gloves</CardTitle>
-                <CardDescription>100 pieces</CardDescription>
+                <div className="w-full h-40 flex justify-center items-center">
+                    <img src={image} alt="Product" />
+                </div>
+                <CardTitle className='text-center'>{product_name}</CardTitle>
+                <CardDescription className='text-center'>{package_size} {unit}</CardDescription>
             </CardHeader>
 
             <CardFooter className='flex justify-center items-center'>
-                <AddToCart />
+                <AddToCart
+                    product={data}
+                />
             </CardFooter>
         </Card>
 

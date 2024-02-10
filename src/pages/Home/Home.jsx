@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { getProducts } from "../../api/api"
 import ProductCard from "../../components/ProductCard"
+import { v4 as uuidv4 } from 'uuid';
 import { set } from "date-fns"
 const Home = () => {
     const [products, setProducts] = useState([])
@@ -17,7 +18,7 @@ const Home = () => {
             <div className="grid grid-cols-2 gap-5">
                 {
                     products?.map(item => (
-                        <ProductCard key={ } data={item} />
+                        <ProductCard key={uuidv4()} data={item} />
                     ))
                 }
             </div>
