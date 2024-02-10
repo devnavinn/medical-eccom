@@ -14,7 +14,7 @@ const ProductCard = ({ data }) => {
 
     const isSliderValueApproximately40 = () => {
         const desiredValue = 40;
-        const tolerance = 2; // Define your tolerance level
+        const tolerance = 3; // Define your tolerance level
 
         return Math.abs(sliderValue - desiredValue) <= tolerance;
     };

@@ -10,7 +10,8 @@ import { Button } from "./ui/button"
 const Cart = () => {
     const location = useLocation()
     const { pathname } = location
-    const { cart, removeFromCart, setSliderValue, sliderValue } = useCart();
+    const { cart, removeFromCart, updateCart, setSliderValue, sliderValue } = useCart();
+    const [size, updateSize] = useState('m');
     useEffect(() => {
         let total = 0;
         cart?.map(item => {
@@ -18,7 +19,13 @@ const Cart = () => {
         })
         setSliderValue(total);
     }, [cart]);
-    console.log('sliderValue', sliderValue);
+    const setSize = (size, index) => {
+        updateSize(size);
+        const newCart = [...cart];
+        newCart[index].size = size;
+        updateCart(index, newCart[index]);
+    }
+    console.log('sliderValue', cart, sliderValue);
     return (
         <div className="flex flex-col space-y-2">
             <ProductTab />
@@ -32,14 +39,35 @@ const Cart = () => {
             {
                 cart?.map((item, index) => (
                     <div key={uuidv4()} className="flex justify-between items-center  border-[#003780] py-2 rounded-lg shadow-lg">
-                        <div className="flex items-center">
-                            <div>
-                                <img src={item.image} alt={item.product_name} className="w-20 h-20 object-cover" />
+                        <div className="flex flex-col">
+                            <div className="flex items-center">
+                                <div>
+                                    <img src={item.image} alt={item.product_name} className="w-20 h-20 object-cover" />
+                                </div>
+                                <div className="px-4">
+                                    <h1 className="text-lg font-bold">{item.product_name}</h1>
+                                    <p>{item.package_size} {item.unit}</p>
+                                </div>
                             </div>
-                            <div>
-                                <h1 className="text-lg font-bold">{item.product_name}</h1>
-                                <p>{item.package_size} {item.unit}</p>
-                            </div>
+                            {
+                                item.isGlove && (
+                                    <div className="flex justify-end space-x-2">
+                                        <Button onClick={() => setSize('s', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 's' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
+                                            S
+                                        </Button>
+                                        <Button onClick={() => setSize('m', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 'm' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
+                                            M
+                                        </Button>
+                                        <Button onClick={() => setSize('l', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 'l' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
+
+                                            L
+                                        </Button>
+                                        <Button onClick={() => setSize('xl', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 'xl' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
+                                            XL
+                                        </Button>
+                                    </div>
+                                )
+                            }
                         </div>
                         <div>
                             <button onClick={() => removeFromCart(index)} className="w-10 h-10 flex justify-center items-center rounded-full bg-[#003780] cursor-pointer">

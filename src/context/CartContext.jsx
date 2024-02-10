@@ -29,7 +29,7 @@ export function CartProvider({ children }) {
         setCart(newCart);
     };
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, sliderValue, setSliderValue, setCartValue }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, sliderValue, setSliderValue, setCartValue, updateCart }}>
             {children}
         </CartContext.Provider>
     );
