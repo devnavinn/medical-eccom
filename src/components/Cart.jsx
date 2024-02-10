@@ -1,13 +1,34 @@
+import { Link } from "react-router-dom"
+import { useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
 import ProductTab from "./ProductTab"
 import { useCart } from "../context/CartContext"
 import { v4 as uuidv4 } from 'uuid'
+import { cn } from "@/lib/utils"
+import { Slider } from "@/components/ui/slider"
+import { Button } from "./ui/button"
 const Cart = () => {
-    const { cart, removeFromCart } = useCart();
-    console.log('cart', cart);
+    const location = useLocation()
+    const { pathname } = location
+    const { cart, removeFromCart, setSliderValue, sliderValue } = useCart();
+    useEffect(() => {
+        let total = 0;
+        cart?.map(item => {
+            total += item.price;
+        })
+        setSliderValue(total);
+    }, [cart]);
+    console.log('sliderValue', sliderValue);
     return (
         <div className="flex flex-col space-y-2">
             <ProductTab />
-
+            <div className="flex flex-col space-y-5">
+                <div className="flex justify-between">
+                    <h1 className="text-2xl text-[#1A253B] font-bold">Your Curabox</h1>
+                    <p className="text-xl text-[#1A253B] font-bold"> 40€</p>
+                </div>
+                <Slider defaultValue={[0]} value={[sliderValue]} max={40} step={4} disabled />
+            </div>
             {
                 cart?.map((item, index) => (
                     <div key={uuidv4()} className="flex justify-between items-center  border-[#003780] py-2 rounded-lg shadow-lg">
@@ -30,6 +51,15 @@ const Cart = () => {
                         </div>
                     </div>
                 ))
+            }
+            {
+                pathname == '/' && (
+                    <Link to={'/contact-details'}>
+                        <Button className={cn('w-full flex justify-center rounded-lg bg-[#003780] text-white', cart?.length == 0 && 'hidden')} variant={'primary'}>
+                            Continue to your contact details
+                        </Button>
+                    </Link>
+                )
             }
         </div>
     )

@@ -9,7 +9,7 @@ export function useCart() {
 
 export function CartProvider({ children }) {
     const [cart, setCart] = useState([]);
-
+    const [sliderValue, setSliderValue] = useState(0);
     const addToCart = (item) => {
         setCart([...cart, item]);
     };
@@ -19,9 +19,17 @@ export function CartProvider({ children }) {
         newCart.splice(index, 1);
         setCart(newCart);
     };
+    const updateCart = (index, item) => {
+        const newCart = [...cart];
+        newCart[index] = item;
+        setCart(newCart);
+    };
 
+    const setCartValue = (newCart) => {
+        setCart(newCart);
+    };
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, sliderValue, setSliderValue, setCartValue }}>
             {children}
         </CartContext.Provider>
     );
