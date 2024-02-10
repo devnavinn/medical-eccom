@@ -1,5 +1,12 @@
+import { useState, useEffect } from "react"
+import { getProducts } from "../../api/api"
 import ProductCard from "../../components/ProductCard"
+import { set } from "date-fns"
 const Home = () => {
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        getProducts().then(data => setProducts(data))
+    }, [])
     return (
         <>
             <div className="py-5">
@@ -8,10 +15,11 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-5">
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
+                {
+                    products?.map(item => (
+                        <ProductCard key={ } data={item} />
+                    ))
+                }
             </div>
         </>
 
