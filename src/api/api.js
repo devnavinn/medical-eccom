@@ -33,3 +33,18 @@ export const getProducts = async () => {
         console.log("ERROR:", error);
     }
 };
+
+export const orderPlace = async (data) => {
+    try {
+        const res = await fetch(`${import.meta.env.VITE_API_ORDER_URL}/order/order-place`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        return await res.json();
+    } catch (error) {
+        console.log("ERROR:", error);
+    }
+}

@@ -7,8 +7,8 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { Button } from "./ui/button"
-const ContinueCard = ({ data }) => {
-    const { heading, description, icon } = data
+const ContinueCard = ({ data, handleContinueMethod }) => {
+    const { heading, description, icon, action } = data
     return (
         <Card className='flex flex-col justify-between'>
             <div className="mt-5">
@@ -24,7 +24,9 @@ const ContinueCard = ({ data }) => {
                 </CardContent>
             </div>
             <CardFooter>
-                <Button variant='outline' className='w-full rounded-3xl py-2'>
+                <Button
+                    onClick={() => handleContinueMethod(action)}
+                    variant='outline' className='w-full rounded-3xl py-2'>
                     Continue
                 </Button>
             </CardFooter>

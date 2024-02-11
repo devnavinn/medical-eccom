@@ -1,10 +1,12 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
 import { z } from "zod"
-
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { Switch } from "@/components/ui/switch"
 import {
     Form,
     FormControl,
@@ -57,16 +59,33 @@ const FormSchema = z.object({
     "health-insurance": z.string().nonempty({
         required_error: "Health insurance is required.",
     }),
+    "data-url": z.string().nonempty({
+        required_error: "Data url is required.",
+    }),
+    dob_2: z.string().nonempty({
+        required_error: "Date of birth is required.",
+    }),
+    "isagree": z.boolean().refine((value) => value === true, {
+        message: "You need to agree to the terms and conditions.",
+    }),
+
 
 })
 
 function YourDetils() {
+    const [rating, setRating] = useState(0);
+    const navigate = useNavigate()
+    const handleRatingClick = (value) => {
+        // Update the rating when a star is clicked
+        setRating(value);
+    };
     const form = useForm({
         resolver: zodResolver(FormSchema),
     })
 
     function onSubmit(data) {
         console.log(data)
+        navigate('/caregiver-details')
     }
 
     return (
@@ -219,7 +238,7 @@ function YourDetils() {
                             <FormItem>
                                 <FormLabel>Birth Date*</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="DD.MM.YYYY" {...field} />
+                                    <Input type='date' placeholder="DD.MM.YYYY" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -325,6 +344,85 @@ function YourDetils() {
                     </div>
                     <p>Is the insured person eligible for assistance?</p>
                 </div>
+                <div>
+                    <FormField
+                        control={form.control}
+                        name="data-url"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel className='text-2xl text-[#003780]'>{`Don't have the data to hand?`}</FormLabel>
+                                <p>If you do not currently have data, copy the link and save it. You can use the link to return to the application at a later date and continue with your application. All previous information will be called up again.</p>
+                                <FormControl>
+                                    <Input placeholder="Copy link" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+                <div className="w-1/2">
+                    <FormField
+                        control={form.control}
+                        name="dob_2"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel className='text-2xl text-[#003780]'>Information on the level of care</FormLabel>
+                                <p>Birth date *</p>
+                                <FormControl>
+                                    <Input type='date' placeholder="DD.MM.YYYY" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+                <div className="flex flex-col ">
+                    <label>Level of care</label>
+                    <div className="flex space-x-2">
+                        {[1, 2, 3, 4, 5].map((value) => (
+                            <Controller
+                                key={value}
+                                name="rating"
+                                control={form.control}
+                                defaultValue=""
+                                render={({ field }) => (
+                                    <Button
+                                        variant="outline"
+                                        className="w-12 h-10"
+                                        onClick={() => field.onChange(value)}
+                                        style={{
+                                            color: field.value === value ? 'white' : 'gray',
+                                            backgroundColor: field.value === value ? '#003780' : '',
+                                            cursor: 'pointer',
+                                            fontSize: '16px',
+                                        }}
+                                    >
+                                        {value}
+                                    </Button>
+                                )}
+                            />
+
+                        ))}
+                    </div>
+                </div>
+                <FormField
+                    control={form.control}
+                    name="isagree"
+                    render={({ field }) => (
+                        <FormItem className="flex flex-row items-center space-x-2  rounded-lg border p-2">
+                            <FormControl>
+                                <Switch
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    aria-readonly
+                                />
+                            </FormControl>
+                            <div className="">
+                                <FormLabel className="text-base">I would like to specify the carer or supervisor of the insured person.</FormLabel>
+                            </div>
+                        </FormItem>
+                    )}
+                />
                 <Button type="submit" className='py-2 px-24 rounded-3xl bg-[#003780] text-white'>Continue in the application</Button>
             </form>
         </Form>

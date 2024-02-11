@@ -3,8 +3,10 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-
+import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
+import { orderPlace } from "../../api/api"
+import { useCart } from "../../context/CartContext"
 import {
     Form,
     FormControl,
@@ -18,39 +20,43 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 const FormSchema = z.object({
-    type: z.enum(["insured-person", "relative/caregiver"], {
-        required_error: "You need to select a notification type.",
-    }),
-    gender: z.enum(["Mister", "Woman"], {
-        required_error: "You need to select a notification type.",
-    }),
-    "first-name": z.string().nonempty({
-        required_error: "First name is required.",
-    }),
-    "last-name": z.string().nonempty({
-        required_error: "Last name is required.",
-    }),
-    email: z.string().email({
-        required_error: "Email is required.",
-    }),
-    phone: z.string().nonempty({
-        required_error: "Phone is required.",
-    }),
-    insuredis: z.enum(["Statutory insured", "Privately insured"], {
-        required_error: "You need to select a notification type.",
-    }),
-    declaration: z.boolean().refine((value) => value === true, {
-        message: "You need to agree to the declaration.",
-    }),
+    contactType: z.string().nonempty(),
+    salutation: z.string().nonempty(),
+    firstName: z.string().nonempty(),
+    lastName: z.string().nonempty(),
+    email: z.string().email(),
+    phone: z.string().nonempty(),
+    insuranceType: z.string().nonempty(),
+    dataProtection: z.boolean(),
+
 })
 
 function ContactDetails() {
+    const { cart, sliderValue } = useCart()
+    const navigate = useNavigate();
     const form = useForm({
         resolver: zodResolver(FormSchema),
     })
 
-    function onSubmit(data) {
+    async function onSubmit(data) {
         console.log(data)
+        const formData = {
+            stepPath: "contact-details",
+            contactForm: {
+                ...data
+            },
+            productsForm: {
+                totalPrice: sliderValue,
+                gloveSize: "M",
+                product_details: cart
+            }
+        }
+        console.log('formData', formData);
+        await orderPlace(formData).then(res => {
+            sessionStorage.setItem('sessionId', res.sessionId)
+            console.log('res', res);
+        })
+        // navigate("/countinue")
     }
 
     return (
@@ -60,7 +66,7 @@ function ContactDetails() {
 
                     <FormField
                         control={form.control}
-                        name="type"
+                        name="contactType"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>I am*</FormLabel>
@@ -96,7 +102,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="gender"
+                        name="salutation"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>Gender*</FormLabel>
@@ -130,7 +136,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="first-name"
+                        name="firstName"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>First Name</FormLabel>
@@ -143,7 +149,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="last-name"
+                        name="lastName"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Last Name</FormLabel>
@@ -183,7 +189,7 @@ function ContactDetails() {
                 </div>
                 <FormField
                     control={form.control}
-                    name="insuredis"
+                    name="insuranceType"
                     render={({ field }) => (
                         <FormItem className="space-y-3">
                             <FormLabel className='text-2xl text-[#003780]'>The insured is</FormLabel>
@@ -218,7 +224,7 @@ function ContactDetails() {
 
                 <FormField
                     control={form.control}
-                    name="declaration"
+                    name="dataProtection"
                     render={({ field }) => (
                         <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow">
                             <FormControl>
