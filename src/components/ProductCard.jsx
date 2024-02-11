@@ -12,14 +12,13 @@ const ProductCard = ({ data }) => {
     const { sliderValue } = useCart();
     const { _id, image, product_name, package_size, unit, isPG51, isGlove } = data;
 
-    const isSliderValueApproximately40 = () => {
-        const desiredValue = 40;
-        const tolerance = 3; // Define your tolerance level
-
-        return Math.abs(sliderValue - desiredValue) <= tolerance;
+    const isSliderValueApproximatelyGreaterThan40 = () => {
+        const desiredValue = 37;
+        return sliderValue >= desiredValue;
     };
+
     return (
-        <Card className={`flex flex-col justify-between ${isSliderValueApproximately40() ? 'opacity-50 pointer-events-none' : ''}`}>
+        <Card className={`flex flex-col justify-between ${isSliderValueApproximatelyGreaterThan40() ? 'opacity-50 pointer-events-none' : ''}`}>
             <CardHeader>
                 <div className="w-full h-40 flex justify-center items-center">
                     <img src={image} alt="Product" />
@@ -33,7 +32,7 @@ const ProductCard = ({ data }) => {
                     product={data}
                 />
             </CardFooter>
-        </Card >
+        </Card>
 
     )
 }

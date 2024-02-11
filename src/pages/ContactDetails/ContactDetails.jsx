@@ -32,7 +32,7 @@ const FormSchema = z.object({
 })
 
 function ContactDetails() {
-    const { cart, sliderValue } = useCart()
+    const { cart, sliderValue, size } = useCart()
     const navigate = useNavigate();
     const form = useForm({
         resolver: zodResolver(FormSchema),
@@ -48,7 +48,8 @@ function ContactDetails() {
             },
             productsForm: {
                 totalPrice: sliderValue,
-                gloveSize: "M",
+                gloveSize: size,
+
                 product_details: cart
             }
         }

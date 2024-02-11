@@ -16,6 +16,7 @@ export function CartProvider({ children }) {
     });
 
     const [sliderValue, setSliderValue] = useState(0);
+    const [size, updateSize] = useState('M');
 
     const saveCartToSessionStorage = (cartData) => {
         sessionStorage.setItem(CART_SESSION_KEY, JSON.stringify(cartData));
@@ -51,7 +52,7 @@ export function CartProvider({ children }) {
     }, [cart]);
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, sliderValue, setSliderValue, setCartValue, updateCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, sliderValue, setSliderValue, setCartValue, updateCart, size, updateSize }}>
             {children}
         </CartContext.Provider>
     );

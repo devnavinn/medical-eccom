@@ -1,5 +1,9 @@
+import { useEffect } from "react"
 import { deliveryStep } from "../../constants"
 const ThankYou = () => {
+    useEffect(() => {
+        sessionStorage.clear()
+    }, [])
     return (
         <div>
             <h1 className="text-6xl text-center text-[#003780] my-10">ThankYou!</h1>

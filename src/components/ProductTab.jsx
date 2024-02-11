@@ -15,7 +15,7 @@ const ProductTab = () => {
     }, [])
     useEffect(() => {
         if (seletedTab) {
-            getSingleCompliance(seletedTab).then(data => setCartValue(data))
+            getSingleCompliance(seletedTab).then(data => setCartValue(data.productDetails))
         }
     }, [seletedTab])
 

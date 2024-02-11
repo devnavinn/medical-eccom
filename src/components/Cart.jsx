@@ -10,8 +10,7 @@ import { Button } from "./ui/button"
 const Cart = () => {
     const location = useLocation()
     const { pathname } = location
-    const { cart, removeFromCart, updateCart, setSliderValue, sliderValue } = useCart();
-    const [size, updateSize] = useState('m');
+    const { cart, removeFromCart, updateCart, setSliderValue, sliderValue, size, updateSize } = useCart();
     useEffect(() => {
         let total = 0;
         cart?.map(item => {
@@ -52,17 +51,17 @@ const Cart = () => {
                             {
                                 item.isGlove && (
                                     <div className="flex justify-end space-x-2">
-                                        <Button onClick={() => setSize('s', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 's' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
+                                        <Button onClick={() => setSize('S', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 'S' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
                                             S
                                         </Button>
-                                        <Button onClick={() => setSize('m', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 'm' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
+                                        <Button onClick={() => setSize('M', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 'M' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
                                             M
                                         </Button>
-                                        <Button onClick={() => setSize('l', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 'l' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
+                                        <Button onClick={() => setSize('L', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 'L' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
 
                                             L
                                         </Button>
-                                        <Button onClick={() => setSize('xl', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 'xl' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
+                                        <Button onClick={() => setSize('XL', index)} variant={'outline'} className={`w-10 h-10 flex justify-center items-center rounded-lg ${size == 'XL' ? 'bg-[#003780] text-white hover:bg-[#003780] hover:text-white' : ''}`}>
                                             XL
                                         </Button>
                                     </div>
