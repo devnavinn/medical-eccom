@@ -27,16 +27,17 @@ const WebRouter = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/contact-details" element={<ContactDetails />} />
-                        <Route path="/countinue" element={<Countinue />} />
+                        <Route path="/continue" element={<Countinue />} />
                         <Route path="/your-details" element={<YourDetails />} />
                         <Route path="/caregiver-details" element={<CaregiverDetails />} />
                         <Route path="/delivery-options" element={<DeliveryOptions />} />
                         <Route path="/complete-application" element={<CompleteApplication />} />
                         <Route path="/signature" element={<Signature />} />
-                        <Route path="/thank-you" element={<ThankYou />} />
                         <Route path="*" element={<h1>Not Found</h1>} />
+                        <Route path="/thank-you" element={<ThankYou />} />
                     </Routes>
                 </Layout>
+
             </Suspense>
         </Router>
     );

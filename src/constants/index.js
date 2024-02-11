@@ -63,4 +63,22 @@ const countinue = [
         icon: icon4
     }
 ]
-export { steps, countinue }
+
+import first from './../assets/first.svg'
+import second from './../assets/second.svg'
+import third from './../assets/third.svg'
+const deliveryStep = [
+    {
+        icon: first,
+        desc: 'Your application is now being processed and will be sent to the nursing care fund.'
+    },
+    {
+        icon: second,
+        desc: 'After approval from the care insurance company, you will receive your curabox free of charge directly to your home every month.'
+    },
+    {
+        icon: third,
+        desc: 'For your records you canhere Retrieve your completed form. You will shortly receive the form via email to mark@hotmail.com so that you can find it again at any time.'
+    }
+]
+export { steps, countinue, deliveryStep }

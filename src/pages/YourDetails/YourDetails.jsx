@@ -1,12 +1,13 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm, Controller } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { z } from "zod"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
+import { orderPlace } from "../../api/api"
 import {
     Form,
     FormControl,
@@ -20,55 +21,22 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 const FormSchema = z.object({
-    type: z.enum(["insured-person", "relative/caregiver"], {
-        required_error: "You need to select a notification type.",
-    }),
-    gender: z.enum(["Mister", "Woman"], {
-        required_error: "You need to select a notification type.",
-    }),
-    "first-name": z.string().nonempty({
-        required_error: "First name is required.",
-    }),
-    "last-name": z.string().nonempty({
-        required_error: "Last name is required.",
-    }),
-    "full-address": z.string().nonempty({
-        required_error: "Full address is required.",
-    }),
-    "post-code": z.string().nonempty({
-        required_error: "Post code is required.",
-    }),
-    city: z.string().nonempty({
-        required_error: "City is required.",
-    }),
-    dob: z.string().nonempty({
-        required_error: "Date of birth is required.",
-    }),
-    telephone: z.string().nonempty({
-        required_error: "Telephone number is required.",
-    }),
-    email: z.string().nonempty({
-        required_error: "Email is required.",
-    }),
-    insuredis: z.enum(["Statutory insured", "Privately insured"], {
-        required_error: "You need to select a notification type.",
-    }),
-    "insurance-number": z.string().nonempty({
-        required_error: "Insurance number is required.",
-    }),
-    "health-insurance": z.string().nonempty({
-        required_error: "Health insurance is required.",
-    }),
-    "data-url": z.string().nonempty({
-        required_error: "Data url is required.",
-    }),
-    dob_2: z.string().nonempty({
-        required_error: "Date of birth is required.",
-    }),
-    "isagree": z.boolean().refine((value) => value === true, {
-        message: "You need to agree to the terms and conditions.",
-    }),
-
+    contactType: z.string().nonempty(),
+    salutation: z.string().nonempty(),
+    firstName: z.string().nonempty(),
+    lastName: z.string().nonempty(),
+    street: z.string().nonempty(),
+    zip: z.string().nonempty(),
+    city: z.string().nonempty(),
+    dob: z.string().nonempty(),
+    telephone: z.string().nonempty(),
+    email: z.string().nonempty(),
+    insuranceType: z.string().nonempty(),
+    insuranceNumber: z.string().nonempty(),
+    healthInsurance: z.string().nonempty(),
+    link: z.string().nonempty(),
+    deliveryDate: z.string().nonempty(),
+    addCarePerson: z.boolean(),
 
 })
 
@@ -81,11 +49,23 @@ function YourDetils() {
     };
     const form = useForm({
         resolver: zodResolver(FormSchema),
+        defaultValues: sessionStorage.getItem('contactDetails') ? JSON.parse(sessionStorage.getItem('contactDetails')) : {}
     })
 
-    function onSubmit(data) {
+    async function onSubmit(data) {
         console.log(data)
-        navigate('/caregiver-details')
+        sessionStorage.setItem('yourDetails', JSON.stringify(data))
+        const formData = {
+            sessionId: sessionStorage.getItem('sessionId'),
+            insuredPersonForm: {
+                ...data
+            }
+        }
+        await orderPlace(formData).then((res) => {
+            console.log(res)
+            navigate('/caregiver-details')
+        })
+        // navigate('/caregiver-details')
     }
 
     return (
@@ -95,7 +75,7 @@ function YourDetils() {
 
                     <FormField
                         control={form.control}
-                        name="type"
+                        name="contactType"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>I am*</FormLabel>
@@ -131,7 +111,7 @@ function YourDetils() {
                     />
                     <FormField
                         control={form.control}
-                        name="gender"
+                        name="salutation"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>Gender*</FormLabel>
@@ -165,7 +145,7 @@ function YourDetils() {
                     />
                     <FormField
                         control={form.control}
-                        name="first-name"
+                        name="firstName"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>First Name</FormLabel>
@@ -178,7 +158,7 @@ function YourDetils() {
                     />
                     <FormField
                         control={form.control}
-                        name="last-name"
+                        name="lastName"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Last Name</FormLabel>
@@ -193,7 +173,7 @@ function YourDetils() {
                 </div>
                 <FormField
                     control={form.control}
-                    name="full-address"
+                    name="street"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Street, house number *</FormLabel>
@@ -207,7 +187,7 @@ function YourDetils() {
                 <div className="grid grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
-                        name="post-code"
+                        name="zip"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Post Code</FormLabel>
@@ -282,7 +262,7 @@ function YourDetils() {
 
                     <FormField
                         control={form.control}
-                        name="insuredis"
+                        name="insuranceType"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>Health insurance information</FormLabel>
@@ -317,7 +297,7 @@ function YourDetils() {
                     <div className="grid grid-cols-2 gap-5 my-5">
                         <FormField
                             control={form.control}
-                            name="insurance-number"
+                            name="insuranceNumber"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Insurance Number*</FormLabel>
@@ -330,12 +310,12 @@ function YourDetils() {
                         />
                         <FormField
                             control={form.control}
-                            name="health-insurance"
+                            name="healthInsurance"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Health insurance*</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="+49 " {...field} />
+                                        <Input placeholder="Health Insurance " {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -347,7 +327,7 @@ function YourDetils() {
                 <div>
                     <FormField
                         control={form.control}
-                        name="data-url"
+                        name="link"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel className='text-2xl text-[#003780]'>{`Don't have the data to hand?`}</FormLabel>
@@ -363,7 +343,7 @@ function YourDetils() {
                 <div className="w-1/2">
                     <FormField
                         control={form.control}
-                        name="dob_2"
+                        name="deliveryDate"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel className='text-2xl text-[#003780]'>Information on the level of care</FormLabel>
@@ -380,34 +360,30 @@ function YourDetils() {
                     <label>Level of care</label>
                     <div className="flex space-x-2">
                         {[1, 2, 3, 4, 5].map((value) => (
-                            <Controller
+                            <Button
+                                type="button"
                                 key={value}
-                                name="rating"
-                                control={form.control}
-                                defaultValue=""
-                                render={({ field }) => (
-                                    <Button
-                                        variant="outline"
-                                        className="w-12 h-10"
-                                        onClick={() => field.onChange(value)}
-                                        style={{
-                                            color: field.value === value ? 'white' : 'gray',
-                                            backgroundColor: field.value === value ? '#003780' : '',
-                                            cursor: 'pointer',
-                                            fontSize: '16px',
-                                        }}
-                                    >
-                                        {value}
-                                    </Button>
-                                )}
-                            />
+                                variant="outline"
+                                className="w-12 h-10"
+                                onClick={() => handleRatingClick(value)}
+                                style={{
+                                    color: rating === value ? 'white' : 'gray',
+                                    backgroundColor: rating === value ? '#003780' : '',
+                                    cursor: 'pointer',
+                                    fontSize: '16px',
+                                }}
+                            >
+                                {value}
+                            </Button>
+                        )
 
-                        ))}
+
+                        )}
                     </div>
                 </div>
                 <FormField
                     control={form.control}
-                    name="isagree"
+                    name="addCarePerson"
                     render={({ field }) => (
                         <FormItem className="flex flex-row items-center space-x-2  rounded-lg border p-2">
                             <FormControl>
