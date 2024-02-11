@@ -49,7 +49,7 @@ function YourDetils() {
     };
     const form = useForm({
         resolver: zodResolver(FormSchema),
-        defaultValues: sessionStorage.getItem('contactDetails') ? JSON.parse(sessionStorage.getItem('contactDetails')) : {}
+        defaultValues: sessionStorage.getItem('yourDetails') ? JSON.parse(sessionStorage.getItem('contactDetails')) : {}
     })
 
     async function onSubmit(data) {

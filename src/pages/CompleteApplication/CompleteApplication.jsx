@@ -60,7 +60,7 @@ const CompleteApplication = () => {
             <div className="flex flex-col p-5 rounded-lg shadow-lg">
                 <div className="flex justify-between">
                     <h1 className="text-2xl text-[#003780] ">Delivery information</h1>
-                    <Link to={'/caregiver-details'} className="flex flex-row space-x-2">
+                    <Link to={'/delivery-options'} className="flex flex-row space-x-2">
 
                         <EditIcon />
                         Edit

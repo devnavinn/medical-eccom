@@ -24,7 +24,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 const FormSchema = z.object({
-    email: z.string().nonempty({ message: "Email is required." }),
+    reciepient: z.string().nonempty({ message: "Recipient is required." }),
     switchToCurabox: z.boolean(),
     deliveryStart: z.string().nonempty({ message: "Delivery start is required." }),
 })
@@ -50,10 +50,14 @@ export default function DeliveryOptions() {
             navigate('/complete-application')
         }
     }
+    const onErrors = (errors) => {
+        console.log(errors)
+    }
+
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit, onErrors)} className="w-full space-y-6">
                 <h3 className="text-2xl text-[#003780] mt-5">Where should the curabox be delivered to?</h3>
                 <FormField
                     control={form.control}
