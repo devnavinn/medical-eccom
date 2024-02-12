@@ -27,24 +27,24 @@ const ProgressStep = () => {
 
     return (
         <div className="grid grid-cols-5 gap-x-10 p-5 rounded-lg shadow mb-5">
-            <div className={`flex flex-row items-center ${getBackgroundColor(1)}`}>
-                <div className="w-10 h-10 rounded-full flex justify-center items-center border border-[#003780]">1</div>
+            <div className={`flex flex-row items-center }`}>
+                <div className={`w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(1)}`}>1</div>
                 <span className="ml-2 text-xs">Choose Curabox</span>
             </div>
-            <div className={`flex flex-row items-center ${getBackgroundColor(2)}`}>
-                <div className="w-10 h-10 rounded-full flex justify-center items-center border border-[#003780]">2</div>
+            <div className={`flex flex-row items-center `}>
+                <div className={`w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(1)}`}>2</div>
                 <span className="ml-2 text-xs">Specify Data</span>
             </div>
-            <div className={`flex flex-row justify-center items-center ${getBackgroundColor(3)}`}>
-                <div className="w-10 h-10 rounded-full flex justify-center items-center border border-[#003780]">3</div>
+            <div className={`flex flex-row justify-center items-center `}>
+                <div className={`w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(3)}`}>3</div>
                 <span className="ml-2 text-xs">Define Delivery</span>
             </div>
-            <div className={`flex flex-row justify-center items-center ${getBackgroundColor(4)}`}>
-                <div className="w-10 h-10 rounded-full flex justify-center items-center border border-[#003780]">4</div>
+            <div className={`flex flex-row justify-center items-center `}>
+                <div className={`w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(4)}`}>4</div>
                 <span className="ml-2 text-xs">Complete Application</span>
             </div>
-            <div className={`flex justify-center items-center ${getBackgroundColor(5)}`}>
-                <div className="w-10 h-10 rounded-full flex justify-center items-center border border-[#003780]">5</div>
+            <div className={`flex justify-center items-center `}>
+                <div className={`w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(5)}`}>5</div>
                 <span className="ml-2 text-xs">Receive Curabox</span>
             </div>
         </div>

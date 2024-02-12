@@ -15,10 +15,13 @@ const ProductTab = () => {
     }, [])
     useEffect(() => {
         if (seletedTab) {
-            getSingleCompliance(seletedTab).then(data => setCartValue(data.productDetails))
+            getSingleCompliance(seletedTab).then(data => {
+                console.log('data', data);
+                setCartValue(data.productDetails)
+            })
+
         }
     }, [seletedTab])
-
     return (
         <div className={`${pathname == '/' ? 'block' : 'hidden'}`}>
             <h2 className="text-2xl text-[#003780] font-semibold">The most popular compilations</h2>

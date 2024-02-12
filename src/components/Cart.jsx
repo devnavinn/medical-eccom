@@ -14,7 +14,7 @@ const Cart = () => {
     useEffect(() => {
         let total = 0;
         cart?.map(item => {
-            total += item.price;
+            total += item.price * item.quantity;
         })
         setSliderValue(total);
     }, [cart]);
