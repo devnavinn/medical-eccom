@@ -9,7 +9,8 @@ import { Slider } from "@/components/ui/slider"
 import { Button } from "./ui/button"
 const Cart = () => {
     const location = useLocation()
-    const { pathname } = location
+    let { pathname } = location
+    console.log('pathname', pathname);
     const { cart, removeFromCart, updateCart, setSliderValue, sliderValue, size, updateSize } = useCart();
     useEffect(() => {
         let total = 0;
@@ -70,7 +71,7 @@ const Cart = () => {
                             }
                         </div>
                         <div>
-                            <button disabled={pathname !== ''} onClick={() => removeFromCart(item)} className="w-10 h-10 flex justify-center items-center rounded-full bg-[#003780] cursor-pointer relative">
+                            <button disabled={pathname !== '/'} onClick={() => removeFromCart(item)} className="w-10 h-10 flex justify-center items-center rounded-full bg-[#003780] cursor-pointer relative">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
                                 </svg>
