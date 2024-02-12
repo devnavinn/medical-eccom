@@ -46,6 +46,7 @@ const Cart = () => {
                                 <div className="px-4">
                                     <h1 className="text-lg font-bold">{item.product_name}</h1>
                                     <p>{item.package_size} {item.unit}</p>
+
                                 </div>
                             </div>
                             {
@@ -69,11 +70,18 @@ const Cart = () => {
                             }
                         </div>
                         <div>
-                            <button onClick={() => removeFromCart(index)} className="w-10 h-10 flex justify-center items-center rounded-full bg-[#003780] cursor-pointer">
+                            <button disabled={pathname !== ''} onClick={() => removeFromCart(item)} className="w-10 h-10 flex justify-center items-center rounded-full bg-[#003780] cursor-pointer relative">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
                                 </svg>
 
+                                {
+                                    item.quantity > 1 ?
+                                        <div className="absolute w-6 h-6 flex justify-center items-center rounded-full bg-gray-400 text-white -top-4 -right-2">
+                                            {item.quantity}
+                                        </div>
+                                        : null
+                                }
                             </button>
                         </div>
                     </div>

@@ -23,17 +23,33 @@ export function CartProvider({ children }) {
     };
 
     const addToCart = (item) => {
-        const newCart = [...cart, item];
-        setCart(newCart);
-        saveCartToSessionStorage(newCart);
+        const existingItemIndex = cart.findIndex(cartItem => cartItem.product_id === item.product_id);
+        if (existingItemIndex !== -1) {
+            const newCart = [...cart];
+            newCart[existingItemIndex].quantity += 1; // Assuming item.quantity is the quantity being added
+            setCart(newCart);
+            saveCartToSessionStorage(newCart);
+        } else {
+            const newCart = [...cart, item];
+            setCart(newCart);
+            saveCartToSessionStorage(newCart);
+        }
     };
 
-    const removeFromCart = (index) => {
-        const newCart = [...cart];
-        newCart.splice(index, 1);
-        setCart(newCart);
-        saveCartToSessionStorage(newCart);
+    const removeFromCart = (item) => {
+        const existingItemIndex = cart.findIndex(cartItem => cartItem.product_id === item.product_id);
+        if (existingItemIndex !== -1) {
+            const newCart = [...cart];
+            if (newCart[existingItemIndex].quantity > 1) {
+                newCart[existingItemIndex].quantity -= 1;
+            } else {
+                newCart.splice(existingItemIndex, 1);
+            }
+            setCart(newCart);
+            saveCartToSessionStorage(newCart);
+        }
     };
+
 
     const updateCart = (index, item) => {
         const newCart = [...cart];
