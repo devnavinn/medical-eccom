@@ -94,7 +94,7 @@ export default function CaregiverDetails() {
 
                     )}
                 />
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
                         name="firstName"
@@ -136,7 +136,7 @@ export default function CaregiverDetails() {
                         </FormItem>
                     )}
                 />
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
                         name="zip"
@@ -167,7 +167,7 @@ export default function CaregiverDetails() {
                 </div>
 
                 <h2 className='text-2xl text-[#003780]'>Caregiver contact options</h2>
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
                         name="telephone"

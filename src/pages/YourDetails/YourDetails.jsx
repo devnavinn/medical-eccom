@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/form"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
-import { Checkbox } from "@/components/ui/checkbox"
 const FormSchema = z.object({
     contactType: z.string().nonempty(),
     salutation: z.string().nonempty(),
@@ -71,7 +70,7 @@ function YourDetils() {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
                     <FormField
                         control={form.control}
@@ -184,7 +183,7 @@ function YourDetils() {
                         </FormItem>
                     )}
                 />
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
                         name="zip"
@@ -229,7 +228,7 @@ function YourDetils() {
 
                 <div className="mt-24">
                     <h1 className="text-xl text-[#003780] font-semibold">Contact options for the insured person</h1>
-                    <div className="grid grid-cols-2 gap-5 mt-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
                         <FormField
                             control={form.control}
                             name="telephone"
@@ -294,7 +293,7 @@ function YourDetils() {
                             </FormItem>
                         )}
                     />
-                    <div className="grid grid-cols-2 gap-5 my-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
                         <FormField
                             control={form.control}
                             name="insuranceNumber"

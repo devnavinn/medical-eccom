@@ -12,12 +12,11 @@ const CompleteApplication = () => {
         }
         fetchOrderDetails()
     }, [])
-    console.log('orderDetails', orderDetails[0]?.insuredPersonForm);
     return (
         <div className="flex flex-col space-y-5">
             <div className="flex flex-col p-5 rounded-lg shadow-lg">
                 <div className="flex justify-between">
-                    <h1 className="text-2xl text-[#003780] ">Information about the insured person</h1>
+                    <h1 className="text-xl sm:text-2xl text-[#003780] ">Information about the insured person</h1>
                     <Link to={'/your-details'} className="flex flex-row space-x-2">
 
                         <EditIcon />
@@ -28,15 +27,15 @@ const CompleteApplication = () => {
                 {
                     Object.entries(orderDetails[0]?.insuredPersonForm || {}).map(([key, value]) => (
                         <div className="grid grid-cols-3 space-y-2" key={key}>
-                            <div className="">{key}</div>
-                            <div className="col-span-2">{value}</div>
+                            <div className="text-xs sm:text-base">{key}</div>
+                            <div className="col-span-2 text-xs sm:text-base">{value}</div>
                         </div>
                     ))
                 }
             </div>
             <div className="flex flex-col p-5 rounded-lg shadow-lg">
                 <div className="flex justify-between">
-                    <h1 className="text-2xl text-[#003780] ">Caregiver information</h1>
+                    <h1 className="text-xl sm:text-2xl text-[#003780] ">Caregiver information</h1>
                     <Link to={'/caregiver-details'} className="flex flex-row space-x-2">
 
                         <EditIcon />
@@ -47,19 +46,19 @@ const CompleteApplication = () => {
                 {
                     Object.entries(orderDetails[0]?.carePersonForm || {}).map(([key, value]) => (
                         <div className="grid grid-cols-3 space-y-2" key={key}>
-                            <div className="">{key}</div>
-                            <div className="col-span-2">{value}</div>
+                            <div className="text-xs sm:text-base">{key}</div>
+                            <div className="col-span-2 text-xs sm:text-base">{value}</div>
                         </div>
                     ))
                 }
             </div>
             <div>
-                <p> <span className="text-[#003780] py-20">Check your data:</span> We use the email address you provided for communication as part of the application process: krishnanandchauhan@kreativemachinez.net Always ensure that this is correct.</p>
+                <p> <span className="text-[#003780] py-5 md:py-10 lg:py-20">Check your data:</span> We use the email address you provided for communication as part of the application process: krishnanandchauhan@kreativemachinez.net Always ensure that this is correct.</p>
             </div>
 
             <div className="flex flex-col p-5 rounded-lg shadow-lg">
                 <div className="flex justify-between">
-                    <h1 className="text-2xl text-[#003780] ">Delivery information</h1>
+                    <h1 className="text-xl sm:text-2xl text-[#003780] ">Delivery information</h1>
                     <Link to={'/delivery-options'} className="flex flex-row space-x-2">
 
                         <EditIcon />
@@ -70,8 +69,8 @@ const CompleteApplication = () => {
                 {
                     Object.entries(orderDetails[0]?.deliveryOptionsForm || {}).map(([key, value]) => (
                         <div className="grid grid-cols-3 space-y-2" key={key}>
-                            <div className="">{key}</div>
-                            <div className="col-span-2">{value}</div>
+                            <div className="text-xs sm:text-base">{key}</div>
+                            <div className="col-span-2 text-xs sm:text-base">{value}</div>
                         </div>
                     ))
                 }

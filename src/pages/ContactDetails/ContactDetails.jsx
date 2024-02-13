@@ -64,7 +64,7 @@ function ContactDetails() {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2  gap-5">
 
                     <FormField
                         control={form.control}

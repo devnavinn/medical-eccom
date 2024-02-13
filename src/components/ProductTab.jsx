@@ -23,7 +23,7 @@ const ProductTab = () => {
     return (
         <div className={`${pathname == '/' ? 'block' : 'hidden'}`}>
             <h2 className="text-2xl text-[#003780] font-semibold">The most popular compilations</h2>
-            <div className="w-full flex flex-row space-x-10 mt-5">
+            <div className="w-full flex flex-row space-x-2 sm:space-x-5 md:space-x-10 mt-5 overflow-x-scroll no-scrollbar">
 
                 {
                     compliance?.map((item, index) => (
