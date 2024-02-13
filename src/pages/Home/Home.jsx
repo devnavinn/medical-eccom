@@ -7,6 +7,7 @@ const Home = () => {
     useEffect(() => {
         getProducts().then(data => setProducts(data))
     }, [])
+    console.log('products', products);
     return (
         <>
             <div className="py-5">
