@@ -5,7 +5,7 @@ import { generatePdf } from '../../api/api'
 const Countinue = () => {
     const navigate = useNavigate()
     const getPdf = async () => {
-        const sessionId = localStorage.getItem('sessionId')
+        const sessionId = sessionStorage.getItem('sessionId')
         const res = await generatePdf(sessionId)
         return res.pdfPath
     }
