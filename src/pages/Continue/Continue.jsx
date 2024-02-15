@@ -1,12 +1,23 @@
 import ContinueCard from './../../components/ContinueCard'
 import { countinue } from "../../constants"
 import { useNavigate } from 'react-router-dom'
+import { generatePdf } from '../../api/api'
 const Countinue = () => {
     const navigate = useNavigate()
+    const getPdf = async () => {
+        const sessionId = localStorage.getItem('sessionId')
+        const res = await generatePdf(sessionId)
+        return res.pdfPath
+    }
     const handleContinueMethod = (method) => {
         if (method === 'complete-online') {
-            console.log('complete-online')
             navigate('/your-details')
+        }
+        if (method === 'download-application') {
+            getPdf().then(res => {
+                const fullPath = `${import.meta.env.VITE_API_BASE_URL}/${res}`
+                window.open(fullPath, '_blank');
+            })
         }
     }
     return (

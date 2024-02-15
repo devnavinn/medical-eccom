@@ -51,3 +51,13 @@ export const getOrderDetails = async (id) => {
         console.log("ERROR:", error);
     }
 }
+
+// generate pdf
+export const generatePdf = async (sessionId) => {
+    try {
+        const res = await api.get(`/order/generate-pdf/${sessionId}`);
+        return res.data;
+    } catch (error) {
+        console.log("ERROR:", error);
+    }
+}
