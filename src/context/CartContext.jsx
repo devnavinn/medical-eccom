@@ -37,7 +37,7 @@ export function CartProvider({ children }) {
     };
 
     const removeFromCart = (item) => {
-        const existingItemIndex = cart.findIndex(cartItem => cartItem.product_id === item.product_id);
+        const existingItemIndex = cart.findIndex(cartItem => cartItem._id === item._id);
         if (existingItemIndex !== -1) {
             const newCart = [...cart];
             if (newCart[existingItemIndex].quantity > 1) {
