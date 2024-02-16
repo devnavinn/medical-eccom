@@ -7,7 +7,7 @@ const ThankYou = () => {
     return (
         <div>
             <h1 className="text-6xl text-center text-[#003780] my-10">ThankYou!</h1>
-            <div className='grid md:grid-cols-3 gap-5 mt-10'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-5 mt-10'>
 
                 {
                     deliveryStep.map((step, index) => (

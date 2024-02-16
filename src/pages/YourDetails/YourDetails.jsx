@@ -398,7 +398,7 @@ function YourDetils() {
                         </FormItem>
                     )}
                 />
-                <Button type="submit" className='py-2 px-24 rounded-3xl bg-[#003780] text-white'>Continue in the application</Button>
+                <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>Continue in the application</Button>
             </form>
         </Form>
     )

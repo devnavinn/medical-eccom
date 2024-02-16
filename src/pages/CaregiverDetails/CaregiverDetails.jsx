@@ -196,7 +196,7 @@ export default function CaregiverDetails() {
                     />
 
                 </div>
-                <Button type="submit" className='py-2 px-24 rounded-3xl bg-[#003780] text-white'>Continue to delivery options</Button>
+                <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>Continue to delivery options</Button>
             </form>
         </Form>
     )
