@@ -6,10 +6,9 @@ import { getCompliance, getSingleCompliance } from '../api/api'
 import { useCart } from '../context/CartContext'
 const ProductTab = () => {
     const location = useLocation()
-    const { setCartValue } = useCart()
+    const { setCartValue, seletedTab, setSelectedTab } = useCart()
     const { pathname } = location
     const [compliance, setCompliance] = useState([])
-    const [seletedTab, setSelectedTab] = useState()
     useEffect(() => {
         getCompliance().then(data => { setCompliance(data) })
     }, [])
