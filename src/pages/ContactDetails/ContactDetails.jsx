@@ -23,7 +23,7 @@ const FormSchema = z.object({
     firstName: z.string().nonempty(),
     lastName: z.string().nonempty(),
     email: z.string().email(),
-    phone: z.string().nonempty(),
+    phone: z.string().nonempty().regex(/^\+49\d{10}$/, { message: 'Invalid Zerman phone number format' }),
     insuranceType: z.string().nonempty(),
     dataProtection: z.boolean(),
 

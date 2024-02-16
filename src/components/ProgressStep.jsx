@@ -58,7 +58,7 @@ const ProgressStep = () => {
             <div className={`flex justify-center items-center `}>
                 {/* <Link to="/thank-you" className="flex flex-row items-center"> */}
                 <div className={`shrink-0 w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(5)}`}>5</div>
-                <span className="ml-2 text-xs hidden sm:block">Receive Curabox</span>
+                <span className="ml-2 text-xs hidden sm:block">Receive Pflegepakrt</span>
                 {/* </Link> */}
 
             </div>

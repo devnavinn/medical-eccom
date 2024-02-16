@@ -13,7 +13,7 @@ const Navbar = () => {
                     <h1 className="text-base font-medium text-[#003780]">Back to home page</h1>
                 </Link>
                 <img src={logo} alt="Logo" className="w-20 h-20" />
-                <div />
+                <div className='md:block hidden' />
             </nav>
         </header>
     )
