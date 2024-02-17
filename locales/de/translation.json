@@ -124,7 +124,77 @@
             "declaration": "Ich möchte den Pfleger oder Betreuer des Versicherten angeben.",
             "button": "Weiter im Antragsprozess"
         },
-        "continueCard": [
+        "caregiverDetails":{
+            "personalInfo":{
+                "label":"Persönliche Informationen des Pflegers",
+                "value1":"Herr",
+                "value2":"Frau"
+            },
+            "firstName":{
+                "label":"Vorname des Betreuers",
+                "placeholder":"Vorname"
+            },
+            "lastName":{
+                "label":"Nachname des Betreuers",
+                "placeholder":"Nachname"
+            },
+            "street":{
+                "label":"Straße, Hausnummer",
+                "placeholder":"Vollständige Adresse"
+            },
+            "postCode":{
+                "label":"Postleitzahl",
+                "placeholder":"Postleitzahl"
+            },
+            "city":{
+                "label":"Stadt",
+                "placeholder":"Stadt"
+            },
+            "heading1":"Kontaktmöglichkeiten des Betreuers",
+            "telephoneNumber":{
+                "label":"Telefonnummer",
+                "placeholder":"+49"
+            } ,
+            "email":{
+                "label":"E-Mail",
+                "placeholder":"E-Mail"
+            },
+            "button":"Weiter zu Lieferoptionen"
+        },
+        "completeApplication":{
+            "heading1":"Informationen über die versicherte Person",
+            "heading2":"Informationen zum Betreuer",
+            "heading3":"Lieferinformationen",
+            "span":"Überprüfen Sie Ihre Daten",
+            "paragraph":"Wir verwenden die von Ihnen angegebene E-Mail-Adresse zur Kommunikation im Rahmen des Antragsprozesses: krishnanandchauhan@kreativemachinez.net Stellen Sie immer sicher, dass diese korrekt ist.",
+            "edit":"Bearbeiten",
+            "button":"Weiter im Antrag"
+        }, 
+        "signatureData":{
+            "heading":"Unterschrift",
+            "label1":"Unterschrift der versicherten Person oder des bevollmächtigten Vertreters",
+            "label2":"Unterschreiben Sie mit der Maus oder Ihrem Finger, wenn Sie ein Touch-Gerät verwenden.",
+            "acceptSignature":{
+                "label":"Ich akzeptiere die Unterschrift",
+                "value1":"Mit allen Informationen über Ihre gewünschten Pflegehilfsmittel und Genehmigung der Kostenübernahme durch die Pflegeversicherung des Versicherten.",
+                "value2":"Unterschrift akzeptieren"
+            },
+            "acceptSignature2":{
+                "label":"Bestellformular und Antrag auf Kostenübernahme",
+                "value1":"Mit allen Informationen über Ihre gewünschten Pflegehilfsmittel und Genehmigung der Kostenübernahme durch die Pflegeversicherung des Versicherten.",
+                "value2":"Unterschrift akzeptieren"
+            },
+            "isAgree":"Ich stimme den Allgemeinen Geschäftsbedingungen der Webcare LBJ GmbH zu.",
+            "declaration":{
+                "label":"Ich stimme zu, dass pflege.de (Webcare LBJ GmbH) personenbezogene Daten (insbesondere Kontakt-/Gesundheitsdaten - z.B. Pflegegrad) für Beratung oder Information per Telefon, E-Mail und Post und Lieferung von Hilfsmitteln zur Verbrauchsanfrage verarbeitet und aufzeichnet Die Anfrage wird an die Gesundheits-/Pflegeversicherungen gesendet.",
+                "value1":"Hinweis",
+                "value2":"Ein Widerruf ist jederzeit in Zukunft möglich. Weitere Informationen zum Datenschutz finden Sie hier. Wenn ich die oben genannten Einwilligungen und Erklärungen für eine dritte Person, z.B. eine pflegebedürftige Person, abgebe, versichere ich, dass die dritte Person mich bevollmächtigt hat, die Einwilligungserklärung abzugeben und diese Berechtigung jederzeit der Webcare LBJ GmbH vorlegen kann."
+            },
+            "button":"Antrag kostenlos einreichen",
+            "button2":"Unterschrift löschen",
+            "button3":"Unterschrift erhalten"
+        },                       
+       "continueCard": [
             {
                 "heading": "Jetzt online ausfüllen",
                 "action": "complete-online",
@@ -156,17 +226,23 @@
             }
         ]
     },
-    "define-delivery": {
-        "title": "Lieferung definieren",
-        "description": "Die Lieferung der Daten definieren"
-    },
-    "complete-application": {
-        "title": "Antrag vervollständigen",
-        "description": "Den Antrag vervollständigen"
-    },
+    
     "thank-you": {
-        "title": "Danke",
-        "description": "Vielen Dank für Ihren Antrag"
+        "title": "Vielen Dank",
+        "thankYou": [
+            {
+                "icon": "first",
+                "desc": "Ihre Anwendung wird jetzt bearbeitet und an die Pflegeversicherung geschickt."
+            },
+            {
+                "icon": "second",
+                "desc": "Nach Genehmigung durch die Pflegekasse erhalten Sie jeden Monat kostenlos Ihre Curabox direkt nach Hause geliefert."
+            },
+            {
+                "icon": "third",
+                "desc": "Zu Ihrer Information können Sie hier Ihr ausgefülltes Formular abrufen. Sie erhalten das Formular in Kürze per E-Mail an mark@hotmail.com, damit Sie es jederzeit wiederfinden können."
+            }
+        ]
     },
     "steps": {
         "contact-details": {

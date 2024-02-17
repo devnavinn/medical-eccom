@@ -2,12 +2,17 @@ import { getOrderDetails } from "../../api/api"
 import { useEffect, useState } from "react"
 import EditIcon from "../../icons/EditIcon"
 import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 const CompleteApplication = () => {
+    const { t } = useTranslation()
+    const { completeApplication } = t("specify-data")
+    const { heading1, heading2, heading3, span, paragraph, edit, button } = completeApplication
     const [orderDetails, setOrderDetails] = useState([])
     useEffect(() => {
         const sessionId = sessionStorage.getItem('sessionId')
         const fetchOrderDetails = async () => {
             const res = await getOrderDetails(sessionId)
+            if (res.length === 0) return console.log('No data found')
             setOrderDetails(res)
         }
         fetchOrderDetails()
@@ -16,11 +21,11 @@ const CompleteApplication = () => {
         <div className="flex flex-col space-y-5">
             <div className="flex flex-col p-5 rounded-lg shadow-lg">
                 <div className="flex justify-between">
-                    <h1 className="text-xl sm:text-2xl text-[#003780] ">Information about the insured person</h1>
+                    <h1 className="text-xl sm:text-2xl text-[#003780] ">{heading1}</h1>
                     <Link to={'/your-details'} className="flex flex-row space-x-2">
 
                         <EditIcon />
-                        Edit
+                        {edit}
                     </Link>
                 </div>
 
@@ -35,11 +40,11 @@ const CompleteApplication = () => {
             </div>
             <div className="flex flex-col p-5 rounded-lg shadow-lg">
                 <div className="flex justify-between">
-                    <h1 className="text-xl sm:text-2xl text-[#003780] ">Caregiver information</h1>
+                    <h1 className="text-xl sm:text-2xl text-[#003780] ">{heading2}</h1>
                     <Link to={'/caregiver-details'} className="flex flex-row space-x-2">
 
                         <EditIcon />
-                        Edit
+                        {edit}
                     </Link>
                 </div>
 
@@ -53,16 +58,16 @@ const CompleteApplication = () => {
                 }
             </div>
             <div>
-                <p> <span className="text-[#003780] py-5 md:py-10 lg:py-20">Check your data:</span> We use the email address you provided for communication as part of the application process: krishnanandchauhan@kreativemachinez.net Always ensure that this is correct.</p>
+                <p> <span className="text-[#003780] py-5 md:py-10 lg:py-20">{span}:</span> {paragraph}</p>
             </div>
 
             <div className="flex flex-col p-5 rounded-lg shadow-lg">
                 <div className="flex justify-between">
-                    <h1 className="text-xl sm:text-2xl text-[#003780] ">Delivery information</h1>
+                    <h1 className="text-xl sm:text-2xl text-[#003780] ">{heading3}</h1>
                     <Link to={'/delivery-options'} className="flex flex-row space-x-2">
 
                         <EditIcon />
-                        Edit
+                        {edit}
                     </Link>
                 </div>
 
@@ -76,7 +81,7 @@ const CompleteApplication = () => {
                 }
             </div>
 
-            <Link to={'/signature'} className='w-fit py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>Continue in the application</Link>
+            <Link to={'/signature'} className='w-fit py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>{button}</Link>
         </div>
     )
 }

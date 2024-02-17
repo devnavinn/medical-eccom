@@ -124,6 +124,76 @@
             "declaration":"I would like to specify the carer or supervisor of the insured person.",
             "button":"Continue in the application"
         },
+        "caregiverDetails":{
+            "personalInfo":{
+                "label":"Caregiver's personal information",
+                "value1":"Mister",
+                "value2":"Woman"
+            },
+            "firstName":{
+                "label":"First name of the carer",
+                "placeholder":"First Name"
+            },
+            "lastName":{
+                "label":"Last name of the carer",
+                "placeholder":"Last Name"
+            },
+            "street":{
+                "label":"Street, house number",
+                "placeholder":"Full Address"
+            },
+            "postCode":{
+                "label":"Post Code",
+                "placeholder":"Post Code"
+            },
+            "city":{
+                "label":"City",
+                "placeholder":"City"
+            },
+            "heading1":"Caregiver contact options",
+            "telephoneNumber":{
+                "label":"Telephone Number",
+                "placeholder":"+49"
+            } ,
+            "email":{
+                "label":"Email",
+                "placeholder":"Email"
+            },
+            "button":"Continue to delivery options"
+        },
+        "completeApplication":{
+            "heading1":"Information about the insured person",
+            "heading2":"Caregiver information",
+            "heading3":"Delivery information",
+            "span":"Check your data",
+            "paragraph":"We use the email address you provided for communication as part of the application process: krishnanandchauhan@kreativemachinez.net Always ensure that this is correct.",
+            "edit":"Edit",
+            "button":"Continue in the application"
+        },
+        "signatureData":{
+            "heading":"Signature",
+            "label1":"Signature of the insured person or authorized representative",
+            "label2":"Sign on the line with your mouse or your finger if you are using a touch device.",
+            "acceptSignature":{
+                "label":"I accept the signature",
+                "value1":"With all information about your desired care aids and approval of the cost assumption by the insured person's care insurance company.",
+                "value2":"Accept signature"
+            },
+            "acceptSignature2":{
+                "label":"Order form and application for cost coverage",
+                "value1":"With all information about your desired care aids and approval of the cost assumption by the insured person's care insurance company.",
+                "value2":"Accept signature"
+            },
+            "isAgree":"I agree to the terms and conditions of web care LBJ GmbH.",
+            "declaration":{
+                "label":"I agree that pflege.de (web care LBJ GmbH) processes and records personal information (especially contact/health data - e.g. level of care) for advice or information via telephone, e-mail and post and delivery of aids for consumption The request from the health/nursing insurance companies is sent to them.",
+                "value1":"Note",
+                "value2":"A revocation is possible at any time in the future. Further information on data protection can be found here If I give the above-mentioned consents and declarations for a third party, e.g. a person in need of care, I assure that the third person has authorized me to issue the declaration of consent and can present this authorization to web care LBJ GmbH at any time."
+            },
+            "button":"Submit an application free of charge",
+            "button2":"Clear Signature",
+            "button3":"Get Signature"
+        },
         "continueCard":[
             {
                 "heading": "Complete online now",
@@ -155,17 +225,22 @@
             }
         ]
     },
-    "define-delivery":{
-        "title":"Define Delivery",
-        "description":"Define the delivery of the data"
-    },
-    "complete-application":{
-        "title":"Complete Application",
-        "description":"Complete the application"
-    },
     "thank-you":{
         "title":"Thank You",
-        "description":"Thank you for your application"
+        "thankYou": [
+            {
+                "icon": "first",
+                "desc": "Your application is now being processed and will be sent to the nursing care fund."
+            },
+            {
+                "icon": "second",
+                "desc": "After approval from the care insurance company, you will receive your curabox free of charge directly to your home every month."
+            },
+            {
+                "icon": "third",
+                "desc": "For your records you canhere Retrieve your completed form. You will shortly receive the form via email to mark@hotmail.com so that you can find it again at any time."
+            }
+        ]
     },
     "steps":{
         "contact-details": {

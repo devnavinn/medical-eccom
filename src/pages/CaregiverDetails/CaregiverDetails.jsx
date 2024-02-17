@@ -30,8 +30,11 @@ const FormSchema = z.object({
     email: z.string().nonempty({ message: "Email is required." }),
 
 })
-
+import { useTranslation } from "react-i18next"
 export default function CaregiverDetails() {
+    const { t } = useTranslation()
+    const { caregiverDetails } = t("specify-data")
+    const { personalInfo, firstName, lastName, street, postCode, city, heading1, telephoneNumber, email, button } = caregiverDetails
     const navigate = useNavigate()
     const form = useForm({
         resolver: zodResolver(FormSchema),
@@ -63,7 +66,7 @@ export default function CaregiverDetails() {
                     name="salutation"
                     render={({ field }) => (
                         <FormItem className="space-y-3">
-                            <FormLabel className='text-2xl text-[#003780]'>{`Caregiver's personal information`}</FormLabel>
+                            <FormLabel className='text-2xl text-[#003780]'>{personalInfo?.label}</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                     onValueChange={field.onChange}
@@ -75,7 +78,7 @@ export default function CaregiverDetails() {
                                             <RadioGroupItem value="mister" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Mister
+                                            {personalInfo?.value1}
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -83,7 +86,7 @@ export default function CaregiverDetails() {
                                             <RadioGroupItem value="woman" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Woman
+                                            {personalInfo?.value2}
                                         </FormLabel>
                                     </FormItem>
 
@@ -100,9 +103,9 @@ export default function CaregiverDetails() {
                         name="firstName"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>First name of the carer</FormLabel>
+                                <FormLabel>{firstName?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="First Name" {...field} />
+                                    <Input placeholder={firstName?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -113,9 +116,9 @@ export default function CaregiverDetails() {
                         name="lastName"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Last name of the carer</FormLabel>
+                                <FormLabel>{lastName?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Last Name" {...field} />
+                                    <Input placeholder={lastName?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -128,9 +131,9 @@ export default function CaregiverDetails() {
                     name="street"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Street, house number *</FormLabel>
+                            <FormLabel>{street?.label}*</FormLabel>
                             <FormControl>
-                                <Input placeholder="Full Address" {...field} />
+                                <Input placeholder={street?.placeholder} {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -142,9 +145,9 @@ export default function CaregiverDetails() {
                         name="zip"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>POSTCODE *</FormLabel>
+                                <FormLabel>{postCode?.label} *</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Postal Code" {...field} />
+                                    <Input placeholder={postCode?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -155,9 +158,9 @@ export default function CaregiverDetails() {
                         name="city"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>City</FormLabel>
+                                <FormLabel>{city?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="City" {...field} />
+                                    <Input placeholder={city?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -166,16 +169,16 @@ export default function CaregiverDetails() {
 
                 </div>
 
-                <h2 className='text-2xl text-[#003780]'>Caregiver contact options</h2>
+                <h2 className='text-2xl text-[#003780]'>{heading1}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
                         name="telephone"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Telephone number *</FormLabel>
+                                <FormLabel>{telephoneNumber?.label} *</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="+49" {...field} />
+                                    <Input placeholder={telephoneNumber?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -186,9 +189,9 @@ export default function CaregiverDetails() {
                         name="email"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Email *</FormLabel>
+                                <FormLabel>{email?.label} *</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="email" {...field} />
+                                    <Input placeholder={email?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -196,7 +199,7 @@ export default function CaregiverDetails() {
                     />
 
                 </div>
-                <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>Continue to delivery options</Button>
+                <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>{button}</Button>
             </form>
         </Form>
     )

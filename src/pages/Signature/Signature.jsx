@@ -43,8 +43,11 @@ const FormSchema = z.object({
     }),
 });
 
-
+import { useTranslation } from "react-i18next";
 export default function Signature() {
+    const { t } = useTranslation()
+    const { signatureData } = t("specify-data")
+    const { heading, label1, label2, acceptSignature, acceptSignature2, isAgree, declaration, button, button2, button3 } = signatureData
     const navigate = useNavigate()
     const signatureRef = useRef();
     const [signature, setSignature] = React.useState(sessionStorage.getItem('signaturePath') || null);
@@ -89,8 +92,8 @@ export default function Signature() {
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                 <div>
-                    <h3 className="mb-4 text-[#003787] text-lg font-medium">Signature of the insured person or authorized representative</h3>
-                    <p className="text-sm text-[#3E3E3E]">Sign on the line with your mouse or your finger if you are using a touch device.</p>
+                    <h3 className="mb-4 text-[#003787] text-lg font-medium">{label1}</h3>
+                    <p className="text-sm text-[#3E3E3E]">{label2}</p>
                     <div className="w-full mb-10">
                         <Dialog >
                             <DialogTrigger className='w-full h-60 border-b-2'>
@@ -98,7 +101,7 @@ export default function Signature() {
                             </DialogTrigger>
                             <DialogContent>
                                 <DialogHeader>
-                                    <DialogTitle className='text-2xl font-medium text-[#003787]'>Signature</DialogTitle>
+                                    <DialogTitle className='text-2xl font-medium text-[#003787]'>{heading}</DialogTitle>
 
                                 </DialogHeader>
                                 <SignatureCanvas
@@ -107,8 +110,8 @@ export default function Signature() {
                                     canvasProps={{ width: 500, height: 200, className: 'sigCanvas', onBlur: getSignatureData, }}
                                 />
                                 <div className="flex flex-row space-x-5">
-                                    <Button variant={'outline'} onClick={() => clearSignature()}>Clear Signature</Button>
-                                    <Button variant={'outline'} onClick={() => getSignatureData()} >Get Signature</Button>
+                                    <Button variant={'outline'} onClick={() => clearSignature()}>{button2}</Button>
+                                    <Button variant={'outline'} onClick={() => getSignatureData()} >{button3}</Button>
                                 </div>
 
                             </DialogContent>
@@ -128,10 +131,10 @@ export default function Signature() {
                                     <div className="flex-1">
                                         <div className="space-y-0.5">
                                             <FormLabel className="text-base">
-                                                Order form and application for cost coverage
+                                                {acceptSignature?.label}
                                             </FormLabel>
                                             <FormDescription>
-                                                {`With all information about your desired care aids and approval of the cost assumption by the insured person's care insurance company.`}
+                                                {acceptSignature?.value1}
                                             </FormDescription>
                                         </div>
                                         <div className="flex space-x-2 mt-2">
@@ -142,7 +145,7 @@ export default function Signature() {
                                                 />
 
                                             </FormControl>
-                                            <p>Accept signature</p>
+                                            <p>{acceptSignature?.value2}</p>
                                         </div>
 
                                     </div>
@@ -160,10 +163,10 @@ export default function Signature() {
                                     <div className="flex-1">
                                         <div className="space-y-0.5">
                                             <FormLabel className="text-base">
-                                                Order form and application for cost coverage
+                                                {acceptSignature2?.label}
                                             </FormLabel>
                                             <FormDescription>
-                                                {`With all information about your desired care aids and approval of the cost assumption by the insured person's care insurance company.`}
+                                                {acceptSignature2?.value1}
                                             </FormDescription>
                                         </div>
                                         <div className="flex space-x-2 mt-2">
@@ -174,7 +177,7 @@ export default function Signature() {
                                                 />
 
                                             </FormControl>
-                                            <p>Accept signature</p>
+                                            <p>{acceptSignature2?.value2}</p>
                                         </div>
 
                                     </div>
@@ -194,7 +197,7 @@ export default function Signature() {
                                     </FormControl>
                                     <div className="space-y-1 leading-none">
                                         <FormLabel>
-                                            I agree to the terms and conditions of web care LBJ GmbH.
+                                            {isAgree}
                                         </FormLabel>
                                     </div>
                                 </FormItem>
@@ -213,11 +216,11 @@ export default function Signature() {
                                     </FormControl>
                                     <div className="space-y-1 leading-none">
                                         <FormLabel>
-                                            I agree that pflege.de (web care LBJ GmbH) processes and records personal information (especially contact/health data - e.g. level of care) for advice or information via telephone, e-mail and post and delivery of aids for consumption The request from the health/nursing insurance companies is sent to them.
+                                            {declaration?.label}
                                         </FormLabel>
                                         <FormDescription >
-                                            <span className="font-bold">Note:</span>  A revocation is possible at any time in the future. Further information on data protection can be found here
-                                        </FormDescription>
+                                            <span className="font-bold">{declaration?.value1}:</span>
+                                            {declaration?.value2}                                        </FormDescription>
                                         <FormDescription>
                                             If I give the above-mentioned consents and declarations for a third party, e.g. a person in need of care, I assure that the third person has authorized me to issue the declaration of consent and can present this authorization to web care LBJ GmbH at any time.
                                         </FormDescription>
@@ -229,7 +232,7 @@ export default function Signature() {
 
                     </div>
                 </div>
-                <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>Submit an application free of charge</Button>
+                <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>{button}</Button>
             </form>
         </Form>
     )
