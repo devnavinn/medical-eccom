@@ -1,7 +1,10 @@
 import LanguageSwitcher from '../LanguageSwitcher'
 import logo from './../../assets/nav.svg'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 const Navbar = () => {
+    const { t } = useTranslation()
+    const { linkTitle } = t("home")
     return (
         <header>
             <nav className="flex justify-between items-center py-2 ">
@@ -11,7 +14,7 @@ const Navbar = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
                         </svg>
                     </span>
-                    <h1 className="text-base font-medium text-[#003780]">Back to home page</h1>
+                    <h1 className="text-base font-medium text-[#003780]">{linkTitle}</h1>
                 </Link>
                 <img src={logo} alt="Logo" className="w-20 h-20" />
                 <div className='md:block hidden' />

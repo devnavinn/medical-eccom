@@ -7,7 +7,10 @@ import { v4 as uuidv4 } from 'uuid'
 import { cn } from "@/lib/utils"
 import { Slider } from "@/components/ui/slider"
 import { Button } from "./ui/button"
+import { useTranslation } from "react-i18next"
 const Cart = () => {
+    const { t } = useTranslation()
+    const { title, label, button } = t('cart')
     const location = useLocation()
     let { pathname } = location
     console.log('pathname', pathname);
@@ -31,7 +34,7 @@ const Cart = () => {
             <ProductTab />
             <div className="flex flex-col space-y-5">
                 <div className="flex justify-between">
-                    <h1 className="text-2xl text-[#1A253B] font-bold">Your Curabox</h1>
+                    <h1 className="text-2xl text-[#1A253B] font-bold">{label}</h1>
                     <p className="text-xl text-[#1A253B] font-bold"> 40€</p>
                 </div>
                 <Slider defaultValue={[0]} value={[sliderValue]} max={40} step={4} disabled />
@@ -92,7 +95,7 @@ const Cart = () => {
                 pathname == '/' && (
                     <Link to={'/contact-details'}>
                         <Button className={cn('w-full flex justify-center rounded-lg bg-[#003780] text-white', cart?.length == 0 && 'hidden')} variant={'primary'}>
-                            Continue to your contact details
+                            {button}
                         </Button>
                     </Link>
                 )

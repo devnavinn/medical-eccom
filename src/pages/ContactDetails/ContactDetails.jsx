@@ -29,7 +29,11 @@ const FormSchema = z.object({
 
 })
 
+import { useTranslation } from "react-i18next"
 function ContactDetails() {
+    const { t } = useTranslation()
+    const { contactDetails } = t("specify-data")
+    const { iam, gender, firstName, lastName, email, phone, insuredIs, declaration, button } = contactDetails
     const { cart, sliderValue, size } = useCart()
     const navigate = useNavigate();
     const form = useForm({
@@ -71,7 +75,7 @@ function ContactDetails() {
                         name="contactType"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
-                                <FormLabel className='text-2xl text-[#003780]'>I am*</FormLabel>
+                                <FormLabel className='text-2xl text-[#003780]'>{iam?.label}*</FormLabel>
                                 <FormControl>
                                     <RadioGroup
                                         onValueChange={field.onChange}
@@ -83,7 +87,7 @@ function ContactDetails() {
                                                 <RadioGroupItem value="insured-person" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
-                                                Insured person
+                                                {iam?.value1}
                                             </FormLabel>
                                         </FormItem>
                                         <FormItem className="flex items-center space-x-3 space-y-0">
@@ -91,7 +95,7 @@ function ContactDetails() {
                                                 <RadioGroupItem value="relative/caregiver" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
-                                                Relative/caregiver
+                                                {iam?.value2}
                                             </FormLabel>
                                         </FormItem>
 
@@ -107,7 +111,7 @@ function ContactDetails() {
                         name="salutation"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
-                                <FormLabel className='text-2xl text-[#003780]'>Gender*</FormLabel>
+                                <FormLabel className='text-2xl text-[#003780]'>{gender?.label}*</FormLabel>
                                 <FormControl>
                                     <RadioGroup
                                         onValueChange={field.onChange}
@@ -119,7 +123,7 @@ function ContactDetails() {
                                                 <RadioGroupItem value="Mister" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
-                                                Mister
+                                                {gender?.value1}
                                             </FormLabel>
                                         </FormItem>
                                         <FormItem className="flex items-center space-x-3 space-y-0">
@@ -127,7 +131,7 @@ function ContactDetails() {
                                                 <RadioGroupItem value="Woman" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
-                                                Woman
+                                                {gender?.value2}
                                             </FormLabel>
                                         </FormItem>
                                     </RadioGroup>
@@ -141,9 +145,9 @@ function ContactDetails() {
                         name="firstName"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>First Name</FormLabel>
+                                <FormLabel>{firstName?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="First Name" {...field} />
+                                    <Input placeholder={firstName?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -154,9 +158,9 @@ function ContactDetails() {
                         name="lastName"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Last Name</FormLabel>
+                                <FormLabel>{lastName?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Last Name" {...field} />
+                                    <Input placeholder={lastName?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -167,9 +171,9 @@ function ContactDetails() {
                         name="email"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Email</FormLabel>
+                                <FormLabel>{email?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Email" {...field} />
+                                    <Input placeholder={email?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -180,9 +184,9 @@ function ContactDetails() {
                         name="phone"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Phone</FormLabel>
+                                <FormLabel>{phone?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Phone" {...field} />
+                                    <Input placeholder={phone?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -194,7 +198,7 @@ function ContactDetails() {
                     name="insuranceType"
                     render={({ field }) => (
                         <FormItem className="space-y-3">
-                            <FormLabel className='text-2xl text-[#003780]'>The insured is</FormLabel>
+                            <FormLabel className='text-2xl text-[#003780]'>{insuredIs?.label}</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                     onValueChange={field.onChange}
@@ -206,7 +210,7 @@ function ContactDetails() {
                                             <RadioGroupItem value="Statutory insured" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Statutory insured (costs covered by the nursing care insurance fund)
+                                            {insuredIs?.value1}
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -214,7 +218,7 @@ function ContactDetails() {
                                             <RadioGroupItem value="Privately insured" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Privately insured
+                                            {insuredIs?.value2}
                                         </FormLabel>
                                     </FormItem>
                                 </RadioGroup>
@@ -237,17 +241,16 @@ function ContactDetails() {
                             </FormControl>
                             <div className="space-y-1 leading-none">
                                 <FormLabel>
-                                    I hereby agree that pflege.de (web care LBJ GmbH) may use my personal (possibly also health-related) information, especially contact information/insurance status, for the processing of the application (to receive the care aids) and for contacting me in this context via email -Mail stores and processes.
+                                    {declaration?.label}
                                 </FormLabel>
                                 <FormDescription>
-                                    <span className="font-semibold">Note: </span>Consent is voluntary and can be revoked at any time with effect for the future by sending an email to affectedrechte@pflege.de . In the event of a revocation, we can no longer provide you with the relevant services. Further information on data protection can be found here .
-
+                                    <span className="font-semibold">{declaration?.value1}: </span>{declaration?.value2}
                                 </FormDescription>
                             </div>
                         </FormItem>
                     )}
                 />
-                <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>Continue in the application</Button>
+                <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>{button}</Button>
             </form>
         </Form>
     )

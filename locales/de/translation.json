@@ -1,51 +1,142 @@
 {
-    "home":{
-        "link":"Zurück zur Startseite",
-        "title":"Wählen Sie Ihre Produkte",
-        "description":"Füllen Sie Ihre Box ganz nach Ihren Bedürfnissen oder wählen Sie eine unserer beliebtesten Kombinationen. Wenn Sie möchten, können Sie Ihre Produkte ganz einfach jeden Monat wechseln."
+    "home": {
+        "linkTitle": "Zurück zur Startseite",
+        "title": "Wählen Sie Ihre Produkte",
+        "description": "Füllen Sie Ihre Box nach Ihren Bedürfnissen aus oder wählen Sie eine unserer beliebtesten Kombinationen. Wenn Sie möchten, können Sie Ihre Produkte jeden Monat ganz einfach ändern."
     },
-    "specify-data":{
-        "title":"Specify Data",
-        "description":"Specify the data you want to use",
-        "continue":[
+    "progress": {
+        "step1": "Pflegepaket wählen",
+        "step2": "Daten angeben",
+        "step3": "Lieferung definieren",
+        "step4": "Antrag vervollständigen",
+        "step5": "Danke"
+    },
+    "cart": {
+        "title": "Die beliebtesten Zusammenstellungen",
+        "label": "Ihre Curabox",
+        "button": "Weiter zu Ihren Kontaktdaten"
+    },
+    "specify-data": {
+        "title": "Daten angeben",
+        "description": "Geben Sie die Daten an, die Sie verwenden möchten",
+        "contactDetails": {
+            "iam": {
+                "label": "Ich bin",
+                "value1": "Versicherter",
+                "value2": "Angehöriger/Pflegender"
+            },
+            "gender": {
+                "label": "Geschlecht",
+                "value1": "Herr",
+                "value2": "Frau"
+            },
+            "firstName": {
+                "label": "Vorname",
+                "placeholder": "Vorname"
+            },
+            "lastName": {
+                "label": "Nachname",
+                "placeholder": "Nachname"
+            },
+            "email": {
+                "label": "E-Mail",
+                "placeholder": "E-Mail"
+            },
+            "phone": {
+                "label": "Telefon",
+                "placeholder": "Telefon"
+            },
+            "insuredIs": {
+                "label": "Der Versicherte ist",
+                "value1": "Gesetzlich versichert (Kosten werden von der Pflegeversicherung übernommen)",
+                "value2": "Privat versichert"
+            },
+            "declaration": {
+                "label": "Ich bin damit einverstanden, dass pflege.de (Webpflege LBJ GmbH) meine persönlichen (ggf. auch gesundheitsbezogenen) Informationen, insbesondere Kontaktdaten/Versicherungsstatus, zur Bearbeitung des Antrags (zur Erhaltung der Pflegehilfsmittel) und zur Kontaktaufnahme in diesem Zusammenhang per E-Mail speichert und verarbeitet.",
+                "value1": "Hinweis",
+                "value2": "Die Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft per E-Mail an affectedrechte@pflege.de widerrufen werden. Im Falle eines Widerrufs können wir Ihnen die entsprechenden Dienste nicht mehr bereitstellen. Weitere Informationen zum Datenschutz finden Sie hier."
+            },
+            "button": "Weiter im Antragsprozess"
+        },
+        "continueCard": [
             {
-                "heading": "Complete online now",
-                "action": "complete-online",
-                "description": "Now provide all the necessary data and then sign the application digitally to receive your curabox in just a few working days.",
-                "icon": "icon1"
+                "heading": "Jetzt online ausfüllen",
+                "action": "online-ausfüllen",
+                "description": "Geben Sie jetzt alle erforderlichen Daten ein und unterschreiben Sie dann den Antrag digital, um Ihre Curabox innerhalb weniger Arbeitstage zu erhalten.",
+                "icon": "icon1",
+                "button": "Continue"
             },
             {
-                "heading": "Continue later",
-                "action": "continue-later",
-                "description": "Don't have all the data at hand? No problem. We will email you a link to your address:example@gmail.com which you can use to complete your application online at any time.",
-                "icon": "icon2"
+                "heading": "Später fortfahren",
+                "action": "später-fortfahren",
+                "description": "Haben Sie nicht alle Daten zur Hand? Kein Problem. Wir senden Ihnen einen Link an Ihre E-Mail-Adresse: example@gmail.com, den Sie jederzeit verwenden können, um Ihren Antrag online zu vervollständigen.",
+                "icon": "icon2",
+                "button": "Continue"
             },
             {
-                "heading": "Download application",
-                "action": "download-application",
-                "description": "Download the application with your previous data as a PDF to print it out, complete any missing information conveniently at home and then send the application back by post or email.",
-                "icon": "icon3"
+                "heading": "Antrag herunterladen",
+                "action": "antrag-herunterladen",
+                "description": "Laden Sie den Antrag mit Ihren bisherigen Daten als PDF herunter, drucken Sie ihn aus, füllen Sie bequem zu Hause fehlende Informationen aus und senden Sie den Antrag dann per Post oder E-Mail zurück.",
+                "icon": "icon3",
+                "button": "Continue"
             },
             {
-                "heading": "Application received by post",
-                "action": "application-received-by-post",
-                "description": "Don't have a printer? You will then receive the application with your previous details conveniently by post and send it back to us completely filled out free of charge.",
-                "icon": "icon4"
+                "heading": "Antrag per Post erhalten",
+                "action": "antrag-per-post-erhalten",
+                "description": "Haben Sie keinen Drucker? Dann erhalten Sie den Antrag mit Ihren bisherigen Daten bequem per Post und senden ihn komplett ausgefüllt und kostenlos an uns zurück.",
+                "icon": "icon4",
+                "button": "Continue"
+
             }
         ]
     },
-    "define-delivery":{
-        "title":"Define Delivery",
-        "description":"Define the delivery of the data"
+    "define-delivery": {
+        "title": "Lieferung definieren",
+        "description": "Die Lieferung der Daten definieren"
     },
-    "complete-application":{
-        "title":"Complete Application",
-        "description":"Complete the application"
+    "complete-application": {
+        "title": "Antrag vervollständigen",
+        "description": "Den Antrag vervollständigen"
     },
-    "thank-you":{
-        "title":"Thank You",
-        "description":"Thank you for your application"
+    "thank-you": {
+        "title": "Danke",
+        "description": "Vielen Dank für Ihren Antrag"
+    },
+    "steps": {
+        "contact-details": {
+            "title": "Kontaktdaten",
+            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+        },
+        "continue": {
+            "title": "Fortfahren",
+            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+        },
+        "your-details": {
+            "title": "Ihre Daten",
+            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+        },
+        "caregiver-details": {
+            "title": "Angaben zur Pflegeperson",
+            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+        },
+        "delivery-options": {
+            "title": "Lieferoptionen",
+            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+        },
+        "complete-application": {
+            "title": "Antrag vervollständigen",
+            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+        },
+        "signature": {
+            "title": "Unterschrift",
+            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+        },
+        "thank-you": {
+            "title": "Danke",
+            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+        }
+    },
+    "footer": {
+        "copyright": "Copyright © 2024 Pflegepaket Alle Rechte vorbehalten."
     }
-    
 }
-  

@@ -1,8 +1,8 @@
 {
     "home":{
-        "link":"Back to home page",
-        "title":"Home",
-        "description":"Welcome to the home page"
+        "linkTitle":"Back to home page",
+        "title":"Choose your products",
+        "description":"Fill your box according to your needs or choose one of our most popular combinations. If you wish, you can easily change your products every month."
     },
     "progress":{
         "step1":"Choose Pflegepaket",
@@ -12,13 +12,54 @@
         "step5":"Thank You"
     },
     "cart":{
-        "title":"The most popular compilations"
+        "title":"The most popular compilations",
+        "label":"Your Curabox",
+        "button":"Continue to your contact details"
     },
     "specify-data":{
         "title":"Specify Data",
         "description":"Specify the data you want to use",
-        
-        "continue":[
+        "contactDetails":{
+            "iam":{
+                "label":"I am",
+                "value1":"Insured person",
+                "value2":"Relative/caregiver"
+            },
+            "gender":{
+                "label":"Gender",
+                "value1":"Mister",
+                "value2":"Woman"
+            },
+            "firstName":{
+                "label":"First Name",
+                "placeholder":"First Name"
+            },
+            "lastName":{
+                "label":"Last Name",
+                "placeholder":"Last Name"
+            },
+            "email":{
+                "label":"Email",
+                "placeholder":"Email"
+            },
+            "phone":{
+                "label":"Phone",
+                "placeholder":"Phone"
+            },
+            "insuredIs":{
+                "label":"The insured is",
+                "value1":"Statutory insured (costs covered by the nursing care insurance fund)",
+                "value2":"Privately insured"
+            },
+            "declaration":{
+                "label":"I hereby agree that pflege.de (web care LBJ GmbH) may use my personal (possibly also health-related) information, especially contact information/insurance status, for the processing of the application (to receive the care aids) and for contacting me in this context via email -Mail stores and processes.",
+                "value1":"Note",
+                "value2":"Consent is voluntary and can be revoked at any time with effect for the future by sending an email to affectedrechte@pflege.de . In the event of a revocation, we can no longer provide you with the relevant services. Further information on data protection can be found here ."
+            },
+            "button":"Continue in the application"
+        },
+
+        "continueCard":[
             {
                 "heading": "Complete online now",
                 "action": "complete-online",

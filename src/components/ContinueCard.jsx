@@ -6,6 +6,16 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import icon1 from './../assets/con-card-1.svg'
+import icon2 from './../assets/con-card-2.svg'
+import icon3 from './../assets/con-card-3.svg'
+import icon4 from './../assets/con-card-4.svg'
+const icons = {
+    icon1: icon1,
+    icon2: icon2,
+    icon3: icon3,
+    icon4: icon4
+}
 import { Button } from "./ui/button"
 const ContinueCard = ({ data, handleContinueMethod }) => {
     const { heading, description, icon, action } = data
@@ -13,7 +23,7 @@ const ContinueCard = ({ data, handleContinueMethod }) => {
         <Card className='flex flex-col justify-between'>
             <div className="mt-5">
                 <div className="flex justify-center items-center">
-                    <img src={icon} alt="icon" />
+                    <img src={icons[icon]} alt="icon" />
                 </div>
 
                 <CardHeader>

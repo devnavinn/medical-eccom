@@ -1,6 +1,8 @@
 import { useLocation } from 'react-router-dom';
-import { steps } from '../constants';
+import { useTranslation } from 'react-i18next';
 const StepHeading = () => {
+    const { t } = useTranslation()
+    const steps = t("steps")
     const location = useLocation();
     let { pathname } = location;
     // Remove the first part of the pathname

@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 const ProgressStep = () => {
     const { t } = useTranslation();
+    const { step1, step2, step3, step4, step5 } = t('progress')
     const location = useLocation();
     const { pathname } = location;
 
@@ -31,21 +32,21 @@ const ProgressStep = () => {
             <div className={`flex flex-row items-center }`}>
                 {/* <Link to={'/'} className="flex flex-row items-center"> */}
                 <div className={`shrink-0 w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(1)}`}>1</div>
-                <span className="ml-2 text-xs hidden sm:block">Choose Curabox</span>
+                <span className="ml-2 text-xs hidden sm:block">{step1}</span>
                 {/* </Link> */}
 
             </div>
             <div className={`flex flex-row items-center `}>
                 {/* <Link to={'/contact-details'} className="flex flex-row items-center"> */}
                 <div className={`shrink-0 w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(2)}`}>2</div>
-                <span className="ml-2 text-xs hidden sm:block">Specify Data</span>
+                <span className="ml-2 text-xs hidden sm:block">{step2}</span>
                 {/* </Link> */}
 
             </div>
             <div className={`flex flex-row justify-center items-center `}>
                 {/* <Link to={'/delivery-options'} className="flex flex-row items-center"> */}
                 <div className={`shrink-0 w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(3)}`}>3</div>
-                <span className="ml-2 text-xs hidden sm:block">Define Delivery</span>
+                <span className="ml-2 text-xs hidden sm:block">{step3}</span>
                 {/* </Link> */}
 
             </div>
@@ -53,13 +54,13 @@ const ProgressStep = () => {
                 {/* <Link to={'/complete-application'} className="flex flex-row items-center "> */}
 
                 <div className={`shrink-0 w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(4)}`}>4</div>
-                <span className="ml-2 text-xs hidden sm:block">Complete Application</span>
+                <span className="ml-2 text-xs hidden sm:block">{step4}</span>
                 {/* </Link> */}
             </div>
             <div className={`flex justify-center items-center `}>
                 {/* <Link to="/thank-you" className="flex flex-row items-center"> */}
                 <div className={`shrink-0 w-10 h-10 rounded-full flex justify-center items-center border border-[#003780] ${getBackgroundColor(5)}`}>5</div>
-                <span className="ml-2 text-xs hidden sm:block">Receive Pflegepakrt</span>
+                <span className="ml-2 text-xs hidden sm:block">{step5}</span>
                 {/* </Link> */}
 
             </div>
