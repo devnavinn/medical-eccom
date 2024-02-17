@@ -58,31 +58,100 @@
             },
             "button":"Continue in the application"
         },
-
+        "yourDetails":{
+            "iam":{
+                "label":"I am",
+                "value1":"Insured person",
+                "value2":"Relative/caregiver"
+            },
+            "gender":{
+                "label":"Gender",
+                "value1":"Mister",
+                "value2":"Woman"
+            },
+            "firstName":{
+                "label":"First Name",
+                "placeholder":"First Name"
+            },
+            "lastName":{
+                "label":"Last Name",
+                "placeholder":"Last Name"
+            },
+            "street":{
+                "label":"Street, house number",
+                "placeholder":"Full Address"
+            },
+            "postCode":{
+                "label":"Post Code",
+                "placeholder":"Post Code"
+            },
+            "city":{
+                "label":"City",
+                "placeholder":"City"
+            },
+            "birthDate":{
+                "label":"Birth Date"
+            },
+            "heading1":"Contact options for the insured person",
+            "telephoneNumber":{
+                "label":"Telephone Number",
+                "placeholder":"+49"
+            },
+            "email":{
+                "label":"Email",
+                "placeholder":"Email"
+            },
+            "insuranceInfo":{
+                "label":"Health insurance information",
+                "value1":"Statutory insured (costs covered by the nursing care insurance fund)",
+                "value2":"Privately insured"
+            },
+            "insuranceNumber":{
+                "label":"Insurance Number",
+                "placeholder":"Insurance Number"
+            },
+            "insuranceName":{
+                "label":"Health insurance",
+                "placeholder":"Health insurance"
+            },
+            "heading2":"Is the insured person eligible for assistance?",
+            "heading3":"If you do not currently have data, copy the link and save it. You can use the link to return to the application at a later date and continue with your application. All previous information will be called up again.",
+            "heading4":"Information on the level of care",
+            "levelCare":{
+                "label":"Birth Date",
+                "label2":"Level of care"
+            },
+            "declaration":"I would like to specify the carer or supervisor of the insured person.",
+            "button":"Continue in the application"
+        },
         "continueCard":[
             {
                 "heading": "Complete online now",
                 "action": "complete-online",
                 "description": "Now provide all the necessary data and then sign the application digitally to receive your curabox in just a few working days.",
-                "icon": "icon1"
+                "icon": "icon1",
+                "button":"Continue"
             },
             {
                 "heading": "Continue later",
                 "action": "continue-later",
                 "description": "Don't have all the data at hand? No problem. We will email you a link to your address:example@gmail.com which you can use to complete your application online at any time.",
-                "icon": "icon2"
+                "icon": "icon2",
+                "button":"Receive link via email"
             },
             {
                 "heading": "Download application",
                 "action": "download-application",
                 "description": "Download the application with your previous data as a PDF to print it out, complete any missing information conveniently at home and then send the application back by post or email.",
-                "icon": "icon3"
+                "icon": "icon3",
+                "button":"Download"
             },
             {
                 "heading": "Application received by post",
                 "action": "application-received-by-post",
                 "description": "Don't have a printer? You will then receive the application with your previous details conveniently by post and send it back to us completely filled out free of charge.",
-                "icon": "icon4"
+                "icon": "icon4",
+                "button":"Receive via post"
             }
         ]
     },

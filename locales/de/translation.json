@@ -58,34 +58,100 @@
             },
             "button": "Weiter im Antragsprozess"
         },
+        "yourDetails": {
+            "iam": {
+                "label": "Ich bin",
+                "value1": "Versicherter",
+                "value2": "Angehöriger/Pflegender"
+            },
+            "gender": {
+                "label": "Geschlecht",
+                "value1": "Herr",
+                "value2": "Frau"
+            },
+            "firstName": {
+                "label": "Vorname",
+                "placeholder": "Vorname"
+            },
+            "lastName": {
+                "label": "Nachname",
+                "placeholder": "Nachname"
+            },
+            "street": {
+                "label": "Straße, Hausnummer",
+                "placeholder": "Vollständige Adresse"
+            },
+            "postCode": {
+                "label": "Postleitzahl",
+                "placeholder": "Postleitzahl"
+            },
+            "city": {
+                "label": "Stadt",
+                "placeholder": "Stadt"
+            },
+            "birthDate": {
+                "label": "Geburtsdatum"
+            },
+            "heading1": "Kontaktmöglichkeiten für den Versicherten",
+            "telephoneNumber": {
+                "label": "Telefonnummer",
+                "placeholder": "+49"
+            },
+            "email": {
+                "label": "E-Mail",
+                "placeholder": "E-Mail"
+            },
+            "insuranceInfo": {
+                "label": "Krankenversicherungsinformationen",
+                "value1": "Gesetzlich versichert (Kosten werden von der Pflegeversicherung übernommen)",
+                "value2": "Privat versichert"
+            },
+            "insuranceNumber": {
+                "label": "Versicherungsnummer",
+                "placeholder": "Versicherungsnummer"
+            },
+            "insuranceName": {
+                "label": "Krankenversicherung",
+                "placeholder": "Krankenversicherung"
+            },
+            "heading2": "Ist der Versicherte anspruchsberechtigt?",
+            "heading3": "Wenn Sie derzeit keine Daten haben, kopieren Sie den Link und speichern Sie ihn. Sie können den Link verwenden, um zu einem späteren Zeitpunkt zum Antrag zurückzukehren und mit Ihrem Antrag fortzufahren. Alle bisherigen Informationen werden erneut abgerufen.",
+            "heading4": "Informationen zum Pflegegrad",
+            "levelCare": {
+                "label": "Geburtsdatum",
+                "label2": "Pflegegrad"
+            },
+            "declaration": "Ich möchte den Pfleger oder Betreuer des Versicherten angeben.",
+            "button": "Weiter im Antragsprozess"
+        },
         "continueCard": [
             {
                 "heading": "Jetzt online ausfüllen",
-                "action": "online-ausfüllen",
+                "action": "complete-online",
                 "description": "Geben Sie jetzt alle erforderlichen Daten ein und unterschreiben Sie dann den Antrag digital, um Ihre Curabox innerhalb weniger Arbeitstage zu erhalten.",
                 "icon": "icon1",
-                "button": "Continue"
+                "button": "Fortfahren"
             },
             {
                 "heading": "Später fortfahren",
-                "action": "später-fortfahren",
+                "action": "continue-later",
                 "description": "Haben Sie nicht alle Daten zur Hand? Kein Problem. Wir senden Ihnen einen Link an Ihre E-Mail-Adresse: example@gmail.com, den Sie jederzeit verwenden können, um Ihren Antrag online zu vervollständigen.",
                 "icon": "icon2",
-                "button": "Continue"
+                "button": "Link per E-Mail erhalten"
             },
             {
                 "heading": "Antrag herunterladen",
-                "action": "antrag-herunterladen",
+                "action": "download-application",
                 "description": "Laden Sie den Antrag mit Ihren bisherigen Daten als PDF herunter, drucken Sie ihn aus, füllen Sie bequem zu Hause fehlende Informationen aus und senden Sie den Antrag dann per Post oder E-Mail zurück.",
                 "icon": "icon3",
-                "button": "Continue"
+                "button": "Herunterladen"
             },
             {
                 "heading": "Antrag per Post erhalten",
-                "action": "antrag-per-post-erhalten",
+                "action": "application-received-by-post",
                 "description": "Haben Sie keinen Drucker? Dann erhalten Sie den Antrag mit Ihren bisherigen Daten bequem per Post und senden ihn komplett ausgefüllt und kostenlos an uns zurück.",
                 "icon": "icon4",
-                "button": "Continue"
+                "button": "Per Post erhalten"
 
             }
         ]

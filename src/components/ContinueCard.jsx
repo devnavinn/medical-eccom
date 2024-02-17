@@ -18,7 +18,7 @@ const icons = {
 }
 import { Button } from "./ui/button"
 const ContinueCard = ({ data, handleContinueMethod }) => {
-    const { heading, description, icon, action } = data
+    const { heading, description, icon, action, button } = data
     return (
         <Card className='flex flex-col justify-between'>
             <div className="mt-5">
@@ -37,7 +37,7 @@ const ContinueCard = ({ data, handleContinueMethod }) => {
                 <Button
                     onClick={() => handleContinueMethod(action)}
                     variant='outline' className='w-full rounded-3xl py-2'>
-                    Continue
+                    {button}
                 </Button>
             </CardFooter>
         </Card>

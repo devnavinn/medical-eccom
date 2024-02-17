@@ -38,8 +38,12 @@ const FormSchema = z.object({
     addCarePerson: z.boolean(),
 
 })
-
+import { useTranslation } from "react-i18next"
 function YourDetils() {
+    const { t } = useTranslation()
+    const { yourDetails } = t("specify-data")
+    const { iam, gender, firstName, lastName, street, postCode, city, birthDate, heading1, telephoneNumber, email, insuranceInfo, insuranceNumber, insuranceName, heading2, heading3, heading4, levelCare, declaration, button } = yourDetails
+
     const [rating, setRating] = useState(0);
     const navigate = useNavigate()
     const handleRatingClick = (value) => {
@@ -77,7 +81,7 @@ function YourDetils() {
                         name="contactType"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
-                                <FormLabel className='text-2xl text-[#003780]'>I am*</FormLabel>
+                                <FormLabel className='text-2xl text-[#003780]'>{iam?.label}*</FormLabel>
                                 <FormControl>
                                     <RadioGroup
                                         onValueChange={field.onChange}
@@ -89,7 +93,7 @@ function YourDetils() {
                                                 <RadioGroupItem value="insured-person" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
-                                                Insured person
+                                                {iam?.value1}
                                             </FormLabel>
                                         </FormItem>
                                         <FormItem className="flex items-center space-x-3 space-y-0">
@@ -97,7 +101,7 @@ function YourDetils() {
                                                 <RadioGroupItem value="relative/caregiver" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
-                                                Relative/caregiver
+                                                {iam?.value2}
                                             </FormLabel>
                                         </FormItem>
 
@@ -113,7 +117,7 @@ function YourDetils() {
                         name="salutation"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
-                                <FormLabel className='text-2xl text-[#003780]'>Gender*</FormLabel>
+                                <FormLabel className='text-2xl text-[#003780]'>{gender?.label}*</FormLabel>
                                 <FormControl>
                                     <RadioGroup
                                         onValueChange={field.onChange}
@@ -125,7 +129,7 @@ function YourDetils() {
                                                 <RadioGroupItem value="Mister" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
-                                                Mister
+                                                {gender?.value1}
                                             </FormLabel>
                                         </FormItem>
                                         <FormItem className="flex items-center space-x-3 space-y-0">
@@ -133,7 +137,7 @@ function YourDetils() {
                                                 <RadioGroupItem value="Woman" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
-                                                Woman
+                                                {gender?.value2}
                                             </FormLabel>
                                         </FormItem>
                                     </RadioGroup>
@@ -147,9 +151,9 @@ function YourDetils() {
                         name="firstName"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>First Name</FormLabel>
+                                <FormLabel>{firstName?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="First Name" {...field} />
+                                    <Input placeholder={firstName?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -160,9 +164,9 @@ function YourDetils() {
                         name="lastName"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Last Name</FormLabel>
+                                <FormLabel>{lastName?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Last Name" {...field} />
+                                    <Input placeholder={lastName?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -175,9 +179,9 @@ function YourDetils() {
                     name="street"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Street, house number *</FormLabel>
+                            <FormLabel>{street?.label} *</FormLabel>
                             <FormControl>
-                                <Input placeholder="Full Address" {...field} />
+                                <Input placeholder={street?.placeholder} {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -189,9 +193,9 @@ function YourDetils() {
                         name="zip"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Post Code</FormLabel>
+                                <FormLabel>{postCode?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Post Code" {...field} />
+                                    <Input placeholder={postCode?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -202,9 +206,9 @@ function YourDetils() {
                         name="city"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>City</FormLabel>
+                                <FormLabel>{city?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="City" {...field} />
+                                    <Input placeholder={city?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -215,9 +219,9 @@ function YourDetils() {
                         name="dob"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Birth Date*</FormLabel>
+                                <FormLabel>{birthDate?.label}*</FormLabel>
                                 <FormControl>
-                                    <Input type='date' placeholder="DD.MM.YYYY" {...field} />
+                                    <Input type='date'  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -227,16 +231,16 @@ function YourDetils() {
                 </div>
 
                 <div className="mt-24">
-                    <h1 className="text-xl text-[#003780] font-semibold">Contact options for the insured person</h1>
+                    <h1 className="text-xl text-[#003780] font-semibold">{heading1}</h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
                         <FormField
                             control={form.control}
                             name="telephone"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Telephone Number*</FormLabel>
+                                    <FormLabel>{telephoneNumber?.label}*</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="+49 " {...field} />
+                                        <Input placeholder={telephoneNumber?.placeholder} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -247,9 +251,9 @@ function YourDetils() {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Email*</FormLabel>
+                                    <FormLabel>{email?.label}*</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="email" {...field} />
+                                        <Input placeholder={email?.placeholder} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -264,7 +268,7 @@ function YourDetils() {
                         name="insuranceType"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
-                                <FormLabel className='text-2xl text-[#003780]'>Health insurance information</FormLabel>
+                                <FormLabel className='text-2xl text-[#003780]'>{insuranceInfo?.label}</FormLabel>
                                 <FormControl>
                                     <RadioGroup
                                         onValueChange={field.onChange}
@@ -276,7 +280,7 @@ function YourDetils() {
                                                 <RadioGroupItem value="Statutory insured" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
-                                                Statutory insured (costs covered by the nursing care insurance fund)
+                                                {insuranceInfo?.value1}
                                             </FormLabel>
                                         </FormItem>
                                         <FormItem className="flex items-center space-x-3 space-y-0">
@@ -284,7 +288,7 @@ function YourDetils() {
                                                 <RadioGroupItem value="Privately insured" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
-                                                Privately insured
+                                                {insuranceInfo?.value2}
                                             </FormLabel>
                                         </FormItem>
                                     </RadioGroup>
@@ -299,9 +303,9 @@ function YourDetils() {
                             name="insuranceNumber"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Insurance Number*</FormLabel>
+                                    <FormLabel>{insuranceNumber?.label}*</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Insurance Number " {...field} />
+                                        <Input placeholder={insuranceNumber?.placeholder} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -312,16 +316,16 @@ function YourDetils() {
                             name="healthInsurance"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Health insurance*</FormLabel>
+                                    <FormLabel>{insuranceName?.label}*</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Health Insurance " {...field} />
+                                        <Input placeholder={insuranceName?.placeholder} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
                     </div>
-                    <p>Is the insured person eligible for assistance?</p>
+                    <p>{heading2}</p>
                 </div>
                 <div>
                     <FormField
@@ -330,7 +334,7 @@ function YourDetils() {
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel className='text-2xl text-[#003780]'>{`Don't have the data to hand?`}</FormLabel>
-                                <p>If you do not currently have data, copy the link and save it. You can use the link to return to the application at a later date and continue with your application. All previous information will be called up again.</p>
+                                <p>{heading3}</p>
                                 <FormControl>
                                     <Input placeholder="Copy link" {...field} />
                                 </FormControl>
@@ -345,10 +349,10 @@ function YourDetils() {
                         name="deliveryDate"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel className='text-2xl text-[#003780]'>Information on the level of care</FormLabel>
-                                <p>Birth date *</p>
+                                <FormLabel className='text-2xl text-[#003780]'>{heading4}</FormLabel>
+                                <p>{levelCare?.label} *</p>
                                 <FormControl>
-                                    <Input type='date' placeholder="DD.MM.YYYY" {...field} />
+                                    <Input type='date'  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -356,7 +360,7 @@ function YourDetils() {
                     />
                 </div>
                 <div className="flex flex-col ">
-                    <label>Level of care</label>
+                    <label>{levelCare?.label2}</label>
                     <div className="flex space-x-2">
                         {[1, 2, 3, 4, 5].map((value) => (
                             <Button
@@ -393,12 +397,12 @@ function YourDetils() {
                                 />
                             </FormControl>
                             <div className="">
-                                <FormLabel className="text-base">I would like to specify the carer or supervisor of the insured person.</FormLabel>
+                                <FormLabel className="text-base">{declaration}</FormLabel>
                             </div>
                         </FormItem>
                     )}
                 />
-                <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>Continue in the application</Button>
+                <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>{button}</Button>
             </form>
         </Form>
     )
