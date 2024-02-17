@@ -1,3 +1,4 @@
+import LanguageSwitcher from '../LanguageSwitcher'
 import logo from './../../assets/nav.svg'
 import { Link } from 'react-router-dom'
 const Navbar = () => {
@@ -15,6 +16,9 @@ const Navbar = () => {
                 <img src={logo} alt="Logo" className="w-20 h-20" />
                 <div className='md:block hidden' />
             </nav>
+            <div className='flex justify-end'>
+                <LanguageSwitcher />
+            </div>
         </header>
     )
 }

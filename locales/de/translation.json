@@ -1,5 +1,51 @@
 {
-    "welcome": "Bienvenue dans mon application!",
-    "hello": "Bonjour, {{name}}!"
+    "home":{
+        "link":"Zurück zur Startseite",
+        "title":"Wählen Sie Ihre Produkte",
+        "description":"Füllen Sie Ihre Box ganz nach Ihren Bedürfnissen oder wählen Sie eine unserer beliebtesten Kombinationen. Wenn Sie möchten, können Sie Ihre Produkte ganz einfach jeden Monat wechseln."
+    },
+    "specify-data":{
+        "title":"Specify Data",
+        "description":"Specify the data you want to use",
+        "continue":[
+            {
+                "heading": "Complete online now",
+                "action": "complete-online",
+                "description": "Now provide all the necessary data and then sign the application digitally to receive your curabox in just a few working days.",
+                "icon": "icon1"
+            },
+            {
+                "heading": "Continue later",
+                "action": "continue-later",
+                "description": "Don't have all the data at hand? No problem. We will email you a link to your address:example@gmail.com which you can use to complete your application online at any time.",
+                "icon": "icon2"
+            },
+            {
+                "heading": "Download application",
+                "action": "download-application",
+                "description": "Download the application with your previous data as a PDF to print it out, complete any missing information conveniently at home and then send the application back by post or email.",
+                "icon": "icon3"
+            },
+            {
+                "heading": "Application received by post",
+                "action": "application-received-by-post",
+                "description": "Don't have a printer? You will then receive the application with your previous details conveniently by post and send it back to us completely filled out free of charge.",
+                "icon": "icon4"
+            }
+        ]
+    },
+    "define-delivery":{
+        "title":"Define Delivery",
+        "description":"Define the delivery of the data"
+    },
+    "complete-application":{
+        "title":"Complete Application",
+        "description":"Complete the application"
+    },
+    "thank-you":{
+        "title":"Thank You",
+        "description":"Thank you for your application"
+    }
+    
 }
   

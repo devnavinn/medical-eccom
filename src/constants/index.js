@@ -67,6 +67,7 @@ const countinue = [
 import first from './../assets/first.svg'
 import second from './../assets/second.svg'
 import third from './../assets/third.svg'
+
 const deliveryStep = [
     {
         icon: first,

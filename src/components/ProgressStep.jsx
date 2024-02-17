@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-
+import { useTranslation } from 'react-i18next';
 const ProgressStep = () => {
+    const { t } = useTranslation();
     const location = useLocation();
     const { pathname } = location;
 

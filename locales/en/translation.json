@@ -1,5 +1,98 @@
 {
-    "welcome": "Welcome to my app!",
-    "hello": "Hello, {{name}}!"
+    "home":{
+        "link":"Back to home page",
+        "title":"Home",
+        "description":"Welcome to the home page"
+    },
+    "progress":{
+        "step1":"Choose Pflegepaket",
+        "step2":"Specify Data",
+        "step3":"Define Delivery",
+        "step4":"Complete Application",
+        "step5":"Thank You"
+    },
+    "cart":{
+        "title":"The most popular compilations"
+    },
+    "specify-data":{
+        "title":"Specify Data",
+        "description":"Specify the data you want to use",
+        
+        "continue":[
+            {
+                "heading": "Complete online now",
+                "action": "complete-online",
+                "description": "Now provide all the necessary data and then sign the application digitally to receive your curabox in just a few working days.",
+                "icon": "icon1"
+            },
+            {
+                "heading": "Continue later",
+                "action": "continue-later",
+                "description": "Don't have all the data at hand? No problem. We will email you a link to your address:example@gmail.com which you can use to complete your application online at any time.",
+                "icon": "icon2"
+            },
+            {
+                "heading": "Download application",
+                "action": "download-application",
+                "description": "Download the application with your previous data as a PDF to print it out, complete any missing information conveniently at home and then send the application back by post or email.",
+                "icon": "icon3"
+            },
+            {
+                "heading": "Application received by post",
+                "action": "application-received-by-post",
+                "description": "Don't have a printer? You will then receive the application with your previous details conveniently by post and send it back to us completely filled out free of charge.",
+                "icon": "icon4"
+            }
+        ]
+    },
+    "define-delivery":{
+        "title":"Define Delivery",
+        "description":"Define the delivery of the data"
+    },
+    "complete-application":{
+        "title":"Complete Application",
+        "description":"Complete the application"
+    },
+    "thank-you":{
+        "title":"Thank You",
+        "description":"Thank you for your application"
+    },
+    "steps":{
+        "contact-details": {
+            "title": "Contact Details",
+            "description": "Your box is created. Now submit your personal data so that we can contact you for further application and processing of the curabox. After saving your contact details, you can provide all further details at your leisure. You are not submitting an order yet."
+        },
+        "countinue": {
+            "title": "Countinue",
+            "description": "Your box is created. Now submit your personal data so that we can contact you for further application and processing of the curabox. After saving your contact details, you can provide all further details at your leisure. You are not submitting an order yet."
+        },
+        "your-details": {
+            "title": "Your Details",
+            "description": "Your box is created. Now submit your personal data so that we can contact you for further application and processing of the curabox. After saving your contact details, you can provide all further details at your leisure. You are not submitting an order yet."
+        },
+        "caregiver-details": {
+            "title": "Caregiver Details",
+            "description": "Your box is created. Now submit your personal data so that we can contact you for further application and processing of the curabox. After saving your contact details, you can provide all further details at your leisure. You are not submitting an order yet."
+        },
+        "delivery-options": {
+            "title": "Delivery Options",
+            "description": "Your box is created. Now submit your personal data so that we can contact you for further application and processing of the curabox. After saving your contact details, you can provide all further details at your leisure. You are not submitting an order yet."
+        },
+        "complete-application": {
+            "title": "Complete Application",
+            "description": "Your box is created. Now submit your personal data so that we can contact you for further application and processing of the curabox. After saving your contact details, you can provide all further details at your leisure. You are not submitting an order yet."
+        },
+        "signature": {
+            "title": "Signature",
+            "description": "Your box is created. Now submit your personal data so that we can contact you for further application and processing of the curabox. After saving your contact details, you can provide all further details at your leisure. You are not submitting an order yet."
+        },
+        "thank-you": {
+            "title": "Thank You",
+            "description": "Your box is created. Now submit your personal data so that we can contact you for further application and processing of the curabox. After saving your contact details, you can provide all further details at your leisure. You are not submitting an order yet."
+        }
+    },
+    "footer":{
+       "copyright":"Copyright © 2024 Pelegepaket All rights reserved."
+    }
 }
   
