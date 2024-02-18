@@ -38,14 +38,14 @@ export default function CaregiverDetails() {
     const navigate = useNavigate()
     const form = useForm({
         resolver: zodResolver(FormSchema),
-        defaultValues: sessionStorage.getItem('caregiverDetails') ? JSON.parse(sessionStorage.getItem('caregiverDetails')) : {}
+        defaultValues: localStorage.getItem('caregiverDetails') ? JSON.parse(localStorage.getItem('caregiverDetails')) : {}
     })
 
     async function onSubmit(data) {
         console.log(data)
-        sessionStorage.setItem('caregiverDetails', JSON.stringify(data))
+        localStorage.setItem('caregiverDetails', JSON.stringify(data))
         const formData = {
-            sessionId: sessionStorage.getItem('sessionId'),
+            sessionId: localStorage.getItem('sessionId'),
             carePersonForm: {
                 ...data
             }

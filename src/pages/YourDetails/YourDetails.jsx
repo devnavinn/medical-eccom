@@ -52,14 +52,14 @@ function YourDetils() {
     };
     const form = useForm({
         resolver: zodResolver(FormSchema),
-        defaultValues: sessionStorage.getItem('yourDetails') ? JSON.parse(sessionStorage.getItem('contactDetails')) : {}
+        defaultValues: localStorage.getItem('yourDetails') ? JSON.parse(localStorage.getItem('contactDetails')) : {}
     })
 
     async function onSubmit(data) {
         console.log(data)
-        sessionStorage.setItem('yourDetails', JSON.stringify(data))
+        localStorage.setItem('yourDetails', JSON.stringify(data))
         const formData = {
-            sessionId: sessionStorage.getItem('sessionId'),
+            sessionId: localStorage.getItem('sessionId'),
             insuredPersonForm: {
                 ...data
             }

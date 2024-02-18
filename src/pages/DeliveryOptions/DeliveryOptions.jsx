@@ -33,14 +33,14 @@ export default function DeliveryOptions() {
     const navigate = useNavigate()
     const form = useForm({
         resolver: zodResolver(FormSchema),
-        defaultValues: sessionStorage.getItem('deliveryOptions') ? JSON.parse(sessionStorage.getItem('deliveryOptions')) : {}
+        defaultValues: localStorage.getItem('deliveryOptions') ? JSON.parse(localStorage.getItem('deliveryOptions')) : {}
     })
 
     async function onSubmit(data) {
         console.log('data', data);
-        sessionStorage.setItem('deliveryOptions', JSON.stringify(data))
+        localStorage.setItem('deliveryOptions', JSON.stringify(data))
         const formData = {
-            sessionId: sessionStorage.getItem('sessionId'),
+            sessionId: localStorage.getItem('sessionId'),
             deliveryOptionsForm: {
                 ...data
             }

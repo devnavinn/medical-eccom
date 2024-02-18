@@ -9,7 +9,7 @@ const CompleteApplication = () => {
     const { heading1, heading2, heading3, span, paragraph, edit, button } = completeApplication
     const [orderDetails, setOrderDetails] = useState([])
     useEffect(() => {
-        const sessionId = sessionStorage.getItem('sessionId')
+        const sessionId = localStorage.getItem('sessionId')
         const fetchOrderDetails = async () => {
             const res = await getOrderDetails(sessionId)
             if (res.length === 0) return console.log('No data found')

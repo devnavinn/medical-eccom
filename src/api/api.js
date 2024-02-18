@@ -61,3 +61,12 @@ export const generatePdf = async (sessionId) => {
         console.log("ERROR:", error);
     }
 }
+
+export const sendMail = async (sessionId) => {
+    try {
+        const res = await api.get(`/order/send-mail/${sessionId}`);
+        return res.data;
+    } catch (error) {
+        console.log("ERROR:", error);
+    }
+}

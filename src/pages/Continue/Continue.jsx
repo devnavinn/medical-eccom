@@ -1,20 +1,32 @@
 import ContinueCard from './../../components/ContinueCard'
-import { countinue } from "../../constants"
-import { useNavigate } from 'react-router-dom'
-import { generatePdf } from '../../api/api'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { generatePdf, sendMail } from '../../api/api'
 import { useTranslation } from 'react-i18next'
+import { useToast } from "@/components/ui/use-toast"
+import { useEffect } from 'react'
+
 const Countinue = () => {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const sessionId = queryParams.get('sessionId');
+    const { toast } = useToast()
     const { t } = useTranslation()
     const { continueCard } = t("specify-data")
     const navigate = useNavigate()
 
+    useEffect(() => {
+        if (sessionId) {
+            localStorage.setItem('sessionId', sessionId)
+        }
+
+    }, [sessionId])
 
     const getPdf = async () => {
-        const sessionId = sessionStorage.getItem('sessionId')
+        const sessionId = localStorage.getItem('sessionId')
         const res = await generatePdf(sessionId)
         return res.pdfPath
     }
-    const handleContinueMethod = (method) => {
+    const handleContinueMethod = async (method) => {
         if (method === 'complete-online') {
             navigate('/your-details')
         }
@@ -23,6 +35,17 @@ const Countinue = () => {
                 const fullPath = `${import.meta.env.VITE_API_BASE_URL}/${res}`
                 window.open(fullPath, '_blank');
             })
+        }
+        if (method === 'continue-later') {
+            const sessionId = localStorage.getItem('sessionId')
+            const res = await sendMail(sessionId)
+            if (res.success) {
+                toast({
+                    title: 'Mail sent successfully',
+                    description: 'Your session details has been sent to your mail',
+                })
+            }
+
         }
     }
     return (

@@ -11,7 +11,7 @@ export function useCart() {
 
 export function CartProvider({ children }) {
     const [cart, setCart] = useState(() => {
-        const storedCart = sessionStorage.getItem(CART_SESSION_KEY);
+        const storedCart = localStorage.getItem(CART_SESSION_KEY);
         return storedCart ? JSON.parse(storedCart) : [];
     });
 
@@ -19,8 +19,8 @@ export function CartProvider({ children }) {
     const [size, updateSize] = useState('M');
     const [seletedTab, setSelectedTab] = useState()
 
-    const saveCartToSessionStorage = (cartData) => {
-        sessionStorage.setItem(CART_SESSION_KEY, JSON.stringify(cartData));
+    const saveCartTolocalStorage = (cartData) => {
+        localStorage.setItem(CART_SESSION_KEY, JSON.stringify(cartData));
     };
 
     const addToCart = (item) => {
@@ -29,11 +29,11 @@ export function CartProvider({ children }) {
             const newCart = [...cart];
             newCart[existingItemIndex].quantity += 1; // Assuming item.quantity is the quantity being added
             setCart(newCart);
-            saveCartToSessionStorage(newCart);
+            saveCartTolocalStorage(newCart);
         } else {
             const newCart = [...cart, item];
             setCart(newCart);
-            saveCartToSessionStorage(newCart);
+            saveCartTolocalStorage(newCart);
         }
     };
 
@@ -47,7 +47,7 @@ export function CartProvider({ children }) {
                 newCart.splice(existingItemIndex, 1);
             }
             setCart(newCart);
-            saveCartToSessionStorage(newCart);
+            saveCartTolocalStorage(newCart);
         }
         setSelectedTab('')
     };
@@ -57,16 +57,16 @@ export function CartProvider({ children }) {
         const newCart = [...cart];
         newCart[index] = item;
         setCart(newCart);
-        saveCartToSessionStorage(newCart);
+        saveCartTolocalStorage(newCart);
     };
 
     const setCartValue = (newCart) => {
         setCart(newCart);
-        saveCartToSessionStorage(newCart);
+        saveCartTolocalStorage(newCart);
     };
 
     useEffect(() => {
-        saveCartToSessionStorage(cart);
+        saveCartTolocalStorage(cart);
     }, [cart]);
 
     return (

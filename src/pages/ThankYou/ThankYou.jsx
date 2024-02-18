@@ -13,7 +13,7 @@ const ThankYou = () => {
     const { t } = useTranslation()
     const { title, thankYou } = t("thank-you")
     useEffect(() => {
-        sessionStorage.clear()
+        localStorage.clear()
     }, [])
     return (
         <div>

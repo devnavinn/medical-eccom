@@ -38,7 +38,7 @@ function ContactDetails() {
     const navigate = useNavigate();
     const form = useForm({
         resolver: zodResolver(FormSchema),
-        defaultValues: sessionStorage.getItem('contactDetails') ? JSON.parse(sessionStorage.getItem('contactDetails')) : {}
+        defaultValues: localStorage.getItem('contactDetails') ? JSON.parse(localStorage.getItem('contactDetails')) : {}
     })
 
     async function onSubmit(data) {
@@ -55,9 +55,9 @@ function ContactDetails() {
                 product_details: cart
             }
         }
-        sessionStorage.setItem('contactDetails', JSON.stringify(data))
+        localStorage.setItem('contactDetails', JSON.stringify(data))
         await orderPlace(formData).then(res => {
-            sessionStorage.setItem('sessionId', res.sessionId)
+            localStorage.setItem('sessionId', res.sessionId)
             console.log('res', res);
             if (res?.sessionId) {
                 navigate('/continue')

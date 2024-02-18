@@ -50,7 +50,7 @@ export default function Signature() {
     const { heading, label1, label2, acceptSignature, acceptSignature2, isAgree, declaration, button, button2, button3 } = signatureData
     const navigate = useNavigate()
     const signatureRef = useRef();
-    const [signature, setSignature] = React.useState(sessionStorage.getItem('signaturePath') || null);
+    const [signature, setSignature] = React.useState(localStorage.getItem('signaturePath') || null);
     const form = useForm({
         resolver: zodResolver(FormSchema),
         defaultValues: {
@@ -59,10 +59,10 @@ export default function Signature() {
     })
 
     async function onSubmit(data) {
-        sessionStorage.setItem('signature', JSON.stringify(data))
-        sessionStorage.setItem('signaturePath', signature)
+        localStorage.setItem('signature', JSON.stringify(data))
+        localStorage.setItem('signaturePath', signature)
         const formData = {
-            sessionId: sessionStorage.getItem('sessionId'),
+            sessionId: localStorage.getItem('sessionId'),
             signatureForm: {
                 ...data,
                 sgnaturePath: signature
