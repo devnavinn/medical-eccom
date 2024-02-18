@@ -178,7 +178,7 @@ export default function DeliveryOptions() {
                             name="deliveryStart"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{deliveryStart?.label}*</FormLabel>
+                                    <FormLabel>{deliveryStart}*</FormLabel>
                                     <FormControl>
                                         <Input type='date'  {...field} />
                                     </FormControl>
