@@ -33,13 +33,15 @@ const FormSchema = z.object({
     insuranceType: z.string().nonempty(),
     insuranceNumber: z.string().nonempty(),
     healthInsurance: z.string().nonempty(),
-    link: z.string().nonempty(),
+    // link: z.string().nonempty(),
     deliveryDate: z.string().nonempty(),
     addCarePerson: z.boolean(),
 
 })
 import { useTranslation } from "react-i18next"
+import { useToast } from "@/components/ui/use-toast"
 function YourDetils() {
+    const { toast } = useToast()
     const { t } = useTranslation()
     const { yourDetails } = t("specify-data")
     const { iam, gender, firstName, lastName, street, postCode, city, birthDate, heading1, telephoneNumber, email, insuranceInfo, insuranceNumber, insuranceName, heading2, heading3, heading4, levelCare, declaration, button } = yourDetails
@@ -69,6 +71,12 @@ function YourDetils() {
             navigate('/caregiver-details')
         })
         // navigate('/caregiver-details')
+    }
+
+    const generateLink = () => {
+        // Generate link
+        const link = `${import.meta.env.VITE_API_BASE_URL}/your-details?sessionId=${localStorage.getItem('sessionId')}&return-source=copy-link`
+        return link
     }
 
     return (
@@ -327,21 +335,28 @@ function YourDetils() {
                     </div>
                     <p>{heading2}</p>
                 </div>
-                <div>
-                    <FormField
-                        control={form.control}
-                        name="link"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className='text-2xl text-[#003780]'>{`Don't have the data to hand?`}</FormLabel>
-                                <p>{heading3}</p>
-                                <FormControl>
-                                    <Input placeholder="Copy link" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                <div className="flex justify-center items-center space-x-2">
+                    <div
+                        className="w-full border-2 border-[#003780] rounded-lg p-2 overflow-x-scroll whitespace-nowrap no-scrollbar"
+
+                    >
+                        <p> {generateLink()} </p>
+                    </div>
+                    <Button
+                        onClick={() => {
+                            navigator.clipboard.writeText(generateLink())
+                            toast({
+                                title: "Link copied",
+                                description: "Link copied to clipboard",
+                                status: "success",
+                            })
+                        }}
+                        type="button" className="py-2 rounded bg-[#003780] text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+                        </svg>
+
+                    </Button>
                 </div>
                 <div className="w-1/2">
                     <FormField
@@ -404,7 +419,7 @@ function YourDetils() {
                 />
                 <Button type="submit" className='py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>{button}</Button>
             </form>
-        </Form>
+        </Form >
     )
 }
 
