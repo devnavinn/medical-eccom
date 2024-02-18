@@ -170,6 +170,35 @@
             "edit":"Edit",
             "button":"Continue in the application"
         },
+        "deliveryOptions":{
+            "heading1":"Where should the curabox be delivered to?",
+            "select":{
+                "label":"Select recipient",
+                "value1":"To the insured person",
+                "value2":"To the Caregiver",
+                "value3":"To a commissioned nursing service"
+            },
+            "companyName":{
+                "label":"Company Name",
+                "placeholder":"Company Name"
+            },
+            "street":{
+                "label":"Street, house number",
+                "placeholder":"Full Address"
+            },
+            "postCode":{
+                "label":"Post Code",
+                "placeholder":"Post Code"
+            },
+            "city":{
+                "label":"City",
+                "placeholder":"City"
+            },
+            "heading2":"Information about changing supplier",
+            "isAgree":"I already receive care aids from another provider, but would like to be supplied by curabox in the future.",
+            "deliveryStart":"Desired start of delivery",
+            "button":"Continue to overview and signature"
+        },
         "signatureData":{
             "heading":"Signature",
             "label1":"Signature of the insured person or authorized representative",

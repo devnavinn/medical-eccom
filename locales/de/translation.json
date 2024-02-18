@@ -170,6 +170,35 @@
             "edit":"Bearbeiten",
             "button":"Weiter im Antrag"
         }, 
+        "deliveryOptions": {
+            "heading1": "Wo soll die Curabox geliefert werden?",
+            "select": {
+                "label": "Empfänger auswählen",
+                "value1": "An die versicherte Person",
+                "value2": "An den Pflegeperson",
+                "value3": "An einen beauftragten Pflegedienst"
+            },
+            "companyName": {
+                "label": "Firmenname",
+                "placeholder": "Firmenname"
+            },
+            "street": {
+                "label": "Straße, Hausnummer",
+                "placeholder": "Vollständige Adresse"
+            },
+            "postCode": {
+                "label": "Postleitzahl",
+                "placeholder": "Postleitzahl"
+            },
+            "city": {
+                "label": "Stadt",
+                "placeholder": "Stadt"
+            },
+            "heading2": "Informationen zum Lieferantenwechsel",
+            "isAgree": "Ich beziehe bereits Pflegehilfsmittel von einem anderen Anbieter, möchte aber zukünftig von Curabox versorgt werden.",
+            "deliveryStart": "Gewünschter Lieferbeginn",
+            "button": "Weiter zur Übersicht und Unterschrift"
+        },        
         "signatureData":{
             "heading":"Unterschrift",
             "label1":"Unterschrift der versicherten Person oder des bevollmächtigten Vertreters",
