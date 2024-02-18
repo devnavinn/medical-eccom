@@ -2,9 +2,9 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { z } from "zod"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
 import { orderPlace } from "../../api/api"
@@ -41,6 +41,10 @@ const FormSchema = z.object({
 import { useTranslation } from "react-i18next"
 import { useToast } from "@/components/ui/use-toast"
 function YourDetils() {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const sessionId = queryParams.get('sessionId');
+    const isCopyLink = queryParams.get('return-source') === 'copy-link'
     const { toast } = useToast()
     const { t } = useTranslation()
     const { yourDetails } = t("specify-data")
@@ -48,6 +52,15 @@ function YourDetils() {
 
     const [rating, setRating] = useState(0);
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (sessionId) {
+            localStorage.setItem('sessionId', sessionId)
+
+        }
+    }, [sessionId])
+
+
     const handleRatingClick = (value) => {
         // Update the rating when a star is clicked
         setRating(value);
@@ -75,7 +88,7 @@ function YourDetils() {
 
     const generateLink = () => {
         // Generate link
-        const link = `${import.meta.env.VITE_API_BASE_URL}/your-details?sessionId=${localStorage.getItem('sessionId')}&return-source=copy-link`
+        const link = `${import.meta.env.VITE_API_FRONTEND_URL}/your-details?sessionId=${localStorage.getItem('sessionId')}&return-source=copy-link`
         return link
     }
 
@@ -335,7 +348,7 @@ function YourDetils() {
                     </div>
                     <p>{heading2}</p>
                 </div>
-                <div className="flex justify-center items-center space-x-2">
+                <div className={`${isCopyLink && 'hidden'} flex justify-center items-center space-x-2`}>
                     <div
                         className="w-full border-2 border-[#003780] rounded-lg p-2 overflow-x-scroll whitespace-nowrap no-scrollbar"
 
