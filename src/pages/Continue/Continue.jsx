@@ -4,7 +4,7 @@ import { generatePdf, sendMail } from '../../api/api'
 import { useTranslation } from 'react-i18next'
 import { useToast } from "@/components/ui/use-toast"
 import { useEffect } from 'react'
-
+import { getOrderDetails } from '../../api/api'
 const Countinue = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -17,6 +17,17 @@ const Countinue = () => {
     useEffect(() => {
         if (sessionId) {
             localStorage.setItem('sessionId', sessionId)
+            const fetchOrderDetails = async () => {
+                const res = await getOrderDetails(sessionId)
+                if (res.length === 0) return console.log('No data found')
+                console.log('res', res);
+                const orderDetails = res[0]
+                localStorage.setItem('cart', JSON.stringify(orderDetails?.productsForm?.product_details))
+                localStorage.setItem('size', orderDetails?.productsForm?.gloveSize)
+                localStorage.setItem('contactDetails', JSON.stringify(orderDetails?.contactForm))
+                // localStorage.setItem('orderDetails', JSON.stringify(res))
+            }
+            fetchOrderDetails()
         }
 
     }, [sessionId])

@@ -15,8 +15,8 @@ export function CartProvider({ children }) {
         return storedCart ? JSON.parse(storedCart) : [];
     });
 
-    const [sliderValue, setSliderValue] = useState(0);
-    const [size, updateSize] = useState('M');
+    const [sliderValue, setSliderValue] = useState(localStorage.getItem('sliderValue') || 0);
+    const [size, updateSize] = useState(localStorage.getItem('size') || 'M');
     const [seletedTab, setSelectedTab] = useState()
 
     const saveCartTolocalStorage = (cartData) => {
