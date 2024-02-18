@@ -5,6 +5,7 @@ import Cart from './Cart';
 import Navbar from './layout/Navbar';
 import ProgressStep from './ProgressStep';
 import StepHeading from './StepHeading';
+import Footer from './layout/Footer';
 const Layout = ({ children }) => {
     const location = useLocation();
     let { pathname } = location;
@@ -22,6 +23,7 @@ const Layout = ({ children }) => {
                     <Cart />
                 </div>
             </section>
+            <Footer />
         </div >
     );
 }
