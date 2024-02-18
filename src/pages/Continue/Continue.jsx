@@ -43,8 +43,8 @@ const Countinue = () => {
         }
         if (method === 'download-application') {
             getPdf().then(res => {
-                if (res.success) {
-                    const fullPath = `${import.meta.env.VITE_API_PDF_URL}/${res.pdfPath}`
+                if (res) {
+                    const fullPath = `${import.meta.env.VITE_API_PDF_URL}/${res}`
                     window.open(fullPath, '_blank');
                 }
             })
