@@ -39,6 +39,7 @@ const FormSchema = z.object({
 
 })
 import { useTranslation } from "react-i18next"
+import { getOrderDetails } from "../../api/api"
 import { useToast } from "@/components/ui/use-toast"
 function YourDetils() {
     const location = useLocation();
@@ -56,7 +57,18 @@ function YourDetils() {
     useEffect(() => {
         if (sessionId) {
             localStorage.setItem('sessionId', sessionId)
-
+            const fetchOrderDetails = async () => {
+                const res = await getOrderDetails(sessionId)
+                if (!res) return console.log('No data found')
+                console.log('res', res);
+                const orderDetails = res[0]
+                localStorage.setItem('cart', JSON.stringify(orderDetails?.productsForm?.product_details))
+                localStorage.setItem('size', orderDetails?.productsForm?.gloveSize)
+                localStorage.setItem('contactDetails', JSON.stringify(orderDetails?.contactForm))
+                localStorage.setItem('yourDetails', JSON.stringify(orderDetails?.contactForm))
+                // localStorage.setItem('orderDetails', JSON.stringify(res))
+            }
+            fetchOrderDetails()
         }
     }, [sessionId])
 
@@ -71,7 +83,7 @@ function YourDetils() {
     })
 
     async function onSubmit(data) {
-        console.log(data)
+        console.log('data', data)
         localStorage.setItem('yourDetails', JSON.stringify(data))
         const formData = {
             sessionId: localStorage.getItem('sessionId'),
@@ -79,11 +91,12 @@ function YourDetils() {
                 ...data
             }
         }
+
         await orderPlace(formData).then((res) => {
             console.log(res)
             navigate('/caregiver-details')
         })
-        // navigate('/caregiver-details')
+        navigate('/caregiver-details')
     }
 
     const generateLink = () => {

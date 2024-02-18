@@ -19,7 +19,7 @@ const Countinue = () => {
             localStorage.setItem('sessionId', sessionId)
             const fetchOrderDetails = async () => {
                 const res = await getOrderDetails(sessionId)
-                if (res.length === 0) return console.log('No data found')
+                if (!res) return console.log('No data found')
                 console.log('res', res);
                 const orderDetails = res[0]
                 localStorage.setItem('cart', JSON.stringify(orderDetails?.productsForm?.product_details))
