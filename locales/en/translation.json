@@ -118,7 +118,7 @@
             "heading3":"If you do not currently have data, copy the link and save it. You can use the link to return to the application at a later date and continue with your application. All previous information will be called up again.",
             "heading4":"Information on the level of care",
             "levelCare":{
-                "label":"Birth Date",
+                "label":"Care Since",
                 "label2":"Level of care"
             },
             "declaration":"I would like to specify the carer or supervisor of the insured person.",

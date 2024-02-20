@@ -118,7 +118,7 @@
             "heading3": "Wenn Sie derzeit keine Daten haben, kopieren Sie den Link und speichern Sie ihn. Sie können den Link verwenden, um zu einem späteren Zeitpunkt zum Antrag zurückzukehren und mit Ihrem Antrag fortzufahren. Alle bisherigen Informationen werden erneut abgerufen.",
             "heading4": "Informationen zum Pflegegrad",
             "levelCare": {
-                "label": "Geburtsdatum",
+                "label": "Pflege seit",
                 "label2": "Pflegegrad"
             },
             "declaration": "Ich möchte den Pfleger oder Betreuer des Versicherten angeben.",

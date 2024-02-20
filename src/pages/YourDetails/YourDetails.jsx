@@ -31,10 +31,13 @@ const FormSchema = z.object({
     telephone: z.string().nonempty(),
     email: z.string().nonempty(),
     insuranceType: z.string().nonempty(),
-    insuranceNumber: z.string().nonempty().regex(/^[a-zA-Z][0-9]{9}$/),
+    insuranceNumber: z
+        .string()
+        .nonempty()
+        .regex(/^[a-zA-Z][0-9]{9}$/, 'Please enter a valid insurance number (must start with a letter and be followed by 9 digits)'),
     healthInsurance: z.string().nonempty(),
     // link: z.string().nonempty(),
-    deliveryDate: z.string().nonempty(),
+    careSince: z.string().nonempty(),
     addCarePerson: z.boolean(),
 
 })
@@ -387,7 +390,7 @@ function YourDetils() {
                 <div className="w-1/2">
                     <FormField
                         control={form.control}
-                        name="deliveryDate"
+                        name="careSince"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel className='text-2xl text-[#003780]'>{heading4}</FormLabel>
