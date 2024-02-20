@@ -31,7 +31,7 @@ const FormSchema = z.object({
     telephone: z.string().nonempty(),
     email: z.string().nonempty(),
     insuranceType: z.string().nonempty(),
-    insuranceNumber: z.string().nonempty(),
+    insuranceNumber: z.string().nonempty().regex(/^[a-zA-Z][0-9]{9}$/),
     healthInsurance: z.string().nonempty(),
     // link: z.string().nonempty(),
     deliveryDate: z.string().nonempty(),
