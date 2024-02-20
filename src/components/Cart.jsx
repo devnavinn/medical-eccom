@@ -45,7 +45,7 @@ const Cart = () => {
                         <div className="flex flex-col">
                             <div className="flex items-center">
                                 <div>
-                                    <img src={item.image} alt={item.product_name} className="w-20 h-20 object-cover" />
+                                    <img src={item.image} alt={item.product_name} className="w-16 h-16 object-cover" />
                                 </div>
                                 <div className="px-4">
                                     <h1 className="text-lg font-bold">{item.product_name}</h1>

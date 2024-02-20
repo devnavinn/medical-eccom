@@ -15,11 +15,11 @@ const Layout = ({ children }) => {
             <ProgressStep />
             <StepHeading />
             {/* Main content */}
-            <section className=' flex flex-col lg:flex-row gap-5'>
+            <section className=' flex flex-col lg:flex-row gap-5 relative'>
                 <div className={`${pathname == '/thank-you' ? 'w-full' : 'lg:w-1/2 w-full'} lg:order-1`}>
                     {children}
                 </div>
-                <div className={`flex-1 ${pathname == '/thank-you' ? 'hidden' : 'block'} order-first lg:order-last  `}>
+                <div className={`flex-1 ${pathname == '/thank-you' ? 'hidden' : 'block'} order-first lg:order-last h-fit sticky top-0 right-0`}>
                     <Cart />
                 </div>
             </section>
