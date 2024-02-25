@@ -13,7 +13,6 @@ const Cart = () => {
     const { title, label, button } = t('cart')
     const location = useLocation()
     let { pathname } = location
-    console.log('pathname', pathname);
     const { cart, removeFromCart, updateCart, setSliderValue, sliderValue, size, updateSize } = useCart();
     useEffect(() => {
         let total = 0;
@@ -28,7 +27,6 @@ const Cart = () => {
         newCart[index].size = size;
         updateCart(index, newCart[index]);
     }
-    console.log('sliderValue', cart, sliderValue);
     return (
         <div className="flex flex-col space-y-2">
             <ProductTab />

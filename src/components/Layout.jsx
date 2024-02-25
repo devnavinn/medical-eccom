@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
                 <div className={`${pathname == '/thank-you' ? 'w-full' : 'lg:w-1/2 w-full'} lg:order-1`}>
                     {children}
                 </div>
-                <div className={`flex-1 ${pathname == '/thank-you' ? 'hidden' : 'block'} order-first lg:order-last h-fit sticky top-0 right-0`}>
+                <div className={`flex-1 ${pathname == '/thank-you' ? 'hidden' : 'block'} order-first lg:order-last h-fit lg:sticky top-0 right-0`}>
                     <Cart />
                 </div>
             </section>

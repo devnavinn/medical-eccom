@@ -42,8 +42,9 @@ const FormSchema = z.object({
 
 })
 import { useTranslation } from "react-i18next"
-import { getOrderDetails } from "../../api/api"
+import { getOrderDetails, getInsurances } from "../../api/api"
 import { useToast } from "@/components/ui/use-toast"
+
 function YourDetils() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -72,9 +73,18 @@ function YourDetils() {
                 // localStorage.setItem('orderDetails', JSON.stringify(res))
             }
             fetchOrderDetails()
+
         }
     }, [sessionId])
 
+    const [insuranceList, setInsuranceList] = useState([])
+    useEffect(() => {
+        getInsurances().then((res) => {
+            setInsuranceList(res);
+        }).catch(error => {
+            console.error('Error fetching insurance list:', error);
+        });
+    }, []);
 
     const handleRatingClick = (value) => {
         // Update the rating when a star is clicked
@@ -355,12 +365,27 @@ function YourDetils() {
                                 <FormItem>
                                     <FormLabel>{insuranceName?.label}*</FormLabel>
                                     <FormControl>
-                                        <Input placeholder={insuranceName?.placeholder} {...field} />
+                                        <>
+                                            <Input
+                                                list="insuranceOptions"
+                                                placeholder={insuranceName?.placeholder}
+                                                {...field}
+                                            />
+                                            <datalist id="insuranceOptions">
+                                                {/* Render options here */}
+                                                {insuranceList?.map(option => (
+                                                    <option key={option.insurance_name} value={option.insurance_name}>
+                                                        {option.insurance_name}
+                                                    </option>
+                                                ))}
+                                            </datalist>
+                                        </>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
+
                     </div>
                     <p>{heading2}</p>
                 </div>

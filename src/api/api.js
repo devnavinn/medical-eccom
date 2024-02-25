@@ -25,6 +25,15 @@ export const getSingleCompliance = async (id) => {
     }
 }
 
+export const getInsurances = async (search) => {
+    try {
+        const res = await api.get(`/get/get-insurence?searchQuery=${search}`);
+        return res.data.data;
+    } catch (error) {
+        console.log("ERROR:", error);
+    }
+}
+
 export const getProducts = async () => {
     try {
         const res = await api.get('/get/all-product');
