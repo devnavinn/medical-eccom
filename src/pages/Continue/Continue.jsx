@@ -60,6 +60,9 @@ const Countinue = () => {
             }
 
         }
+        if (method === 'application-received-by-post') {
+            navigate('/post-address')
+        }
     }
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mt-5'>

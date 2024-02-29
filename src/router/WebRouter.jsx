@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PostAddress from "../pages/PostAddress/PostAddress";
 
 const Home = React.lazy(() => import("../pages/Home/Home"))
 const ContactDetails = React.lazy(() => import("../pages/ContactDetails/ContactDetails"))
@@ -28,6 +29,7 @@ const WebRouter = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/contact-details" element={<ContactDetails />} />
                         <Route path="/continue" element={<Countinue />} />
+                        <Route ptth='/post-address' element={<PostAddress />} />
                         <Route path="/your-details" element={<YourDetails />} />
                         <Route path="/caregiver-details" element={<CaregiverDetails />} />
                         <Route path="/delivery-options" element={<DeliveryOptions />} />
