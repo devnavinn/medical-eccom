@@ -1,4 +1,4 @@
-import logo from './../../assets/logo.svg'
+import logo from './../../assets/logo-bottom.svg'
 import { useTranslation } from 'react-i18next'
 const Footer = () => {
     const { t } = useTranslation()

@@ -194,7 +194,7 @@
             "button":"Weiter im Antrag"
         }, 
         "deliveryOptions": {
-            "heading1": "Wo soll die Curabox geliefert werden?",
+            "heading1": "Wohin soll das Pflegepaket geliefert werden?",
             "select": {
                 "label": "Empfänger auswählen",
                 "value1": "An die versicherte Person",
@@ -218,7 +218,7 @@
                 "placeholder": "Stadt"
             },
             "heading2": "Informationen zum Lieferantenwechsel",
-            "isAgree": "Ich beziehe bereits Pflegehilfsmittel von einem anderen Anbieter, möchte aber zukünftig von Curabox versorgt werden.",
+            "isAgree": "Ich beziehe bereits Pflegehilfsmittel von einem anderen Anbieter, möchte aber zukünftig von Pflegepaket.org versorgt werden.",
             "deliveryStart": "Gewünschter Lieferbeginn",
             "button": "Weiter zur Übersicht und Unterschrift"
         },        
@@ -315,7 +315,7 @@
         },
         "delivery-options": {
             "title": "Lieferoptionen",
-            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+            "description": "Um Ihr Pflegepaket zu vervollständigen, bitten wir Sie, Ihre persönlichen Daten einzugeben. Dies ermöglicht es uns, Sie für zukünftige Anfragen und die Finalisierung Ihres Pakets zu kontaktieren. Nachdem Sie die Kontaktdaten hinterlegt haben, haben Sie die Möglichkeit, in Ruhe alle zusätzlichen erforderlichen Informationen anzugeben. Es erfolgt noch keine Bestellung."
         },
         "complete-application": {
             "title": "Antrag vervollständigen",

@@ -30,7 +30,7 @@ const FormSchema = z.object({
     street: z.string().optional(),
     zip: z.string().optional(),
     city: z.string().optional(),
-    switchToCurabox: z.boolean(),
+    switchToCurabox: z.boolean().optional(),
     deliveryStart: z.string().nonempty({ message: "Delivery start is required." }),
 })
 import { useTranslation } from "react-i18next"
