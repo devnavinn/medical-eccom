@@ -85,7 +85,7 @@ function YourDetils() {
             console.error('Error fetching insurance list:', error);
         });
     }, []);
-
+    console.log('insuranceList', insuranceList);
     const handleRatingClick = (value) => {
         // Update the rating when a star is clicked
         setRating(value);
@@ -109,7 +109,6 @@ function YourDetils() {
             console.log(res)
             navigate('/caregiver-details')
         })
-        navigate('/caregiver-details')
     }
 
     const generateLink = () => {
