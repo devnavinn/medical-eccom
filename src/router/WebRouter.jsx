@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import PostAddress from "../pages/PostAddress/PostAddress";
 
 const Home = React.lazy(() => import("../pages/Home/Home"))
 const ContactDetails = React.lazy(() => import("../pages/ContactDetails/ContactDetails"))
@@ -12,6 +11,7 @@ const CompleteApplication = React.lazy(() => import("../pages/CompleteApplicatio
 const Signature = React.lazy(() => import("../pages/Signature/Signature"))
 const ThankYou = React.lazy(() => import("../pages/ThankYou/ThankYou"))
 const Layout = React.lazy(() => import("../components/Layout"))
+const PostAddressForm = React.lazy(() => import("../pages/PostAddress/PostAddress"))
 const WebRouter = () => {
     return (
         <Router>
@@ -29,13 +29,13 @@ const WebRouter = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/contact-details" element={<ContactDetails />} />
                         <Route path="/continue" element={<Countinue />} />
-                        <Route ptth='/post-address' element={<PostAddress />} />
+                        <Route path='/post-address' element={<PostAddressForm />} />
                         <Route path="/your-details" element={<YourDetails />} />
                         <Route path="/caregiver-details" element={<CaregiverDetails />} />
                         <Route path="/delivery-options" element={<DeliveryOptions />} />
                         <Route path="/complete-application" element={<CompleteApplication />} />
                         <Route path="/signature" element={<Signature />} />
-                        <Route path="*" element={<h1>Not Found</h1>} />
+                        <Route path="*" navigate={<h1>Not Found</h1>} />
                         <Route path="/thank-you" element={<ThankYou />} />
                     </Routes>
                 </Layout>

@@ -19,6 +19,29 @@
     "specify-data": {
         "title": "Daten angeben",
         "description": "Geben Sie die Daten an, die Sie verwenden möchten",
+        "postAddress":{
+            "firstName":{
+                "label":"Vorname",
+                "placeholder":"Vorname"
+            },
+            "lastName":{
+                "label":"Nachname",
+                "placeholder":"Nachname"
+            },
+            "street":{
+                "label":"Straße, Hausnummer",
+                "placeholder":"Vollständige Adresse"
+            },
+            "postCode":{
+                "label":"Postleitzahl",
+                "placeholder":"Postleitzahl"
+            },
+            "city":{
+                "label":"Stadt",
+                "placeholder":"Stadt"
+            },  
+            "button":"Bewerbung per Post erhalten" 
+        },        
         "contactDetails": {
             "iam": {
                 "label": "Ich bin",

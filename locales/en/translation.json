@@ -19,6 +19,30 @@
     "specify-data":{
         "title":"Specify Data",
         "description":"Specify the data you want to use",
+        "postAddress":{
+            "firstName":{
+             "label":"First Name",
+                "placeholder":"First Name"  
+            },
+            "lastName":{
+                "label":"Last Name",
+                "placeholder":"Last Name"
+            },
+            "street":{
+                "label":"Street, house number",
+                "placeholder":"Full Address"
+            },
+            "postCode":{
+                "label":"Post Code",
+                "placeholder":"Post Code"
+            },
+            "city":{
+                "label":"City",
+                "placeholder":"City"
+            },
+            "button":"Receive application via post"
+
+        },
         "contactDetails":{
             "iam":{
                 "label":"I am",
