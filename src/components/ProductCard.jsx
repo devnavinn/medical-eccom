@@ -13,7 +13,7 @@ const ProductCard = ({ data }) => {
     const { _id, image, product_name, package_size, unit, isPG51, isGlove } = data;
 
     const isSliderValueApproximatelyGreaterThan40 = () => {
-        const desiredValue = 37;
+        const desiredValue = 57;
         return sliderValue >= desiredValue;
     };
 

@@ -1,5 +1,5 @@
 "use client"
-
+import { generatePdf } from "../../api/api";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useNavigate } from "react-router-dom";
 import React, { useRef } from 'react';
@@ -21,6 +21,7 @@ import {
     Dialog,
     DialogContent,
     DialogDescription,
+    DialogClose,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -88,15 +89,24 @@ export default function Signature() {
         setSignature(imageData);
         console.log(imageData);
     };
+
+    const handleDownload = async () => {
+        console.log('hii ');
+        const sessionId = localStorage.getItem('sessionId')
+        const res = await generatePdf(sessionId)
+        if (!res) return console.log('No data found')
+        const fullPath = `${import.meta.env.VITE_API_PDF_URL}/${res}`
+        window.open(fullPath, '_blank');
+    }
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                 <div>
                     <h3 className="mb-4 text-[#003787] text-lg font-medium">{label1}</h3>
                     <p className="text-sm text-[#3E3E3E]">{label2}</p>
-                    <div className="w-full mb-10">
+                    <div className="w-full mb-10 mt-2">
                         <Dialog >
-                            <DialogTrigger className='w-full h-60 border-b-2'>
+                            <DialogTrigger className='w-full h-60 border-2'>
                                 <img className="w-full object-contain" src={signature} />
                             </DialogTrigger>
                             <DialogContent>
@@ -111,7 +121,9 @@ export default function Signature() {
                                 />
                                 <div className="flex flex-row space-x-5">
                                     <Button variant={'outline'} onClick={() => clearSignature()}>{button2}</Button>
-                                    <Button variant={'outline'} onClick={() => getSignatureData()} >{button3}</Button>
+                                    <DialogClose asChild>
+                                        <Button variant={'outline'} onClick={() => getSignatureData()} >{button3}</Button>
+                                    </DialogClose>
                                 </div>
 
                             </DialogContent>
@@ -125,7 +137,7 @@ export default function Signature() {
                             name="costAssumptionSign"
                             render={({ field }) => (
                                 <FormItem className="flex flex-row items-center space-x-2 rounded-lg border p-4">
-                                    <div>
+                                    <div className="cursor-pointer" onClick={() => handleDownload()}>
                                         <img src={formImg} alt="Form img" />
                                     </div>
                                     <div className="flex-1">
@@ -218,12 +230,7 @@ export default function Signature() {
                                         <FormLabel>
                                             {declaration?.label}
                                         </FormLabel>
-                                        <FormDescription >
-                                            <span className="font-bold">{declaration?.value1}:</span>
-                                            {declaration?.value2}                                        </FormDescription>
-                                        <FormDescription>
-                                            If I give the above-mentioned consents and declarations for a third party, e.g. a person in need of care, I assure that the third person has authorized me to issue the declaration of consent and can present this authorization to web care LBJ GmbH at any time.
-                                        </FormDescription>
+
                                     </div>
                                 </FormItem>
                             )}

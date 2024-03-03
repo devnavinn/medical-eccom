@@ -244,7 +244,7 @@ function ContactDetails() {
                                     {declaration?.label}
                                 </FormLabel>
                                 <FormDescription>
-                                    <span className="font-semibold">{declaration?.value1}: </span>{declaration?.value2}
+                                    {/* <span className="font-semibold">{declaration?.value1}: </span>{declaration?.value2} */}
                                 </FormDescription>
                             </div>
                         </FormItem>

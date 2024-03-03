@@ -29,7 +29,7 @@ const FormSchema = z.object({
     city: z.string().nonempty(),
     dob: z.string().nonempty(),
     telephone: z.string().nonempty(),
-    email: z.string().nonempty(),
+    email: z.string().email("Plese enter valid email").nonempty(),
     insuranceType: z.string().nonempty(),
     insuranceNumber: z
         .string()

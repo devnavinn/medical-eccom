@@ -24,7 +24,7 @@ const ProductTab = () => {
     }, [seletedTab])
     return (
         <div className={`${pathname == '/' ? 'block' : 'hidden'}`}>
-            <h2 className="text-2xl text-[#003780] font-semibold">{title}</h2>
+            <h2 className="text-base md:text-2xl text-[#003780] font-semibold">{title}</h2>
             <div className="w-full flex flex-row space-x-2 sm:space-x-5 md:space-x-10 mt-5 overflow-x-scroll no-scrollbar">
 
                 {

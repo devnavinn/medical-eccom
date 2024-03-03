@@ -75,7 +75,7 @@
                 "value2": "Privat versichert (Sie gehen in Vorleistung und lassen sich die Kosten erstatten)"
             },
             "declaration": {
-                "label": "Ich bin damit einverstanden, dass pflege.de (Webpflege LBJ GmbH) meine persönlichen (ggf. auch gesundheitsbezogenen) Informationen, insbesondere Kontaktdaten/Versicherungsstatus, zur Bearbeitung des Antrags (zur Erhaltung der Pflegehilfsmittel) und zur Kontaktaufnahme in diesem Zusammenhang per E-Mail speichert und verarbeitet.",
+                "label": "Ich erkläre mich einverstanden, dass pflegepaket.org (Drylabs GmbH) meine personenbezogenen (und falls zutreffend, gesundheitsspezifischen) Daten, insbesondere meine Kontaktdaten und Versicherungsinformationen, speichert und nutzt, um meinen Antrag auf Pflegehilfsmittel zu bearbeiten und für entsprechende Kommunikation per E-Mail. Diese Zustimmung ist freiwillig und kann jederzeit per E-Mail an info@pflegepaket.org für die Zukunft widerrufen werden. Ein Widerruf bedeutet, dass die angebotenen Dienstleistungen nicht weiter zur Verfügung stehen. Details zum Datenschutz sind separat erhältlich.",
                 "value1": "Hinweis",
                 "value2": "Ich erkläre mich einverstanden, dass pflegepaket.org (Drylabs GmbH) meine personenbezogenen (und falls zutreffend, gesundheitsspezifischen) Daten, insbesondere meine Kontaktdaten und Versicherungsinformationen, speichert und nutzt, um meinen Antrag auf Pflegehilfsmittel zu bearbeiten und für entsprechende Kommunikation per E-Mail. Diese Zustimmung ist freiwillig und kann jederzeit per E-Mail an info@pflegepaket.org für die Zukunft widerrufen werden. Ein Widerruf bedeutet, dass die angebotenen Dienstleistungen nicht weiter zur Verfügung stehen. Details zum Datenschutz sind separat erhältlich."
             },
@@ -141,7 +141,7 @@
             "heading3": "Wenn Sie derzeit keine Daten haben, kopieren Sie den Link und speichern Sie ihn. Sie können den Link verwenden, um zu einem späteren Zeitpunkt zum Antrag zurückzukehren und mit Ihrem Antrag fortzufahren. Alle bisherigen Informationen werden erneut abgerufen.",
             "heading4": "Informationen zum Pflegegrad",
             "levelCare": {
-                "label": "Pflegegrad besteht seit:*",
+                "label": "Pflegegrad besteht seit:",
                 "label2": "Pflegegrad"
             },
             "declaration": "Ich möchte den Pfleger oder Betreuer des Versicherten angeben.",
@@ -238,7 +238,7 @@
             },
             "isAgree":"Ich stimme den Allgemeinen Geschäftsbedingungen der Drylabs GmbH zu.",
             "declaration":{
-                "label":"Ich stimme zu, dass pflege.de (Webcare LBJ GmbH) personenbezogene Daten (insbesondere Kontakt-/Gesundheitsdaten - z.B. Pflegegrad) für Beratung oder Information per Telefon, E-Mail und Post und Lieferung von Hilfsmitteln zur Verbrauchsanfrage verarbeitet und aufzeichnet Die Anfrage wird an die Gesundheits-/Pflegeversicherungen gesendet.",
+                "label":"Ich stimme zu, dass pflegepaket.org (Drylabs GmbH) personenbezogene Daten (insbesondere Kontakt-/Gesundheitsdaten - z.B. Pflegegrad) für Beratung oder Information per Telefon, E-Mail und Post sowie für die Anfrage und Lieferung von Hilfsmitteln verarbeitet und aufzeichnet. Die Anfrage wird an die Gesundheits-/Pflegeversicherungen gesendet. Ein Widerruf ist jederzeit möglich. Weitere Informationen zum Datenschutz finden Sie auf unserer Webseite. Wenn ich die Zustimmungen und Erklärungen für eine dritte Person, z.B. eine pflegebedürftige Person, abgebe, versichere ich, dass die dritte Person mich bevollmächtigt hat, diese Erklärungen abzugeben, und ich diese Berechtigung jederzeit der Drylabs GmbH vorlegen kann.",
                 "value1":"Hinweis",
                 "value2":"Ich stimme zu, dass pflegepaket.org (Drylabs GmbH) personenbezogene Daten (insbesondere Kontakt-/Gesundheitsdaten - z.B. Pflegegrad) für Beratung oder Information per Telefon, E-Mail und Post sowie für die Anfrage und Lieferung von Hilfsmitteln verarbeitet und aufzeichnet. Die Anfrage wird an die Gesundheits-/Pflegeversicherungen gesendet. Ein Widerruf ist jederzeit möglich. Weitere Informationen zum Datenschutz finden Sie auf unserer Webseite. Wenn ich die Zustimmungen und Erklärungen für eine dritte Person, z.B. eine pflegebedürftige Person, abgebe, versichere ich, dass die dritte Person mich bevollmächtigt hat, diese Erklärungen abzugeben, und ich diese Berechtigung jederzeit der Drylabs GmbH vorlegen kann."
             },

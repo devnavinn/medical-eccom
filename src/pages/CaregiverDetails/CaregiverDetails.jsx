@@ -27,7 +27,7 @@ const FormSchema = z.object({
     zip: z.string().nonempty({ message: "Zip is required." }),
     city: z.string().nonempty({ message: "City is required." }),
     telephone: z.string().nonempty({ message: "Telephone is required." }),
-    email: z.string().nonempty({ message: "Email is required." }),
+    email: z.string().email("Plese enter valid email").nonempty({ message: "Email is required." }),
 
 })
 import { useTranslation } from "react-i18next"
