@@ -9,8 +9,8 @@ const ProductTab = () => {
     const { t } = useTranslation()
     const { title, label, button } = t('cart')
     const location = useLocation()
-    const { setCartValue, seletedTab, setSelectedTab } = useCart()
     const { pathname } = location
+    const { setCartValue, seletedTab, setSelectedTab } = useCart()
     const [compliance, setCompliance] = useState([])
     useEffect(() => {
         getCompliance().then(data => { setCompliance(data) })

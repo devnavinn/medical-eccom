@@ -10,6 +10,7 @@ import { Button } from "./ui/button"
 import { useTranslation } from "react-i18next"
 const Cart = () => {
     const { t } = useTranslation()
+
     const { title, label, button } = t('cart')
     const location = useLocation()
     let { pathname } = location
@@ -32,13 +33,15 @@ const Cart = () => {
             <ProductTab />
             <div className="sticky top-0 right-0">
                 <div className="flex flex-col space-y-5 ">
-                    <div className="flex justify-between">
-                        <h1 className="texxt-xl md:text-2xl text-[#1A253B] font-bold">{label}</h1>
-                        <p className="text-xl text-[#1A253B] font-bold"> 60€</p>
+                    <div className={`${pathname == '/' ? 'block' : 'hidden'}`}>
+                        <div className="flex justify-between">
+                            <h1 className="texxt-xl md:text-2xl text-[#1A253B] font-bold">{label}</h1>
+                            <p className="text-xl text-[#1A253B] font-bold"> 60€</p>
+                        </div>
+                        <Slider defaultValue={[0]} value={[sliderValue]} max={60} step={4} disabled />
                     </div>
-                    <Slider defaultValue={[0]} value={[sliderValue]} max={60} step={4} disabled />
                 </div>
-                <div className=" max-lg:max-h-40 overflow-y-scroll lg:h-fit">
+                <div className=" max-lg:p-2 max-lg:max-h-44 overflow-y-scroll lg:h-fit">
                     {
                         cart?.map((item, index) => (
                             <div key={uuidv4()} className="flex justify-between items-center  border-[#003780] py-2 rounded-lg shadow-lg">
