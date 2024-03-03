@@ -72,12 +72,12 @@
             "insuredIs": {
                 "label": "Der Versicherte ist",
                 "value1": "Gesetzlich versichert (Kosten werden von der Pflegeversicherung übernommen)",
-                "value2": "Privat versichert"
+                "value2": "Privat versichert (Sie gehen in Vorleistung und lassen sich die Kosten erstatten)"
             },
             "declaration": {
                 "label": "Ich bin damit einverstanden, dass pflege.de (Webpflege LBJ GmbH) meine persönlichen (ggf. auch gesundheitsbezogenen) Informationen, insbesondere Kontaktdaten/Versicherungsstatus, zur Bearbeitung des Antrags (zur Erhaltung der Pflegehilfsmittel) und zur Kontaktaufnahme in diesem Zusammenhang per E-Mail speichert und verarbeitet.",
                 "value1": "Hinweis",
-                "value2": "Die Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft per E-Mail an affectedrechte@pflege.de widerrufen werden. Im Falle eines Widerrufs können wir Ihnen die entsprechenden Dienste nicht mehr bereitstellen. Weitere Informationen zum Datenschutz finden Sie hier."
+                "value2": "Ich erkläre mich einverstanden, dass pflegepaket.org (Drylabs GmbH) meine personenbezogenen (und falls zutreffend, gesundheitsspezifischen) Daten, insbesondere meine Kontaktdaten und Versicherungsinformationen, speichert und nutzt, um meinen Antrag auf Pflegehilfsmittel zu bearbeiten und für entsprechende Kommunikation per E-Mail. Diese Zustimmung ist freiwillig und kann jederzeit per E-Mail an info@pflegepaket.org für die Zukunft widerrufen werden. Ein Widerruf bedeutet, dass die angebotenen Dienstleistungen nicht weiter zur Verfügung stehen. Details zum Datenschutz sind separat erhältlich."
             },
             "button": "Weiter im Antragsprozess"
         },
@@ -127,7 +127,7 @@
             "insuranceInfo": {
                 "label": "Krankenversicherungsinformationen",
                 "value1": "Gesetzlich versichert (Kosten werden von der Pflegeversicherung übernommen)",
-                "value2": "Privat versichert"
+                "value2": "Privat versichert (Sie gehen in Vorleistung und lassen sich die Kosten erstatten)"
             },
             "insuranceNumber": {
                 "label": "Versicherungsnummer",
@@ -141,7 +141,7 @@
             "heading3": "Wenn Sie derzeit keine Daten haben, kopieren Sie den Link und speichern Sie ihn. Sie können den Link verwenden, um zu einem späteren Zeitpunkt zum Antrag zurückzukehren und mit Ihrem Antrag fortzufahren. Alle bisherigen Informationen werden erneut abgerufen.",
             "heading4": "Informationen zum Pflegegrad",
             "levelCare": {
-                "label": "Pflege seit",
+                "label": "Pflegegrad besteht seit:*",
                 "label2": "Pflegegrad"
             },
             "declaration": "Ich möchte den Pfleger oder Betreuer des Versicherten angeben.",
@@ -236,11 +236,11 @@
                 "value1":"Mit allen Informationen über Ihre gewünschten Pflegehilfsmittel und Genehmigung der Kostenübernahme durch die Pflegeversicherung des Versicherten.",
                 "value2":"Unterschrift akzeptieren"
             },
-            "isAgree":"Ich stimme den Allgemeinen Geschäftsbedingungen der Webcare LBJ GmbH zu.",
+            "isAgree":"Ich stimme den Allgemeinen Geschäftsbedingungen der Drylabs GmbH zu.",
             "declaration":{
                 "label":"Ich stimme zu, dass pflege.de (Webcare LBJ GmbH) personenbezogene Daten (insbesondere Kontakt-/Gesundheitsdaten - z.B. Pflegegrad) für Beratung oder Information per Telefon, E-Mail und Post und Lieferung von Hilfsmitteln zur Verbrauchsanfrage verarbeitet und aufzeichnet Die Anfrage wird an die Gesundheits-/Pflegeversicherungen gesendet.",
                 "value1":"Hinweis",
-                "value2":"Ein Widerruf ist jederzeit in Zukunft möglich. Weitere Informationen zum Datenschutz finden Sie hier. Wenn ich die oben genannten Einwilligungen und Erklärungen für eine dritte Person, z.B. eine pflegebedürftige Person, abgebe, versichere ich, dass die dritte Person mich bevollmächtigt hat, die Einwilligungserklärung abzugeben und diese Berechtigung jederzeit der Webcare LBJ GmbH vorlegen kann."
+                "value2":"Ich stimme zu, dass pflegepaket.org (Drylabs GmbH) personenbezogene Daten (insbesondere Kontakt-/Gesundheitsdaten - z.B. Pflegegrad) für Beratung oder Information per Telefon, E-Mail und Post sowie für die Anfrage und Lieferung von Hilfsmitteln verarbeitet und aufzeichnet. Die Anfrage wird an die Gesundheits-/Pflegeversicherungen gesendet. Ein Widerruf ist jederzeit möglich. Weitere Informationen zum Datenschutz finden Sie auf unserer Webseite. Wenn ich die Zustimmungen und Erklärungen für eine dritte Person, z.B. eine pflegebedürftige Person, abgebe, versichere ich, dass die dritte Person mich bevollmächtigt hat, diese Erklärungen abzugeben, und ich diese Berechtigung jederzeit der Drylabs GmbH vorlegen kann."
             },
             "button":"Antrag kostenlos einreichen",
             "button2":"Unterschrift löschen",
@@ -250,21 +250,21 @@
             {
                 "heading": "Jetzt online ausfüllen",
                 "action": "complete-online",
-                "description": "Geben Sie jetzt alle erforderlichen Daten ein und unterschreiben Sie dann den Antrag digital, um Ihre Curabox innerhalb weniger Arbeitstage zu erhalten.",
+                "description": "Bitte füllen Sie alle notwendigen Informationen aus und leisten Sie eine digitale Unterschrift auf den Antrag, um Ihr Pflegepaket innerhalb weniger Arbeitstage zu empfangen.",
                 "icon": "icon1",
                 "button": "Fortfahren"
             },
             {
                 "heading": "Später fortfahren",
                 "action": "continue-later",
-                "description": "Haben Sie nicht alle Daten zur Hand? Kein Problem. Wir senden Ihnen einen Link an Ihre E-Mail-Adresse: example@gmail.com, den Sie jederzeit verwenden können, um Ihren Antrag online zu vervollständigen.",
+                "description": "Within the text, where it says email adress, paste in the email adress, which has been entered by the customer in previous step.",
                 "icon": "icon2",
                 "button": "Link per E-Mail erhalten"
             },
             {
                 "heading": "Antrag herunterladen",
                 "action": "download-application",
-                "description": "Laden Sie den Antrag mit Ihren bisherigen Daten als PDF herunter, drucken Sie ihn aus, füllen Sie bequem zu Hause fehlende Informationen aus und senden Sie den Antrag dann per Post oder E-Mail zurück.",
+                "description": "Laden Sie das Formular mit Ihren bereits eingegebenen Daten als PDF herunter und drucken Sie es aus. Ergänzen Sie zu Hause in aller Ruhe die noch fehlenden Informationen. Anschließend senden Sie den vollständig ausgefüllten Antrag entweder per Post oder E-Mail zurück.",
                 "icon": "icon3",
                 "button": "Herunterladen"
             },
@@ -284,34 +284,34 @@
         "thankYou": [
             {
                 "icon": "first",
-                "desc": "Ihre Anwendung wird jetzt bearbeitet und an die Pflegeversicherung geschickt."
+                "desc": "Ihr Antrag wird nun durch uns bearbeitet und an Ihre Pflegeversicherung weitergeleitet."
             },
             {
                 "icon": "second",
-                "desc": "Nach Genehmigung durch die Pflegekasse erhalten Sie jeden Monat kostenlos Ihre Curabox direkt nach Hause geliefert."
+                "desc": "Nach Genehmigung durch Ihre Pflegekasse, erhalten Sie sodann jeden Monat kostenfrei Ihr Pflegepaket direkt nach Hause geschickt. Natürlich kostenlos."
             },
             {
                 "icon": "third",
-                "desc": "Zu Ihrer Information können Sie hier Ihr ausgefülltes Formular abrufen. Sie erhalten das Formular in Kürze per E-Mail an mark@hotmail.com, damit Sie es jederzeit wiederfinden können."
+                "desc": "Make the PDF Symbol a link, which leads to the download of the signed PDF. The signed PDF must also be sent to the user be Email automatically"
             }
         ]
     },
     "steps": {
         "contact-details": {
             "title": "Kontaktdaten",
-            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+            "description": "Wir haben Ihr Pflegepaket vorbereitet. Bitte tragen Sie Ihre persönlichen Informationen ein, damit wir mit Ihnen bezüglich zukünftiger Anfragen und zur Abwicklung Ihres Pakets in Verbindung treten können. Sobald Ihre Kontaktinformationen hinterlegt sind, steht es Ihnen frei, alle weiteren Details in Ruhe zu ergänzen. Zu diesem Zeitpunkt erfolgt noch keine Bestellung."
         },
         "continue": {
             "title": "Fortfahren",
-            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+            "description": "Ihr Pflegepaket ist vorbereitet. Bitte tragen Sie Ihre persönlichen Informationen ein, damit wir die Möglichkeit haben, Sie bezüglich weiterführender Anfragen und der Abwicklung Ihres Pflegepakets zu kontaktieren. Sobald Ihre Kontaktinformationen hinterlegt sind, können Sie in Ruhe alle erforderlichen weiteren Daten angeben. In diesem Schritt erfolgt noch keine Bestellung."
         },
         "your-details": {
             "title": "Ihre Daten",
-            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+            "description": "IUm das bereits angelegte Pflegepaket in Anspruch zu nehmen, ist es erforderlich, dass Sie zunächst Ihre persönlichen Informationen einpflegen. Diese Daten ermöglichen es uns, Sie für etwaige Nachfragen und zur finalen Abwicklung Ihres Pakets zu kontaktieren. Nachdem die Kontaktdaten hinterlegt sind, besteht die Möglichkeit, weitere erforderliche Angaben ohne Zeitdruck zu ergänzen. Eine Bestellung wird noch nicht getätigt."
         },
         "caregiver-details": {
             "title": "Angaben zur Pflegeperson",
-            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+            "description": "Um Ihr Pflegepaket zu vervollständigen, bitten wir Sie, Ihre persönlichen Daten einzugeben. Dies ermöglicht es uns, Sie für zukünftige Anfragen und die Finalisierung Ihres Pakets zu kontaktieren. Nachdem Sie die Kontaktdaten hinterlegt haben, haben Sie die Möglichkeit, in Ruhe alle zusätzlichen erforderlichen Informationen anzugeben. In diesem Schritt erfolgrt noch keine Bestellung."
         },
         "delivery-options": {
             "title": "Lieferoptionen",
@@ -319,15 +319,15 @@
         },
         "complete-application": {
             "title": "Antrag vervollständigen",
-            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+            "description": "Um Ihr Pflegepaket zu vervollständigen, bitten wir Sie, Ihre persönlichen Daten einzugeben. Dies ermöglicht es uns, Sie für zukünftige Anfragen und die Finalisierung Ihres Pakets zu kontaktieren. Nachdem Sie die Kontaktdaten hinterlegt haben, haben Sie die Möglichkeit, in Ruhe alle zusätzlichen erforderlichen Informationen anzugeben. Sie geben noch keine Bestellung auf."
         },
         "signature": {
             "title": "Unterschrift",
-            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+            "description": "Um Ihr Pflegepaket zu vervollständigen, bitten wir Sie, Ihre persönlichen Daten einzugeben. Dies ermöglicht es uns, Sie für zukünftige Anfragen und die Finalisierung Ihres Pakets zu kontaktieren. Nachdem Sie die Kontaktdaten hinterlegt haben, haben Sie die Möglichkeit, in Ruhe alle zusätzlichen erforderlichen Informationen anzugeben. Es erfolgt noch keine Bestellung."
         },
         "thank-you": {
             "title": "Danke",
-            "description": "Ihre Box ist erstellt. Geben Sie nun Ihre persönlichen Daten ein, damit wir Sie für weitere Anträge und die Bearbeitung der Curabox kontaktieren können. Nachdem Sie Ihre Kontaktdaten gespeichert haben, können Sie alle weiteren Angaben in aller Ruhe machen. Sie geben noch keine Bestellung auf."
+            "description": "Vielen Dank für Ihre Bestellung! Wir bearbeiten Ihren Antrag nun in Windeseile, so dass Sie schonin Kürze in den genuss Ihres Pflegepakets kommen werden, inklusive der kostenlosen Zusatz- und Begrüßungsprodukte."
         }
     },
     "footer": {

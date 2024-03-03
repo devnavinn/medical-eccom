@@ -21,8 +21,8 @@ i18n.use(LanguageDectector)
                 translation: translationDE
             },
         },
-        lng: 'en', // default language
-        fallbackLng: 'en', // fallback language
+        lng: 'de', // default language
+        fallbackLng: 'de', // fallback language
         interpolation: {
             escapeValue: false // react already safes from xss
         }
