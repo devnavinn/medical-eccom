@@ -6,8 +6,8 @@ import React, { useRef } from 'react';
 import SignatureCanvas from 'react-signature-canvas';
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import formImg from '../../assets/form.svg'
-import signImg from '../../assets/sign.svg'
+import formImg from '../../assets/pdf-form.png'
+import signImg from '../../assets/pdf-sign.png'
 import { Button } from "@/components/ui/button"
 import {
     Form,
@@ -136,8 +136,8 @@ export default function Signature() {
                             control={form.control}
                             name="costAssumptionSign"
                             render={({ field }) => (
-                                <FormItem className="flex flex-row items-center space-x-2 rounded-lg border p-4">
-                                    <div className="cursor-pointer" onClick={() => handleDownload()}>
+                                <FormItem className="flex flex-col sm:flex-row items-center space-x-2 rounded-lg border p-4">
+                                    <div className="cursor-pointer w-24" onClick={() => handleDownload()} >
                                         <img src={formImg} alt="Form img" />
                                     </div>
                                     <div className="flex-1">
@@ -168,8 +168,8 @@ export default function Signature() {
                             control={form.control}
                             name="supplier_sign"
                             render={({ field }) => (
-                                <FormItem className="flex flex-row items-center space-x-2 rounded-lg border p-4">
-                                    <div>
+                                <FormItem className="flex flex-col sm:flex-row items-center justify-center space-x-2 rounded-lg border p-4">
+                                    <div className="w-20">
                                         <img src={signImg} alt="Form img" />
                                     </div>
                                     <div className="flex-1">
