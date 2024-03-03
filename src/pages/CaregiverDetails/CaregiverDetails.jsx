@@ -18,17 +18,16 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
-    salutation: z.enum(["mister", "woman"], {
-        required_error: "You need to select a notification type.",
+    anrede: z.enum(["Herr", "Frau"], {
+        required_error: "Sie müssen eine Anrede auswählen.",
     }),
-    firstName: z.string().nonempty({ message: "First name is required." }),
-    lastName: z.string().nonempty({ message: "Last name is required." }),
-    street: z.string().nonempty({ message: "Street is required." }),
-    zip: z.string().nonempty({ message: "Zip is required." }),
-    city: z.string().nonempty({ message: "City is required." }),
-    telephone: z.string().nonempty({ message: "Telephone is required." }),
-    email: z.string().email("Plese enter valid email").nonempty({ message: "Email is required." }),
-
+    vorname: z.string().nonempty({ message: "Vorname ist erforderlich." }),
+    nachname: z.string().nonempty({ message: "Nachname ist erforderlich." }),
+    straße: z.string().nonempty({ message: "Straße ist erforderlich." }),
+    plz: z.string().nonempty({ message: "PLZ ist erforderlich." }),
+    stadt: z.string().nonempty({ message: "Stadt ist erforderlich." }),
+    telefon: z.string().nonempty({ message: "Telefon ist erforderlich." }),
+    email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein").nonempty({ message: "E-Mail ist erforderlich." }),
 })
 import { useTranslation } from "react-i18next"
 export default function CaregiverDetails() {
@@ -63,7 +62,7 @@ export default function CaregiverDetails() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                 <FormField
                     control={form.control}
-                    name="salutation"
+                    name="anrede"
                     render={({ field }) => (
                         <FormItem className="space-y-3">
                             <FormLabel className='text-2xl text-[#003780]'>{personalInfo?.label}</FormLabel>
@@ -100,7 +99,7 @@ export default function CaregiverDetails() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
-                        name="firstName"
+                        name="vorname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{firstName?.label}</FormLabel>
@@ -113,7 +112,7 @@ export default function CaregiverDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="lastName"
+                        name="nachname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{lastName?.label}</FormLabel>
@@ -128,7 +127,7 @@ export default function CaregiverDetails() {
                 </div>
                 <FormField
                     control={form.control}
-                    name="street"
+                    name="straße"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>{street?.label}*</FormLabel>
@@ -142,7 +141,7 @@ export default function CaregiverDetails() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
-                        name="zip"
+                        name="plz"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{postCode?.label} *</FormLabel>
@@ -155,7 +154,7 @@ export default function CaregiverDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="city"
+                        name="stadt"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{city?.label}</FormLabel>
@@ -173,7 +172,7 @@ export default function CaregiverDetails() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
-                        name="telephone"
+                        name="telefon"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{telephoneNumber?.label} *</FormLabel>

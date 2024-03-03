@@ -20,25 +20,25 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 const FormSchema = z.object({
-    contactType: z.string().nonempty(),
-    salutation: z.string().nonempty(),
-    firstName: z.string().nonempty(),
-    lastName: z.string().nonempty(),
-    street: z.string().nonempty(),
-    zip: z.string().nonempty(),
-    city: z.string().nonempty(),
-    dob: z.string().nonempty(),
-    telephone: z.string().nonempty(),
-    email: z.string().email("Plese enter valid email").nonempty(),
-    insuranceType: z.string().nonempty(),
-    insuranceNumber: z
+    kontaktTyp: z.string().nonempty(),
+    anrede: z.string().nonempty(),
+    vorname: z.string().nonempty(),
+    nachname: z.string().nonempty(),
+    straße: z.string().nonempty(),
+    plz: z.string().nonempty(),
+    stadt: z.string().nonempty(),
+    gebDatum: z.string().nonempty(),
+    telefon: z.string().nonempty(),
+    email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein").nonempty(),
+    versicherungsTyp: z.string().nonempty(),
+    versicherungsnummer: z
         .string()
         .nonempty()
-        .regex(/^[a-zA-Z][0-9]{9}$/, 'Please enter a valid insurance number (must start with a letter and be followed by 9 digits)'),
-    healthInsurance: z.string().nonempty(),
+        .regex(/^[a-zA-Z][0-9]{9}$/, 'Bitte geben Sie eine gültige Versicherungsnummer ein (muss mit einem Buchstaben beginnen und von 9 Ziffern gefolgt werden)'),
+    krankenversicherung: z.string().nonempty(),
     // link: z.string().nonempty(),
-    careSince: z.string().nonempty(),
-    addCarePerson: z.boolean(),
+    pflegeseit: z.string().nonempty(),
+    pflegepersonHinzufügen: z.boolean(),
 
 })
 import { useTranslation } from "react-i18next"
@@ -124,7 +124,7 @@ function YourDetils() {
 
                     <FormField
                         control={form.control}
-                        name="contactType"
+                        name="kontaktTyp"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>{iam?.label}*</FormLabel>
@@ -160,7 +160,7 @@ function YourDetils() {
                     />
                     <FormField
                         control={form.control}
-                        name="salutation"
+                        name="anrede"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>{gender?.label}*</FormLabel>
@@ -194,7 +194,7 @@ function YourDetils() {
                     />
                     <FormField
                         control={form.control}
-                        name="firstName"
+                        name="vorname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{firstName?.label}</FormLabel>
@@ -207,7 +207,7 @@ function YourDetils() {
                     />
                     <FormField
                         control={form.control}
-                        name="lastName"
+                        name="nachname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{lastName?.label}</FormLabel>
@@ -222,7 +222,7 @@ function YourDetils() {
                 </div>
                 <FormField
                     control={form.control}
-                    name="street"
+                    name="straße"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>{street?.label} *</FormLabel>
@@ -236,7 +236,7 @@ function YourDetils() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
-                        name="zip"
+                        name="plz"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{postCode?.label}</FormLabel>
@@ -249,7 +249,7 @@ function YourDetils() {
                     />
                     <FormField
                         control={form.control}
-                        name="city"
+                        name="stadt"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{city?.label}</FormLabel>
@@ -262,7 +262,7 @@ function YourDetils() {
                     />
                     <FormField
                         control={form.control}
-                        name="dob"
+                        name="gebDatum"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{birthDate?.label}*</FormLabel>
@@ -281,7 +281,7 @@ function YourDetils() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
                         <FormField
                             control={form.control}
-                            name="telephone"
+                            name="telefon"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>{telephoneNumber?.label}*</FormLabel>
@@ -311,7 +311,7 @@ function YourDetils() {
 
                     <FormField
                         control={form.control}
-                        name="insuranceType"
+                        name="versicherungsTyp"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>{insuranceInfo?.label}</FormLabel>
@@ -346,7 +346,7 @@ function YourDetils() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
                         <FormField
                             control={form.control}
-                            name="insuranceNumber"
+                            name="versicherungsnummer"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>{insuranceNumber?.label}*</FormLabel>
@@ -359,7 +359,7 @@ function YourDetils() {
                         />
                         <FormField
                             control={form.control}
-                            name="healthInsurance"
+                            name="krankenversicherung"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>{insuranceName?.label}*</FormLabel>
@@ -414,7 +414,7 @@ function YourDetils() {
                 <div className="w-1/2">
                     <FormField
                         control={form.control}
-                        name="careSince"
+                        name="pflegeseit"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel className='text-2xl text-[#003780]'>{heading4}</FormLabel>
@@ -454,7 +454,7 @@ function YourDetils() {
                 </div>
                 <FormField
                     control={form.control}
-                    name="addCarePerson"
+                    name="pflegepersonHinzufügen"
                     render={({ field }) => (
                         <FormItem className="flex flex-row items-center space-x-2  rounded-lg border p-2">
                             <FormControl>

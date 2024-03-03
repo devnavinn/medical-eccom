@@ -30,17 +30,17 @@ import { orderPlace } from "../../api/api";
 import { Switch } from "@/components/ui/switch"
 import { Checkbox } from "@/components/ui/checkbox"
 const FormSchema = z.object({
-    costAssumptionSign: z.boolean().refine(val => val === true, {
-        message: "Value must be true."
+    kostenannahmezeichen: z.boolean().refine(val => val === true, {
+        message: "Wert muss true sein."
     }),
-    supplier_sign: z.boolean().refine(val => val === true, {
-        message: "Value must be true."
+    lieferant_zeichen: z.boolean().refine(val => val === true, {
+        message: "Wert muss true sein."
     }),
-    dataProtection: z.boolean().refine(val => val === true, {
-        message: "Value must be true."
+    datenschutz: z.boolean().refine(val => val === true, {
+        message: "Wert muss true sein."
     }),
-    tramsCond: z.boolean().refine(val => val === true, {
-        message: "Value must be true."
+    trams_bed: z.boolean().refine(val => val === true, {
+        message: "Wert muss true sein."
     }),
 });
 
@@ -134,7 +134,7 @@ export default function Signature() {
                     <div className="space-y-4">
                         <FormField
                             control={form.control}
-                            name="costAssumptionSign"
+                            name="kostenannahmezeichen"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col sm:flex-row items-center space-x-2 rounded-lg border p-4">
                                     <div className="cursor-pointer w-24" onClick={() => handleDownload()} >
@@ -166,7 +166,7 @@ export default function Signature() {
                         />
                         <FormField
                             control={form.control}
-                            name="supplier_sign"
+                            name="lieferant_zeichen"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col sm:flex-row items-center justify-center space-x-2 rounded-lg border p-4">
                                     <div className="w-20">
@@ -198,7 +198,7 @@ export default function Signature() {
                         />
                         <FormField
                             control={form.control}
-                            name="dataProtection"
+                            name="datenschutz"
                             render={({ field }) => (
                                 <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                                     <FormControl>
@@ -217,7 +217,7 @@ export default function Signature() {
                         />
                         <FormField
                             control={form.control}
-                            name="tramsCond"
+                            name="trams_bed"
                             render={({ field }) => (
                                 <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                                     <FormControl>

@@ -25,13 +25,14 @@ import {
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 const FormSchema = z.object({
-    reciepient: z.string().nonempty({ message: "Recipient is required." }),
-    companyName: z.string().optional(),
-    street: z.string().optional(),
-    zip: z.string().optional(),
-    city: z.string().optional(),
-    switchToCurabox: z.boolean().optional(),
-    deliveryStart: z.string().nonempty({ message: "Delivery start is required." }),
+    empfänger: z.string().nonempty({ message: "Empfänger ist erforderlich." }),
+    firmenname: z.string().optional(),
+    straße: z.string().optional(),
+    plz: z.string().optional(),
+    stadt: z.string().optional(),
+    wechselZuPflegepaket: z.boolean().optional(),
+    lieferstart: z.string().nonempty({ message: "Lieferstart ist erforderlich." }),
+
 })
 import { useTranslation } from "react-i18next"
 export default function DeliveryOptions() {
@@ -70,7 +71,7 @@ export default function DeliveryOptions() {
                 <h3 className="text-2xl text-[#003780] mt-5">{heading1}</h3>
                 <FormField
                     control={form.control}
-                    name="reciepient"
+                    name="empfänger"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>{select?.label}</FormLabel>
@@ -98,7 +99,7 @@ export default function DeliveryOptions() {
                 <div className={`${isCommissionedServiceSelected ? 'block' : 'hidden'} grid grid-cols-1 md:grid-cols-2 gap-5`}>
                     <FormField
                         control={form.control}
-                        name="companyName"
+                        name="firmenname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{companyName?.label}</FormLabel>
@@ -111,7 +112,7 @@ export default function DeliveryOptions() {
                     />
                     <FormField
                         control={form.control}
-                        name="street"
+                        name="straße"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{street?.label}</FormLabel>
@@ -124,7 +125,7 @@ export default function DeliveryOptions() {
                     />
                     <FormField
                         control={form.control}
-                        name="zip"
+                        name="plz"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{postCode?.label}</FormLabel>
@@ -137,7 +138,7 @@ export default function DeliveryOptions() {
                     />
                     <FormField
                         control={form.control}
-                        name="city"
+                        name="stadt"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{city?.label}</FormLabel>
@@ -154,7 +155,7 @@ export default function DeliveryOptions() {
 
                     <FormField
                         control={form.control}
-                        name="switchToCurabox"
+                        name="wechselZuPflegepaket"
                         render={({ field }) => (
                             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                                 <FormControl>
@@ -175,7 +176,7 @@ export default function DeliveryOptions() {
                     <div className="w-1/2 mt-5">
                         <FormField
                             control={form.control}
-                            name="deliveryStart"
+                            name="lieferstart"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>{deliveryStart}*</FormLabel>

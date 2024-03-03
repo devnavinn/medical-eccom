@@ -18,15 +18,14 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 const FormSchema = z.object({
-    contactType: z.string().nonempty(),
-    salutation: z.string().nonempty(),
-    firstName: z.string().nonempty(),
-    lastName: z.string().nonempty(),
+    kontaktTyp: z.string().nonempty(),
+    anrede: z.string().nonempty(),
+    vorname: z.string().nonempty(),
+    nachname: z.string().nonempty(),
     email: z.string().email(),
-    phone: z.string().nonempty().regex(/^\+49\d{10}$/, { message: 'Invalid Zerman phone number format' }),
-    insuranceType: z.string().nonempty(),
-    dataProtection: z.boolean(),
-
+    telefon: z.string().nonempty().regex(/^\+49\d{10}$/, { message: 'Ungültiges deutsches Telefonnummerformat' }),
+    versicherungsTyp: z.string().nonempty(),
+    datenschutz: z.boolean(),
 })
 
 import { useTranslation } from "react-i18next"
@@ -72,7 +71,7 @@ function ContactDetails() {
 
                     <FormField
                         control={form.control}
-                        name="contactType"
+                        name="kontaktTyp"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>{iam?.label}*</FormLabel>
@@ -108,7 +107,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="salutation"
+                        name="anrede"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>{gender?.label}*</FormLabel>
@@ -142,7 +141,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="firstName"
+                        name="vorname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{firstName?.label}</FormLabel>
@@ -155,7 +154,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="lastName"
+                        name="nachname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{lastName?.label}</FormLabel>
@@ -181,7 +180,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="phone"
+                        name="telefon"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{phone?.label}</FormLabel>
@@ -195,7 +194,7 @@ function ContactDetails() {
                 </div>
                 <FormField
                     control={form.control}
-                    name="insuranceType"
+                    name="versicherungsTyp"
                     render={({ field }) => (
                         <FormItem className="space-y-3">
                             <FormLabel className='text-2xl text-[#003780]'>{insuredIs?.label}</FormLabel>
@@ -230,7 +229,7 @@ function ContactDetails() {
 
                 <FormField
                     control={form.control}
-                    name="dataProtection"
+                    name="datenschutz"
                     render={({ field }) => (
                         <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow">
                             <FormControl>
