@@ -34,17 +34,17 @@ const Cart = () => {
     return (
         <div className={`flex flex-col space-y-2 relative ${isMobile && 'hidden'}`}>
             <ProductTab />
-            <div className="sticky top-5 right-0">
+            <div className="sticky top-5 right-0 ">
                 <div className="flex flex-col space-y-5 ">
                     <div className={`${pathname == '/' ? 'block' : 'hidden'}`}>
-                        <div className="flex justify-between">
-                            <h1 className="texxt-xl md:text-2xl text-[#1A253B] font-bold">{label}</h1>
+                        <div className="flex justify-between py-2">
+                            <h1 className="text-xl md:text-2xl text-[#1A253B] font-bold">{label}</h1>
                             <p className="text-xl text-[#1A253B] font-bold"> 60€</p>
                         </div>
                         <Slider defaultValue={[0]} value={[sliderValue]} max={60} step={4} disabled />
                     </div>
                 </div>
-                <div className=" ">
+                <div className="mt-5">
                     {
                         cart?.map((item, index) => (
                             <div key={uuidv4()} className="flex justify-between items-center  border-[#003780] py-2 rounded-lg shadow-lg">
