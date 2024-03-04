@@ -44,7 +44,7 @@ const Cart = () => {
                         <Slider defaultValue={[0]} value={[sliderValue]} max={60} step={4} disabled />
                     </div>
                 </div>
-                <div className="mt-5 max-lg:h-40 max-lg:overflow-y-scroll ">
+                <div className="mt-5 max-lg:max-h-40 max-lg:overflow-y-scroll ">
                     {
                         cart?.map((item, index) => (
                             <div key={uuidv4()} className="flex justify-between items-center  border-[#003780] py-2 rounded-lg shadow-lg">
