@@ -34,7 +34,7 @@ const Cart = () => {
     return (
         <div className={`flex flex-col space-y-2 relative ${(isMobile && pathname !== '/') && 'hidden'}`}>
             <ProductTab />
-            <div className="sticky top-5 right-0 bg-white">
+            <div className="sticky z-10 top-5 right-0 bg-white">
                 <div className="flex flex-col space-y-5 ">
                     <div className={`${pathname == '/' ? 'block' : 'hidden'}`}>
                         <div className="flex justify-between py-2">
