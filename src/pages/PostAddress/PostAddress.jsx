@@ -50,6 +50,7 @@ export default function PostAddress() {
                 title: "Success",
                 description: "Application will be reviewed soon",
             })
+            form.reset()
             // navigate('/')
         }
 
