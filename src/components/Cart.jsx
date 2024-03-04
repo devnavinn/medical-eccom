@@ -32,7 +32,7 @@ const Cart = () => {
         updateCart(index, newCart[index]);
     }
     return (
-        <div className={`flex flex-col space-y-2 relative ${isMobile && 'hidden'}`}>
+        <div className={`flex flex-col space-y-2 relative ${(isMobile && pathname !== '/') && 'hidden'}`}>
             <ProductTab />
             <div className="sticky top-5 right-0 ">
                 <div className="flex flex-col space-y-5 ">
@@ -44,7 +44,7 @@ const Cart = () => {
                         <Slider defaultValue={[0]} value={[sliderValue]} max={60} step={4} disabled />
                     </div>
                 </div>
-                <div className="mt-5">
+                <div className="mt-5 max-lg:h-40 overflow-y-scroll ">
                     {
                         cart?.map((item, index) => (
                             <div key={uuidv4()} className="flex justify-between items-center  border-[#003780] py-2 rounded-lg shadow-lg">
@@ -99,7 +99,7 @@ const Cart = () => {
                         ))
                     }
                 </div>
-                {
+                <div className="mt-2">                {
                     pathname == '/' && (
                         <Link to={'/contact-details'}>
                             <Button className={cn('w-full flex justify-center rounded-lg bg-[#003780] text-white', cart?.length == 0 && 'hidden')} variant={'primary'}>
@@ -108,6 +108,8 @@ const Cart = () => {
                         </Link>
                     )
                 }
+                </div>
+
             </div>
         </div>
     )
