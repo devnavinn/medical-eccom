@@ -51,7 +51,7 @@ export default function PostAddress() {
                 description: "Application will be reviewed soon",
             })
             form.reset()
-            // navigate('/')
+            navigate('/')
         }
 
     }
