@@ -172,7 +172,7 @@ function YourDetils() {
                                     >
                                         <FormItem className="flex items-center space-x-3 space-y-0">
                                             <FormControl>
-                                                <RadioGroupItem value="Mister" />
+                                                <RadioGroupItem value="Herr" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
                                                 {gender?.value1}
@@ -180,7 +180,7 @@ function YourDetils() {
                                         </FormItem>
                                         <FormItem className="flex items-center space-x-3 space-y-0">
                                             <FormControl>
-                                                <RadioGroupItem value="Woman" />
+                                                <RadioGroupItem value="Frau" />
                                             </FormControl>
                                             <FormLabel className="font-normal">
                                                 {gender?.value2}

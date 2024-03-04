@@ -74,7 +74,7 @@ export default function CaregiverDetails() {
                                 >
                                     <FormItem className="flex items-center space-x-3 space-y-0">
                                         <FormControl>
-                                            <RadioGroupItem value="mister" />
+                                            <RadioGroupItem value="Herr" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
                                             {personalInfo?.value1}
@@ -82,7 +82,7 @@ export default function CaregiverDetails() {
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
                                         <FormControl>
-                                            <RadioGroupItem value="woman" />
+                                            <RadioGroupItem value="Frau" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
                                             {personalInfo?.value2}

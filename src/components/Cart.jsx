@@ -8,7 +8,10 @@ import { cn } from "@/lib/utils"
 import { Slider } from "@/components/ui/slider"
 import { Button } from "./ui/button"
 import { useTranslation } from "react-i18next"
+import { useMediaQuery } from '@react-hook/media-query';
 const Cart = () => {
+    const isMobile = useMediaQuery("(max-width: 1024px)")
+
     const { t } = useTranslation()
 
     const { title, label, button } = t('cart')
@@ -29,7 +32,7 @@ const Cart = () => {
         updateCart(index, newCart[index]);
     }
     return (
-        <div className="flex flex-col space-y-2 relative">
+        <div className={`flex flex-col space-y-2 relative ${isMobile && 'hidden'}`}>
             <ProductTab />
             <div className="sticky top-0 right-0">
                 <div className="flex flex-col space-y-5 ">
@@ -41,7 +44,7 @@ const Cart = () => {
                         <Slider defaultValue={[0]} value={[sliderValue]} max={60} step={4} disabled />
                     </div>
                 </div>
-                <div className=" max-lg:p-2 max-lg:max-h-44 overflow-y-scroll lg:h-fit">
+                <div className=" ">
                     {
                         cart?.map((item, index) => (
                             <div key={uuidv4()} className="flex justify-between items-center  border-[#003780] py-2 rounded-lg shadow-lg">

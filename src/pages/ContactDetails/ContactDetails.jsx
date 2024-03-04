@@ -23,7 +23,7 @@ const FormSchema = z.object({
     vorname: z.string().nonempty(),
     nachname: z.string().nonempty(),
     email: z.string().email(),
-    telefon: z.string().nonempty().regex(/^\+49\d{10}$/, { message: 'Ungültiges deutsches Telefonnummerformat' }),
+    telefon: z.string().nonempty(),
     versicherungsTyp: z.string().nonempty(),
     datenschutz: z.boolean(),
 })

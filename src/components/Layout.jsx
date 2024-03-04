@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
             <ProgressStep />
             <StepHeading />
             {/* Main content */}
-            <section className=' flex flex-col lg:flex-row gap-5 relative'>
+            <section className=' flex flex-col lg:flex-row gap-5 relative mt-5'>
                 <div className={`${pathname == '/thank-you' ? 'w-full' : 'lg:w-1/2 w-full'} lg:order-1`}>
                     {children}
                 </div>
