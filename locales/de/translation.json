@@ -292,7 +292,7 @@
             },
             {
                 "icon": "third",
-                "desc": "Make the PDF Symbol a link, which leads to the download of the signed PDF. The signed PDF must also be sent to the user be Email automatically"
+                "desc": "Machen Sie aus dem PDF-Symbol einen Link, der zum Download des signierten PDFs führt. Das signierte PDF muss außerdem automatisch per E-Mail an den Benutzer gesendet werden"
             }
         ]
     },
