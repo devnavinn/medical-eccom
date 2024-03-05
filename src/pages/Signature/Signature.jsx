@@ -169,7 +169,7 @@ export default function Signature() {
                             name="lieferant_zeichen"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col sm:flex-row items-center justify-center space-x-2 rounded-lg border p-4">
-                                    <div className="w-20">
+                                    <div onClick={() => handleDownload()} className="w-20 cursor-pointer">
                                         <img src={signImg} alt="Form img" />
                                     </div>
                                     <div className="flex-1">

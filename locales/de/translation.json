@@ -189,7 +189,7 @@
             "heading2":"Informationen zum Betreuer",
             "heading3":"Lieferinformationen",
             "span":"Überprüfen Sie Ihre Daten",
-            "paragraph":"Wir verwenden die von Ihnen angegebene E-Mail-Adresse zur Kommunikation im Rahmen des Antragsprozesses: krishnanandchauhan@kreativemachinez.net Stellen Sie immer sicher, dass diese korrekt ist.",
+            "paragraph":"Wir verwenden die von Ihnen angegebene E-Mail-Adresse zur Kommunikation im Rahmen des Antragsprozesses: {{email}} Stellen Sie immer sicher, dass diese korrekt ist.",
             "edit":"Bearbeiten",
             "button":"Weiter im Antrag"
         }, 
@@ -292,7 +292,7 @@
             },
             {
                 "icon": "third",
-                "desc": "Machen Sie aus dem PDF-Symbol einen Link, der zum Download des signierten PDFs führt. Das signierte PDF muss außerdem automatisch per E-Mail an den Benutzer gesendet werden"
+                "desc": "Zu Ihrer Information können Sie hier Ihr ausgefülltes Formular abrufen. Klicken Sie dazu auf das PDF Symbol. Sie erhalten das Formular in Kürze per E-Mail an info@pflegepaket.org damit Sie es jederzeit wiederfinden können."
             }
         ]
     },
