@@ -190,7 +190,7 @@
             "heading2":"Caregiver information",
             "heading3":"Delivery information",
             "span":"Check your data",
-            "paragraph":"We use the email address you provided for communication as part of the application process: krishnanandchauhan@kreativemachinez.net Always ensure that this is correct.",
+            "paragraph":"We use the email address you provided for communication as part of the application process: {{email}} Always ensure that this is correct.",
             "edit":"Edit",
             "button":"Continue in the application"
         },
@@ -291,7 +291,7 @@
             },
             {
                 "icon": "third",
-                "desc": "For your records you canhere Retrieve your completed form. You will shortly receive the form via email to mark@hotmail.com so that you can find it again at any time."
+                "desc": "For your information, you can access your completed form here. Click on the PDF symbol to do so. You will receive the form shortly via email at info@pflegepaket.org so that you can find it anytime."
             }
         ]
     },

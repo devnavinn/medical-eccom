@@ -58,7 +58,7 @@ const CompleteApplication = () => {
                 }
             </div>
             <div>
-                <p> <span className="text-[#003780] py-5 md:py-10 lg:py-20">{span}:</span> {paragraph}</p>
+                <p> <span className="text-[#003780] py-5 md:py-10 lg:py-20">{span}:</span> {paragraph.replace("{{email}}", orderDetails[0]?.insuredPersonForm?.email)}</p>
             </div>
 
             <div className="flex flex-col p-5 rounded-lg shadow-lg">

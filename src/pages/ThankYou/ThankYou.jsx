@@ -1,8 +1,8 @@
 import { useEffect } from "react"
+import { generatePdf } from "../../api/api"
 import first from '../../assets/first.svg'
 import second from '../../assets/second.svg'
 import third from '../../assets/third.svg'
-
 const icons = {
     first,
     second,
@@ -13,8 +13,27 @@ const ThankYou = () => {
     const { t } = useTranslation()
     const { title, thankYou } = t("thank-you")
     useEffect(() => {
-        localStorage.clear()
+        localStorage.removeItem('caregiverDetails')
+        localStorage.removeItem('insuredPersonDetails')
+        localStorage.removeItem('yourDetails')
+        localStorage.removeItem('contactDetails')
+        localStorage.removeItem('deliveryOptions')
+        localStorage.removeItem('signature')
+        localStorage.removeItem('signaturePath')
     }, [])
+
+    const handleCLick = async (index) => {
+        if (index === 2) {
+
+            const sessionId = localStorage.getItem('sessionId')
+            const res = await generatePdf(sessionId)
+            if (!res) return console.log('No data found')
+            const fullPath = `${import.meta.env.VITE_API_PDF_URL}/${res.pdfPath}`
+            window.open(fullPath, '_blank');
+
+        }
+    }
+
     return (
         <div>
             <h1 className="text-6xl text-center text-[#003780] my-10">{title}!</h1>
@@ -22,8 +41,8 @@ const ThankYou = () => {
 
                 {
                     thankYou?.map((step, index) => (
-                        <div key={index} className="bg-[#EFF6FF] p-5 rounded-lg">
-                            <div className="flex justify-center items-center">
+                        <div onClick={() => handleCLick(index)} key={index} className="bg-[#EFF6FF] p-5 rounded-lg">
+                            <div className={`flex justify-center items-center ${index == 2 ? 'cursor-pointer' : ''}`}>
                                 <img src={icons[step.icon]} alt="icon" />
                             </div>
                             <p className="mt-5">{step.desc}</p>
