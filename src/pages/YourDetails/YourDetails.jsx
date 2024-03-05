@@ -92,8 +92,12 @@ function YourDetils() {
     };
     const form = useForm({
         resolver: zodResolver(FormSchema),
-        defaultValues: localStorage.getItem('yourDetails') ? JSON.parse(localStorage.getItem('contactDetails')) : {}
+        defaultValues: {
+            ...localStorage.getItem('yourDetails') ? JSON.parse(localStorage.getItem('yourDetails')) : {},
+            ...localStorage.getItem('contactDetails') ? JSON.parse(localStorage.getItem('contactDetails')) : {}
+        }
     })
+
 
     async function onSubmit(data) {
         console.log('data', data)
