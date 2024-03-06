@@ -24,9 +24,15 @@ const FormSchema = z.object({
     vorname: z.string().nonempty({ message: "Vorname ist erforderlich." }),
     nachname: z.string().nonempty({ message: "Nachname ist erforderlich." }),
     straße: z.string().nonempty({ message: "Straße ist erforderlich." }),
-    plz: z.string().nonempty({ message: "PLZ ist erforderlich." }),
+    plz: z.string().min(5, { message: "Postal code must be at least 5 characters long" })
+        .max(5, { message: "Postal code cannot exceed 10 characters" })
+        .regex(/^\d+$/, { message: "Postal code must contain only digits" }),
     stadt: z.string().nonempty({ message: "Stadt ist erforderlich." }),
-    telefon: z.string().nonempty({ message: "Telefon ist erforderlich." }),
+    telefon: z.string().nonempty().regex(/^\d+$/).min(10, {
+        message: "Phone number must contain only numbers and have a minimum of 10 digits",
+    }).max(10, {
+        message: "Phone number must contain only numbers and have a maximum of 10 digits",
+    }),
     email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein").nonempty({ message: "E-Mail ist erforderlich." }),
 })
 import { useTranslation } from "react-i18next"
