@@ -17,6 +17,17 @@ const CompleteApplication = () => {
         }
         fetchOrderDetails()
     }, [])
+    // Function to check if a value is a valid date
+    function isValidDate(dateString) {
+        const regex = /^\d{4}-\d{2}-\d{2}$/;
+        return regex.test(dateString);
+    }
+
+    // Function to format a date from yyyy-mm-dd to dd/mm/yyyy
+    function formatDate(dateString) {
+        const [year, month, day] = dateString.split('-');
+        return `${day}/${month}/${year}`;
+    }
     return (
         <div className="flex flex-col space-y-5">
             <div className="flex flex-col p-5 rounded-lg shadow-lg">
@@ -30,13 +41,27 @@ const CompleteApplication = () => {
                 </div>
 
                 {
-                    Object.entries(orderDetails[0]?.insuredPersonForm || {}).map(([key, value]) => (
-                        <div className="grid grid-cols-3 space-y-2" key={key}>
-                            <div className="text-xs sm:text-base">{key}</div>
-                            <div className="col-span-2 text-xs sm:text-base">{value}</div>
-                        </div>
-                    ))
+                    Object.entries(orderDetails[0]?.insuredPersonForm || {}).map(([key, value]) => {
+                        // Check if the value is in the format 'yyyy-mm-dd'
+                        if (isValidDate(value)) {
+                            const formattedDate = formatDate(value);
+                            return (
+                                <div className="grid grid-cols-3 space-y-2" key={key}>
+                                    <div className="text-xs sm:text-base">{key}</div>
+                                    <div className="col-span-2 text-xs sm:text-base">{formattedDate}</div>
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div className="grid grid-cols-3 space-y-2" key={key}>
+                                    <div className="text-xs sm:text-base">{key}</div>
+                                    <div className="col-span-2 text-xs sm:text-base">{value}</div>
+                                </div>
+                            );
+                        }
+                    })
                 }
+
             </div>
             <div className="flex flex-col p-5 rounded-lg shadow-lg">
                 <div className="flex justify-between">
@@ -47,14 +72,26 @@ const CompleteApplication = () => {
                         {edit}
                     </Link>
                 </div>
-
                 {
-                    Object.entries(orderDetails[0]?.carePersonForm || {}).map(([key, value]) => (
-                        <div className="grid grid-cols-3 space-y-2" key={key}>
-                            <div className="text-xs sm:text-base">{key}</div>
-                            <div className="col-span-2 text-xs sm:text-base">{value}</div>
-                        </div>
-                    ))
+                    Object.entries(orderDetails[0]?.carePersonForm || {}).map(([key, value]) => {
+                        // Check if the value is a date
+                        if (isValidDate(value)) {
+                            const formattedDate = formatDate(value);
+                            return (
+                                <div className="grid grid-cols-3 space-y-2" key={key}>
+                                    <div className="text-xs sm:text-base">{key}</div>
+                                    <div className="col-span-2 text-xs sm:text-base">{formattedDate}</div>
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div className="grid grid-cols-3 space-y-2" key={key}>
+                                    <div className="text-xs sm:text-base">{key}</div>
+                                    <div className="col-span-2 text-xs sm:text-base">{value}</div>
+                                </div>
+                            );
+                        }
+                    })
                 }
             </div>
             <div>
@@ -72,13 +109,27 @@ const CompleteApplication = () => {
                 </div>
 
                 {
-                    Object.entries(orderDetails[0]?.deliveryOptionsForm || {}).map(([key, value]) => (
-                        <div className="grid grid-cols-3 space-y-2" key={key}>
-                            <div className="text-xs sm:text-base">{key}</div>
-                            <div className="col-span-2 text-xs sm:text-base">{value}</div>
-                        </div>
-                    ))
+                    Object.entries(orderDetails[0]?.deliveryOptionsForm || {}).map(([key, value]) => {
+                        // Check if the value is a date
+                        if (isValidDate(value)) {
+                            const formattedDate = formatDate(value);
+                            return (
+                                <div className="grid grid-cols-3 space-y-2" key={key}>
+                                    <div className="text-xs sm:text-base">{key}</div>
+                                    <div className="col-span-2 text-xs sm:text-base">{formattedDate}</div>
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div className="grid grid-cols-3 space-y-2" key={key}>
+                                    <div className="text-xs sm:text-base">{key}</div>
+                                    <div className="col-span-2 text-xs sm:text-base">{value}</div>
+                                </div>
+                            );
+                        }
+                    })
                 }
+
             </div>
 
             <Link to={'/signature'} className='w-fit py-2 px-12 md:px-24 rounded-3xl bg-[#003780] text-white'>{button}</Link>

@@ -37,7 +37,7 @@ const FormSchema = z.object({
     nachname: z.string().nonempty(),
     straße: z.string().nonempty(),
     plz: z.string().min(5, { message: "Postal code must be at least 5 characters long" })
-        .max(5, { message: "Postal code cannot exceed 10 characters" })
+        .max(5, { message: "Postal code cannot exceed 5 characters" })
         .regex(/^\d+$/, { message: "Postal code must contain only digits" }),
     stadt: z.string().nonempty(),
     gebDatum: z.string().nonempty(),
@@ -72,7 +72,7 @@ function YourDetils() {
     const { yourDetails } = t("specify-data")
     const { iam, gender, firstName, lastName, street, postCode, city, birthDate, heading1, telephoneNumber, email, insuranceInfo, insuranceNumber, insuranceName, heading2, heading3, heading4, levelCare, declaration, button } = yourDetails
 
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(3);
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -451,7 +451,7 @@ function YourDetils() {
                 <div className="flex flex-col ">
                     <label>{levelCare?.label2}</label>
                     <div className="flex space-x-2">
-                        {[1, 2, 3, 4, 5].map((value) => (
+                        {[1, 2, 3, 4, 5, 'none'].map((value) => (
                             <Button
                                 type="button"
                                 key={value}

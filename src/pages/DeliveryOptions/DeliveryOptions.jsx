@@ -29,8 +29,8 @@ const FormSchema = z.object({
     firmenname: z.string().optional(),
     straße: z.string().optional(),
     plz: z.string().min(5, { message: "Postal code must be at least 5 characters long" })
-        .max(5, { message: "Postal code cannot exceed 10 characters" })
-        .regex(/^\d+$/, { message: "Postal code must contain only digits" }),
+        .max(5, { message: "Postal code cannot exceed 5 characters" })
+        .regex(/^\d+$/, { message: "Postal code must contain only digits" }).optional(),
     stadt: z.string().optional(),
     wechselZuPflegepaket: z.boolean().optional(),
     lieferstart: z.string().nonempty({ message: "Lieferstart ist erforderlich." }),
@@ -48,7 +48,7 @@ export default function DeliveryOptions() {
     })
 
     async function onSubmit(data) {
-        console.log('data', data);
+        console.log('delivery-data', data);
         localStorage.setItem('deliveryOptions', JSON.stringify(data))
         const formData = {
             sessionId: localStorage.getItem('sessionId'),
@@ -183,7 +183,8 @@ export default function DeliveryOptions() {
                                 <FormItem>
                                     <FormLabel>{deliveryStart}*</FormLabel>
                                     <FormControl>
-                                        <Input min={new Date().toISOString().split('T')[0]} type='date'  {...field} />
+                                        <Input min={new Date().toISOString().split('T')[0]}
+                                            type='date'  {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
