@@ -19,16 +19,33 @@ import {
 } from "@/components/ui/form"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
+const notFutureDate = (value) => {
+    if (value instanceof Date) {
+        const now = new Date();
+        if (value > now) {
+            throw new Error("Date cannot be in the future");
+        }
+    }
+    return true;
+};
 const FormSchema = z.object({
     kontaktTyp: z.string().nonempty(),
-    anrede: z.string().nonempty(),
+    anrede: z.enum(["Herr", "Frau"], {
+        required_error: "Sie müssen eine Anrede auswählen.",
+    }),
     vorname: z.string().nonempty(),
     nachname: z.string().nonempty(),
     straße: z.string().nonempty(),
-    plz: z.string().nonempty(),
+    plz: z.string().min(5, { message: "Postal code must be at least 5 characters long" })
+        .max(5, { message: "Postal code cannot exceed 10 characters" })
+        .regex(/^\d+$/, { message: "Postal code must contain only digits" }),
     stadt: z.string().nonempty(),
     gebDatum: z.string().nonempty(),
-    telefon: z.string().nonempty(),
+    telefon: z.string().nonempty().regex(/^\d+$/).min(10, {
+        message: "Phone number must contain only numbers and have a minimum of 10 digits",
+    }).max(10, {
+        message: "Phone number must contain only numbers and have a maximum of 10 digits",
+    }),
     email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein").nonempty(),
     versicherungsTyp: z.string().nonempty(),
     versicherungsnummer: z
@@ -271,7 +288,7 @@ function YourDetils() {
                             <FormItem>
                                 <FormLabel>{birthDate?.label}*</FormLabel>
                                 <FormControl>
-                                    <Input type='date'  {...field} />
+                                    <Input max={new Date().toISOString().split('T')[0]} type='date'  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -424,7 +441,7 @@ function YourDetils() {
                                 <FormLabel className='text-2xl text-[#003780]'>{heading4}</FormLabel>
                                 <p>{levelCare?.label} *</p>
                                 <FormControl>
-                                    <Input type='date'  {...field} />
+                                    <Input max={new Date().toISOString().split('T')[0]} type='date'  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

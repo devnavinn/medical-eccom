@@ -23,7 +23,11 @@ const FormSchema = z.object({
     vorname: z.string().nonempty(),
     nachname: z.string().nonempty(),
     email: z.string().email(),
-    telefon: z.string().nonempty(),
+    telefon: z.string().nonempty().regex(/^\d+$/).min(10, {
+        message: "Phone number must contain only numbers and have a minimum of 10 digits",
+    }).max(10, {
+        message: "Phone number must contain only numbers and have a maximum of 10 digits",
+    }),
     versicherungsTyp: z.string().nonempty(),
     datenschutz: z.boolean(),
 })
