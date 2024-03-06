@@ -13,9 +13,7 @@ const Footer = () => {
                 </div>
                 <div className='text-center flex flex-col'>
                     <small className='text-white'>{copyright}</small>
-                    <small className='text-gray-400 text-xs'>
-                        <a href="https://www.jumpstairs.com" target="_blank" rel="noopener noreferrer">Crafted with care by Jumpstairs</a>
-                    </small>
+
                 </div>
             </div>
             <div className='flex flex-wrap justify-center space-x-2 text-white text-sm pb-2'>
@@ -26,8 +24,7 @@ const Footer = () => {
                 <a href="https://www.pflegepaket.org/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutz</a>
                 <span className="separator">|</span>
                 <a href="https://www.pflegepaket.org/agb" target="_blank" rel="noopener noreferrer">AGB</a>
-                <span className="separator">|</span>
-                <a href="https://www.pflegepaket.org/pflichtangaben" target="_blank" rel="noopener noreferrer">Pflichtangaben(HWG & Biozide)</a>
+
             </div>
 
         </footer>
