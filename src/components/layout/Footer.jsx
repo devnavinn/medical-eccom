@@ -1,6 +1,5 @@
 import logo from './../../assets/logo-bottom.svg'
 import { useTranslation } from 'react-i18next'
-import { Separator } from './../ui/separator'
 import { Link } from 'react-router-dom'
 const Footer = () => {
     const { t } = useTranslation()
