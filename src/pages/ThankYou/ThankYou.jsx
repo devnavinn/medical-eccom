@@ -28,8 +28,7 @@ const ThankYou = () => {
             const sessionId = localStorage.getItem('sessionId')
             const res = await generatePdf(sessionId)
             if (!res) return console.log('No data found')
-            const fullPath = `${import.meta.env.VITE_API_PDF_URL}/${res.pdfPath}`
-            window.open(fullPath, '_blank');
+            window.open(res.pdfPath, '_blank');
 
         }
     }
