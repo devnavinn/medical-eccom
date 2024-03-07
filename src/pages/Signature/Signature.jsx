@@ -60,6 +60,7 @@ export default function Signature() {
     })
 
     async function onSubmit(data) {
+        if (!signature) return alert('Please provide signature')
         localStorage.setItem('signature', JSON.stringify(data))
         localStorage.setItem('signaturePath', signature)
         const formData = {
