@@ -35,7 +35,7 @@ const Countinue = () => {
     const getPdf = async () => {
         const sessionId = localStorage.getItem('sessionId')
         const res = await generatePdf(sessionId)
-        return res.pdfPath
+        return res.pdfUrl
     }
     const handleContinueMethod = async (method) => {
         if (method === 'complete-online') {
