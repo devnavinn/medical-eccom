@@ -48,7 +48,7 @@ const CompleteApplication = () => {
                             const formattedDate = formatDate(value);
                             return (
                                 <div className="grid grid-cols-3 space-y-2" key={key}>
-                                    <div className="text-xs sm:text-base">{key}</div>
+                                    <div className="text-xs sm:text-base">{key.replace('_', ' ')}</div>
                                     <div className="col-span-2 text-xs sm:text-base">{formattedDate}</div>
                                 </div>
                             );
