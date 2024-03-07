@@ -119,6 +119,7 @@ function YourDetils() {
         const formData = {
             sessionId: localStorage.getItem('sessionId'),
             insuredPersonForm: {
+                Pflegegrad: rating,
                 ...data
             }
         }
