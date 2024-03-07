@@ -31,7 +31,7 @@ const FormSchema = z.object({
     Telefon: z.string().nonempty().regex(/^\d+$/).min(9, {
         message: "Die Telefonnummer darf nur aus Zahlen bestehen und muss mindestens 9 Zeichen lang sein",
     }),
-    "E-Mail": z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein").nonempty({ message: "E-Mail ist erforderlich." }),
+    "E_Mail": z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein").nonempty({ message: "E-Mail ist erforderlich." }),
 })
 import { useTranslation } from "react-i18next"
 export default function CaregiverDetails() {
@@ -189,7 +189,7 @@ export default function CaregiverDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="E-Mail"
+                        name="E_Mail"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{email?.label} *</FormLabel>

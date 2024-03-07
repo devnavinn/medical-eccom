@@ -22,7 +22,7 @@ const FormSchema = z.object({
     Anrede: z.string().nonempty(),
     Vorname: z.string().nonempty(),
     Nachname: z.string().nonempty(),
-    "E-Mail": z.string().email(),
+    "E_Mail": z.string().email(),
     Telefon: z.string().nonempty().regex(/^\d+$/).min(9, {
         message: "Die Telefonnummer darf nur aus Zahlen bestehen und muss mindestens 9 Zeichen lang sein",
     }),
@@ -169,7 +169,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="E-Mail"
+                        name="E_Mail"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{email?.label}</FormLabel>
