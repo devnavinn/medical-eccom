@@ -52,7 +52,7 @@ const FormSchema = z.object({
         .regex(/^[a-zA-Z][0-9]{9}$/, 'Bitte geben Sie eine gültige Versicherungsnummer ein (muss mit einem Buchstaben beginnen und von 9 Ziffern gefolgt werden)'),
     Krankenversicherung: z.string().nonempty(),
     // link: z.string().nonempty(),
-    "in Pflege seit": z.string().nonempty(),
+    "in_Pflege_seit": z.string().nonempty(),
     Pflegeperson: z.boolean(),
 
 })
@@ -434,7 +434,7 @@ function YourDetils() {
                 <div className="w-1/2">
                     <FormField
                         control={form.control}
-                        name="in Pflege seit"
+                        name="in_Pflege_seit"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel className='text-2xl text-[#003780]'>{heading4}</FormLabel>
