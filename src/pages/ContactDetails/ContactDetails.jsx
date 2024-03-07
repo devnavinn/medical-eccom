@@ -18,18 +18,16 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 const FormSchema = z.object({
-    kontaktTyp: z.string().nonempty(),
-    anrede: z.string().nonempty(),
-    vorname: z.string().nonempty(),
-    nachname: z.string().nonempty(),
-    email: z.string().email(),
-    telefon: z.string().nonempty().regex(/^\d+$/).min(10, {
-        message: "Phone number must contain only numbers and have a minimum of 10 digits",
-    }).max(10, {
-        message: "Phone number must contain only numbers and have a maximum of 10 digits",
+    Kontakttyp: z.string().nonempty(),
+    Anrede: z.string().nonempty(),
+    Vorname: z.string().nonempty(),
+    Nachname: z.string().nonempty(),
+    "E-Mail": z.string().email(),
+    Telefon: z.string().nonempty().regex(/^\d+$/).min(9, {
+        message: "Die Telefonnummer darf nur aus Zahlen bestehen und muss mindestens 9 Zeichen lang sein",
     }),
-    versicherungsTyp: z.string().nonempty(),
-    datenschutz: z.boolean(),
+    Versicherungstyp: z.string().nonempty(),
+    Datenschutz: z.boolean(),
 })
 
 import { useTranslation } from "react-i18next"
@@ -75,7 +73,7 @@ function ContactDetails() {
 
                     <FormField
                         control={form.control}
-                        name="kontaktTyp"
+                        name="Kontakttyp"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>{iam?.label}*</FormLabel>
@@ -111,7 +109,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="anrede"
+                        name="Anrede"
                         render={({ field }) => (
                             <FormItem className="space-y-3">
                                 <FormLabel className='text-2xl text-[#003780]'>{gender?.label}*</FormLabel>
@@ -145,7 +143,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="vorname"
+                        name="Vorname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{firstName?.label}</FormLabel>
@@ -158,7 +156,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="nachname"
+                        name="Nachname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{lastName?.label}</FormLabel>
@@ -171,7 +169,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="email"
+                        name="E-Mail"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{email?.label}</FormLabel>
@@ -184,7 +182,7 @@ function ContactDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="telefon"
+                        name="Telefon"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{phone?.label}</FormLabel>
@@ -198,7 +196,7 @@ function ContactDetails() {
                 </div>
                 <FormField
                     control={form.control}
-                    name="versicherungsTyp"
+                    name="Versicherungstyp"
                     render={({ field }) => (
                         <FormItem className="space-y-3">
                             <FormLabel className='text-2xl text-[#003780]'>{insuredIs?.label}</FormLabel>
@@ -233,7 +231,7 @@ function ContactDetails() {
 
                 <FormField
                     control={form.control}
-                    name="datenschutz"
+                    name="Datenschutz"
                     render={({ field }) => (
                         <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow">
                             <FormControl>

@@ -25,15 +25,15 @@ import {
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 const FormSchema = z.object({
-    empfänger: z.string().nonempty({ message: "Empfänger ist erforderlich." }),
-    firmenname: z.string().optional(),
-    straße: z.string().optional(),
-    plz: z.string().min(5, { message: "Postal code must be at least 5 characters long" })
-        .max(5, { message: "Postal code cannot exceed 5 characters" })
-        .regex(/^\d+$/, { message: "Postal code must contain only digits" }).optional(),
-    stadt: z.string().optional(),
-    wechselZuPflegepaket: z.boolean().optional(),
-    lieferstart: z.string().nonempty({ message: "Lieferstart ist erforderlich." }),
+    Empfänger: z.string().nonempty({ message: "Empfänger ist erforderlich." }),
+    Firmenname: z.string().optional(),
+    Straße: z.string().optional(),
+    PLZ: z.string().min(5, { message: "Die Postleitzahl muss mindestens 5 Zeichen lang sein" })
+        .max(5, { message: "Die Postleitzahl darf nicht mehr als 5 Zeichen lang sein" })
+        .regex(/^\d+$/, { message: "Die Postleitzahl darf nur aus Zahlen bestehen" }).optional(),
+    Stadt: z.string().optional(),
+    WechselZuPflegepaket: z.boolean().optional(),
+    Lieferstart: z.string().nonempty({ message: "Lieferstart ist erforderlich." }),
 
 })
 import { useTranslation } from "react-i18next"
@@ -73,7 +73,7 @@ export default function DeliveryOptions() {
                 <h3 className="text-2xl text-[#003780] mt-5">{heading1}</h3>
                 <FormField
                     control={form.control}
-                    name="empfänger"
+                    name="Empfänger"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>{select?.label}</FormLabel>
@@ -101,7 +101,7 @@ export default function DeliveryOptions() {
                 <div className={`${isCommissionedServiceSelected ? 'block' : 'hidden'} grid grid-cols-1 md:grid-cols-2 gap-5`}>
                     <FormField
                         control={form.control}
-                        name="firmenname"
+                        name="Firmenname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{companyName?.label}</FormLabel>
@@ -114,7 +114,7 @@ export default function DeliveryOptions() {
                     />
                     <FormField
                         control={form.control}
-                        name="straße"
+                        name="Straße"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{street?.label}</FormLabel>
@@ -127,7 +127,7 @@ export default function DeliveryOptions() {
                     />
                     <FormField
                         control={form.control}
-                        name="plz"
+                        name="PLZ"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{postCode?.label}</FormLabel>
@@ -140,7 +140,7 @@ export default function DeliveryOptions() {
                     />
                     <FormField
                         control={form.control}
-                        name="stadt"
+                        name="Stadt"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{city?.label}</FormLabel>
@@ -157,7 +157,7 @@ export default function DeliveryOptions() {
 
                     <FormField
                         control={form.control}
-                        name="wechselZuPflegepaket"
+                        name="WechselZuPflegepaket"
                         render={({ field }) => (
                             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                                 <FormControl>
@@ -178,7 +178,7 @@ export default function DeliveryOptions() {
                     <div className="w-1/2 mt-5">
                         <FormField
                             control={form.control}
-                            name="lieferstart"
+                            name="Lieferstart"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>{deliveryStart}*</FormLabel>

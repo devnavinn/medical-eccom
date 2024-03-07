@@ -18,22 +18,20 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
-    anrede: z.enum(["Herr", "Frau"], {
+    Anrede: z.enum(["Herr", "Frau"], {
         required_error: "Sie müssen eine Anrede auswählen.",
     }),
-    vorname: z.string().nonempty({ message: "Vorname ist erforderlich." }),
-    nachname: z.string().nonempty({ message: "Nachname ist erforderlich." }),
-    straße: z.string().nonempty({ message: "Straße ist erforderlich." }),
-    plz: z.string().min(5, { message: "Postal code must be at least 5 characters long" })
-        .max(5, { message: "Postal code cannot exceed 10 characters" })
-        .regex(/^\d+$/, { message: "Postal code must contain only digits" }),
-    stadt: z.string().nonempty({ message: "Stadt ist erforderlich." }),
-    telefon: z.string().nonempty().regex(/^\d+$/).min(10, {
-        message: "Phone number must contain only numbers and have a minimum of 10 digits",
-    }).max(10, {
-        message: "Phone number must contain only numbers and have a maximum of 10 digits",
+    Vorname: z.string().nonempty({ message: "Vorname ist erforderlich." }),
+    Nachname: z.string().nonempty({ message: "Nachname ist erforderlich." }),
+    Straße: z.string().nonempty({ message: "Straße ist erforderlich." }),
+    PLZ: z.string().min(5, { message: "Die Postleitzahl muss mindestens 5 Zeichen lang sein" })
+        .max(5, { message: "Die Postleitzahl darf nicht mehr als 5 Zeichen lang sein" })
+        .regex(/^\d+$/, { message: "Die Postleitzahl darf nur aus Zahlen bestehen" }),
+    Stadt: z.string().nonempty({ message: "Stadt ist erforderlich." }),
+    Telefon: z.string().nonempty().regex(/^\d+$/).min(9, {
+        message: "Die Telefonnummer darf nur aus Zahlen bestehen und muss mindestens 9 Zeichen lang sein",
     }),
-    email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein").nonempty({ message: "E-Mail ist erforderlich." }),
+    "E-Mail": z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein").nonempty({ message: "E-Mail ist erforderlich." }),
 })
 import { useTranslation } from "react-i18next"
 export default function CaregiverDetails() {
@@ -68,7 +66,7 @@ export default function CaregiverDetails() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                 <FormField
                     control={form.control}
-                    name="anrede"
+                    name="Anrede"
                     render={({ field }) => (
                         <FormItem className="space-y-3">
                             <FormLabel className='text-2xl text-[#003780]'>{personalInfo?.label}</FormLabel>
@@ -105,7 +103,7 @@ export default function CaregiverDetails() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
-                        name="vorname"
+                        name="Vorname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{firstName?.label}</FormLabel>
@@ -118,7 +116,7 @@ export default function CaregiverDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="nachname"
+                        name="Nachname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{lastName?.label}</FormLabel>
@@ -133,7 +131,7 @@ export default function CaregiverDetails() {
                 </div>
                 <FormField
                     control={form.control}
-                    name="straße"
+                    name="Straße"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>{street?.label}*</FormLabel>
@@ -147,7 +145,7 @@ export default function CaregiverDetails() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
-                        name="plz"
+                        name="PLZ"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{postCode?.label} *</FormLabel>
@@ -160,7 +158,7 @@ export default function CaregiverDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="stadt"
+                        name="Stadt"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{city?.label}</FormLabel>
@@ -178,7 +176,7 @@ export default function CaregiverDetails() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
-                        name="telefon"
+                        name="Telefon"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{telephoneNumber?.label} *</FormLabel>
@@ -191,7 +189,7 @@ export default function CaregiverDetails() {
                     />
                     <FormField
                         control={form.control}
-                        name="email"
+                        name="E-Mail"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{email?.label} *</FormLabel>
