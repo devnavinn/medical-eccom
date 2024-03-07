@@ -20,8 +20,8 @@ import { Checkbox } from "@/components/ui/checkbox"
 const FormSchema = z.object({
     Kontakttyp: z.string().nonempty(),
     Anrede: z.string().nonempty(),
-    Vorname: z.string().nonempty(),
-    Nachname: z.string().nonempty(),
+    Vorname: z.string().nonempty({ message: "Vorname ist erforderlich." }).regex(/^[A-Za-zÄäÖöÜüß]+$/, { message: "Vorname darf nur Buchstaben enthalten." }),
+    Nachname: z.string().nonempty({ message: "Nachname ist erforderlich." }).regex(/^[A-Za-zÄäÖöÜüß]+$/, { message: "Nachname darf nur Buchstaben enthalten." }),
     "E_Mail": z.string().email(),
     Telefon: z.string().nonempty().regex(/^\d+$/).min(9, {
         message: "Die Telefonnummer darf nur aus Zahlen bestehen und muss mindestens 9 Zeichen lang sein",
@@ -187,7 +187,7 @@ function ContactDetails() {
                             <FormItem>
                                 <FormLabel>{phone?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder={phone?.placeholder} {...field} />
+                                    <Input type='number' placeholder={phone?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

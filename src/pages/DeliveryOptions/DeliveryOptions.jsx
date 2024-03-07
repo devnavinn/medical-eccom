@@ -132,7 +132,7 @@ export default function DeliveryOptions() {
                             <FormItem>
                                 <FormLabel>{postCode?.label}</FormLabel>
                                 <FormControl>
-                                    <Input type='text' placeholder={postCode?.placeholder}  {...field} />
+                                    <Input type='number' placeholder={postCode?.placeholder}  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

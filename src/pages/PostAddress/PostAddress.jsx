@@ -15,8 +15,8 @@ import {
 import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
-    Vorname: z.string().nonempty({ message: "Vorname ist erforderlich" }),
-    Nachname: z.string().nonempty({ message: "Nachname ist erforderlich" }),
+    Vorname: z.string().nonempty({ message: "Vorname ist erforderlich." }).regex(/^[A-Za-zÄäÖöÜüß]+$/, { message: "Vorname darf nur Buchstaben enthalten." }),
+    Nachname: z.string().nonempty({ message: "Nachname ist erforderlich." }).regex(/^[A-Za-zÄäÖöÜüß]+$/, { message: "Nachname darf nur Buchstaben enthalten." }),
     Straße: z.string().nonempty({ message: "Straße ist erforderlich" }),
     PLZ: z.string().min(5, { message: "Die Postleitzahl muss mindestens 5 Zeichen lang sein" }).max(5, { message: "Die Postleitzahl darf höchstens 5 Zeichen lang sein" }).nonempty({ message: "Postleitzahl ist erforderlich" }),
     Stadt: z.string().nonempty({ message: "Stadt ist erforderlich" }),
@@ -109,7 +109,7 @@ export default function PostAddress() {
                             <FormItem>
                                 <FormLabel>{postCode?.label} *</FormLabel>
                                 <FormControl>
-                                    <Input placeholder={postCode?.placeholder} {...field} />
+                                    <Input type='number' placeholder={postCode?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

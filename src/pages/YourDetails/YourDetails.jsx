@@ -33,8 +33,8 @@ const FormSchema = z.object({
     Anrede: z.enum(["Herr", "Frau"], {
         required_error: "Sie müssen eine Anrede auswählen.",
     }),
-    Vorname: z.string().nonempty(),
-    Nachname: z.string().nonempty(),
+    Vorname: z.string().nonempty({ message: "Vorname ist erforderlich." }).regex(/^[A-Za-zÄäÖöÜüß]+$/, { message: "Vorname darf nur Buchstaben enthalten." }),
+    Nachname: z.string().nonempty({ message: "Nachname ist erforderlich." }).regex(/^[A-Za-zÄäÖöÜüß]+$/, { message: "Nachname darf nur Buchstaben enthalten." }),
     Straße: z.string().nonempty(),
     PLZ: z.string().min(5, { message: "Die Postleitzahl muss mindestens 5 Zeichen lang sein" })
         .max(5, { message: "Die Postleitzahl darf nicht mehr als 5 Zeichen lang sein" })
@@ -262,7 +262,7 @@ function YourDetils() {
                             <FormItem>
                                 <FormLabel>{postCode?.label}</FormLabel>
                                 <FormControl>
-                                    <Input placeholder={postCode?.placeholder} {...field} />
+                                    <Input type='number' placeholder={postCode?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -307,7 +307,7 @@ function YourDetils() {
                                 <FormItem>
                                     <FormLabel>{telephoneNumber?.label}*</FormLabel>
                                     <FormControl>
-                                        <Input placeholder={telephoneNumber?.placeholder} {...field} />
+                                        <Input type='number' placeholder={telephoneNumber?.placeholder} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
