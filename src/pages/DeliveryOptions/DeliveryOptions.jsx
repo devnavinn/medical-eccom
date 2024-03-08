@@ -1,6 +1,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { orderPlace } from "../../api/api"
@@ -34,8 +34,8 @@ const FormSchema = z.object({
     Stadt: z.string().nonempty({ message: "Stadt ist erforderlich." }).regex(/^[^\d\s]+$/, { message: "Stadt darf keine Ziffern enthalten." }),
     WechselZuPflegepaket: z.boolean().optional(),
     Lieferstart: z.string().nonempty({ message: "Lieferstart ist erforderlich." }),
-
 })
+
 import { useTranslation } from "react-i18next"
 export default function DeliveryOptions() {
     const { t } = useTranslation()
@@ -49,7 +49,14 @@ export default function DeliveryOptions() {
 
     async function onSubmit(data) {
         console.log('delivery-data', data);
+        if (!isCommissionedServiceSelected) {
+            data.Firmenname = undefined;
+            data.Straße = undefined;
+            data.PLZ = undefined;
+            data.Stadt = undefined;
+        }
         localStorage.setItem('deliveryOptions', JSON.stringify(data))
+        localStorage.setItem('isCommissionedServiceSelected', isCommissionedServiceSelected)
         const formData = {
             sessionId: localStorage.getItem('sessionId'),
             deliveryOptionsForm: {
@@ -64,8 +71,12 @@ export default function DeliveryOptions() {
     const onErrors = (errors) => {
         console.log(errors)
     }
-    const [isCommissionedServiceSelected, setIsCommissionedServiceSelected] = useState(false);
+    const [isCommissionedServiceSelected, setIsCommissionedServiceSelected] = useState(localStorage.getItem('isCommissionedServiceSelected') === 'true' ? true : false);
+    const [optionalFieldsRequired, setOptionalFieldsRequired] = useState(false);
 
+    useEffect(() => {
+        setOptionalFieldsRequired(isCommissionedServiceSelected);
+    }, [isCommissionedServiceSelected]);
 
     return (
         <Form {...form}>
@@ -106,7 +117,7 @@ export default function DeliveryOptions() {
                             <FormItem>
                                 <FormLabel>{companyName?.label}</FormLabel>
                                 <FormControl>
-                                    <Input type='text' placeholder={companyName?.placeholder}  {...field} />
+                                    <Input type='text' required={optionalFieldsRequired} placeholder={companyName?.placeholder}  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -119,7 +130,7 @@ export default function DeliveryOptions() {
                             <FormItem>
                                 <FormLabel>{street?.label}</FormLabel>
                                 <FormControl>
-                                    <Input type='text' placeholder={street?.placeholder}  {...field} />
+                                    <Input type='text' required={optionalFieldsRequired} placeholder={street?.placeholder}  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -132,7 +143,7 @@ export default function DeliveryOptions() {
                             <FormItem>
                                 <FormLabel>{postCode?.label}</FormLabel>
                                 <FormControl>
-                                    <Input type='number' placeholder={postCode?.placeholder}  {...field} />
+                                    <Input type='number' required={optionalFieldsRequired} placeholder={postCode?.placeholder}  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -145,7 +156,7 @@ export default function DeliveryOptions() {
                             <FormItem>
                                 <FormLabel>{city?.label}</FormLabel>
                                 <FormControl>
-                                    <Input type='text' placeholder={city?.placeholder}  {...field} />
+                                    <Input type='text' required={optionalFieldsRequired} placeholder={city?.placeholder}  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

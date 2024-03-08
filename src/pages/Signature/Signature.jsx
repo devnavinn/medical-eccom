@@ -29,6 +29,8 @@ import {
 import { orderPlace } from "../../api/api";
 import { Switch } from "@/components/ui/switch"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useToast } from "@/components/ui/use-toast"
+
 const FormSchema = z.object({
     Kostenannahmezeichen: z.boolean().refine(val => val === true, {
         message: "Wert muss true sein."
@@ -46,7 +48,8 @@ const FormSchema = z.object({
 
 import { useTranslation } from "react-i18next";
 export default function Signature() {
-    const { t } = useTranslation()
+    const { toast } = useToast()
+    const { t, i18n } = useTranslation()
     const { signatureData } = t("specify-data")
     const { heading, label1, label2, acceptSignature, acceptSignature2, isAgree, declaration, button, button2, button3 } = signatureData
     const navigate = useNavigate()
@@ -92,8 +95,11 @@ export default function Signature() {
     };
 
     const handleDownload = async () => {
-        console.log('hii ');
         const sessionId = localStorage.getItem('sessionId')
+        toast({
+            title: i18n?.language === 'en' ? 'Download PDF' : 'PDF herunterladen',
+            description: i18n?.language === 'en' ? 'Your PDF is being downloaded.' : 'Ihr PDF wird heruntergeladen.',
+        })
         const res = await generatePdf(sessionId)
         if (!res) return console.log('No data found')
         window.open(res.pdfUrl, '_blank');
