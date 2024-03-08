@@ -31,7 +31,7 @@ const FormSchema = z.object({
     PLZ: z.string().min(5, { message: "Die Postleitzahl muss mindestens 5 Zeichen lang sein" })
         .max(5, { message: "Die Postleitzahl darf nicht mehr als 5 Zeichen lang sein" })
         .regex(/^\d+$/, { message: "Die Postleitzahl darf nur aus Zahlen bestehen" }).optional(),
-    Stadt: z.string().optional(),
+    Stadt: z.string().nonempty({ message: "Stadt ist erforderlich." }).regex(/^[^\d\s]+$/, { message: "Stadt darf keine Ziffern enthalten." }),
     WechselZuPflegepaket: z.boolean().optional(),
     Lieferstart: z.string().nonempty({ message: "Lieferstart ist erforderlich." }),
 

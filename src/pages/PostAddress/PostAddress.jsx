@@ -19,7 +19,7 @@ const FormSchema = z.object({
     Nachname: z.string().nonempty({ message: "Nachname ist erforderlich." }).regex(/^[A-Za-zÄäÖöÜüß]+$/, { message: "Nachname darf nur Buchstaben enthalten." }),
     Straße: z.string().nonempty({ message: "Straße ist erforderlich" }),
     PLZ: z.string().min(5, { message: "Die Postleitzahl muss mindestens 5 Zeichen lang sein" }).max(5, { message: "Die Postleitzahl darf höchstens 5 Zeichen lang sein" }).nonempty({ message: "Postleitzahl ist erforderlich" }),
-    Stadt: z.string().nonempty({ message: "Stadt ist erforderlich" }),
+    Stadt: z.string().nonempty({ message: "Stadt ist erforderlich." }).regex(/^[^\d\s]+$/, { message: "Stadt darf keine Ziffern enthalten." }),
 })
 import { useTranslation } from "react-i18next"
 import { useToast } from './../../components/ui/use-toast'
