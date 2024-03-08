@@ -23,6 +23,7 @@ const ThankYou = () => {
         localStorage.removeItem('deliveryOptions')
         localStorage.removeItem('signature')
         localStorage.removeItem('signaturePath')
+        localStorage.removeItem('isCommissionedServiceSelected')
     }, [])
 
     const handleCLick = async (index) => {
