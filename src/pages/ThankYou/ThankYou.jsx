@@ -9,8 +9,11 @@ const icons = {
     third
 }
 import { useTranslation } from "react-i18next"
+import { useToast } from "@/components/ui/use-toast"
+
 const ThankYou = () => {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
+    const { toast } = useToast()
     const { title, thankYou } = t("thank-you")
     useEffect(() => {
         localStorage.removeItem('caregiverDetails')
@@ -20,11 +23,15 @@ const ThankYou = () => {
         localStorage.removeItem('deliveryOptions')
         localStorage.removeItem('signature')
         localStorage.removeItem('signaturePath')
+        localStorage.removeItem('isCommissionedServiceSelected')
     }, [])
 
     const handleCLick = async (index) => {
         if (index === 2) {
-
+            toast({
+                title: i18n?.language === 'en' ? 'Download PDF' : 'PDF herunterladen',
+                description: i18n?.language === 'en' ? 'Your PDF is being downloaded.' : 'Ihr PDF wird heruntergeladen.',
+            })
             const sessionId = localStorage.getItem('sessionId')
             const res = await generatePdf(sessionId)
             if (!res) return console.log('No data found')

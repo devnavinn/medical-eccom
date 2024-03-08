@@ -10,7 +10,7 @@ const Countinue = () => {
     const queryParams = new URLSearchParams(location.search);
     const sessionId = queryParams.get('sessionId');
     const { toast } = useToast()
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
     const { continueCard } = t("specify-data")
     const navigate = useNavigate()
 
@@ -42,6 +42,10 @@ const Countinue = () => {
             navigate('/your-details')
         }
         if (method === 'download-application') {
+            toast({
+                title: i18n?.language === 'en' ? 'Download PDF' : 'PDF herunterladen',
+                description: i18n?.language === 'en' ? 'Your PDF is being downloaded.' : 'Ihr PDF wird heruntergeladen.',
+            })
             getPdf().then(res => {
                 if (res) {
                     window.open(res, '_blank');
