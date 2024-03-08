@@ -15,11 +15,11 @@ import {
 import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
-    vorname: z.string().nonempty({ message: "Vorname ist erforderlich" }),
-    nachname: z.string().nonempty({ message: "Nachname ist erforderlich" }),
-    straße: z.string().nonempty({ message: "Straße ist erforderlich" }),
-    plz: z.string().min(5, { message: "Die Postleitzahl muss mindestens 5 Zeichen lang sein" }).max(5, { message: "Die Postleitzahl darf höchstens 5 Zeichen lang sein" }).nonempty({ message: "Postleitzahl ist erforderlich" }),
-    stadt: z.string().nonempty({ message: "Stadt ist erforderlich" }),
+    Vorname: z.string().nonempty({ message: "Vorname ist erforderlich." }).regex(/^[A-Za-zÄäÖöÜüß]+$/, { message: "Vorname darf nur Buchstaben enthalten." }),
+    Nachname: z.string().nonempty({ message: "Nachname ist erforderlich." }).regex(/^[A-Za-zÄäÖöÜüß]+$/, { message: "Nachname darf nur Buchstaben enthalten." }),
+    Straße: z.string().nonempty({ message: "Straße ist erforderlich" }),
+    PLZ: z.string().min(5, { message: "Die Postleitzahl muss mindestens 5 Zeichen lang sein" }).max(5, { message: "Die Postleitzahl darf höchstens 5 Zeichen lang sein" }).nonempty({ message: "Postleitzahl ist erforderlich" }),
+    Stadt: z.string().nonempty({ message: "Stadt ist erforderlich." }).regex(/^[^\d\s]+$/, { message: "Stadt darf keine Ziffern enthalten." }),
 })
 import { useTranslation } from "react-i18next"
 import { useToast } from './../../components/ui/use-toast'
@@ -62,7 +62,7 @@ export default function PostAddress() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
-                        name="vorname"
+                        name="Vorname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{firstName?.label}</FormLabel>
@@ -75,7 +75,7 @@ export default function PostAddress() {
                     />
                     <FormField
                         control={form.control}
-                        name="nachname"
+                        name="Nachname"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{lastName?.label}</FormLabel>
@@ -90,7 +90,7 @@ export default function PostAddress() {
                 </div>
                 <FormField
                     control={form.control}
-                    name="straße"
+                    name="Straße"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>{street?.label}*</FormLabel>
@@ -104,12 +104,12 @@ export default function PostAddress() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                         control={form.control}
-                        name="plz"
+                        name="PLZ"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{postCode?.label} *</FormLabel>
                                 <FormControl>
-                                    <Input placeholder={postCode?.placeholder} {...field} />
+                                    <Input type='number' placeholder={postCode?.placeholder} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -117,7 +117,7 @@ export default function PostAddress() {
                     />
                     <FormField
                         control={form.control}
-                        name="stadt"
+                        name="Stadt"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{city?.label}</FormLabel>

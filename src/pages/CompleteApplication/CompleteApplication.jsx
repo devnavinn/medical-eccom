@@ -43,11 +43,13 @@ const CompleteApplication = () => {
                 {
                     Object.entries(orderDetails[0]?.insuredPersonForm || {}).map(([key, value]) => {
                         // Check if the value is in the format 'yyyy-mm-dd'
+                        if (key === 'Pflegeperson') return
                         if (isValidDate(value)) {
                             const formattedDate = formatDate(value);
                             return (
                                 <div className="grid grid-cols-3 space-y-2" key={key}>
-                                    <div className="text-xs sm:text-base">{key}</div>
+                                    <div className="text-xs sm:text-base">{key.replace(/_/g, ' ')}</div>
+
                                     <div className="col-span-2 text-xs sm:text-base">{formattedDate}</div>
                                 </div>
                             );
@@ -95,7 +97,7 @@ const CompleteApplication = () => {
                 }
             </div>
             <div>
-                <p> <span className="text-[#003780] py-5 md:py-10 lg:py-20">{span}:</span> {paragraph.replace("{{email}}", orderDetails[0]?.insuredPersonForm?.email)}</p>
+                <p> <span className="text-[#003780] py-5 md:py-10 lg:py-20">{span}:</span> {paragraph.replace("{{email}}", orderDetails[0]?.insuredPersonForm["E_Mail"])}</p>
             </div>
 
             <div className="flex flex-col p-5 rounded-lg shadow-lg">

@@ -30,16 +30,16 @@ import { orderPlace } from "../../api/api";
 import { Switch } from "@/components/ui/switch"
 import { Checkbox } from "@/components/ui/checkbox"
 const FormSchema = z.object({
-    kostenannahmezeichen: z.boolean().refine(val => val === true, {
+    Kostenannahmezeichen: z.boolean().refine(val => val === true, {
         message: "Wert muss true sein."
     }),
-    lieferant_zeichen: z.boolean().refine(val => val === true, {
+    Lieferant_zeichen: z.boolean().refine(val => val === true, {
         message: "Wert muss true sein."
     }),
-    datenschutz: z.boolean().refine(val => val === true, {
+    Datenschutz: z.boolean().refine(val => val === true, {
         message: "Wert muss true sein."
     }),
-    trams_bed: z.boolean().refine(val => val === true, {
+    Trams_bed: z.boolean().refine(val => val === true, {
         message: "Wert muss true sein."
     }),
 });
@@ -60,13 +60,14 @@ export default function Signature() {
     })
 
     async function onSubmit(data) {
+        if (!signature) return alert('Please provide signature')
         localStorage.setItem('signature', JSON.stringify(data))
         localStorage.setItem('signaturePath', signature)
         const formData = {
             sessionId: localStorage.getItem('sessionId'),
             signatureForm: {
                 ...data,
-                sgnaturePath: signature
+                signaturePath: signature
             }
         }
         const res = await orderPlace(formData)
@@ -95,8 +96,7 @@ export default function Signature() {
         const sessionId = localStorage.getItem('sessionId')
         const res = await generatePdf(sessionId)
         if (!res) return console.log('No data found')
-        const fullPath = `${import.meta.env.VITE_API_PDF_URL}/${res.pdfPath}`
-        window.open(fullPath, '_blank');
+        window.open(res.pdfUrl, '_blank');
     }
     return (
         <Form {...form}>
@@ -134,7 +134,7 @@ export default function Signature() {
                     <div className="space-y-4">
                         <FormField
                             control={form.control}
-                            name="kostenannahmezeichen"
+                            name="Kostenannahmezeichen"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col sm:flex-row items-center space-x-2 rounded-lg border p-4">
                                     <div className="cursor-pointer w-24" onClick={() => handleDownload()} >
@@ -166,7 +166,7 @@ export default function Signature() {
                         />
                         <FormField
                             control={form.control}
-                            name="lieferant_zeichen"
+                            name="Lieferant_zeichen"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col sm:flex-row items-center justify-center space-x-2 rounded-lg border p-4">
                                     <div onClick={() => handleDownload()} className="w-20 cursor-pointer">
@@ -198,7 +198,7 @@ export default function Signature() {
                         />
                         <FormField
                             control={form.control}
-                            name="datenschutz"
+                            name="Datenschutz"
                             render={({ field }) => (
                                 <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                                     <FormControl>
@@ -217,7 +217,7 @@ export default function Signature() {
                         />
                         <FormField
                             control={form.control}
-                            name="trams_bed"
+                            name="Trams_bed"
                             render={({ field }) => (
                                 <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                                     <FormControl>

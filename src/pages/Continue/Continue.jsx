@@ -35,7 +35,7 @@ const Countinue = () => {
     const getPdf = async () => {
         const sessionId = localStorage.getItem('sessionId')
         const res = await generatePdf(sessionId)
-        return res.pdfPath
+        return res.pdfUrl
     }
     const handleContinueMethod = async (method) => {
         if (method === 'complete-online') {
@@ -44,8 +44,7 @@ const Countinue = () => {
         if (method === 'download-application') {
             getPdf().then(res => {
                 if (res) {
-                    const fullPath = `${import.meta.env.VITE_API_PDF_URL}/${res}`
-                    window.open(fullPath, '_blank');
+                    window.open(res, '_blank');
                 }
             })
         }
