@@ -78,8 +78,7 @@ function YourDetils() {
             localStorage.setItem('sessionId', sessionId)
             const fetchOrderDetails = async () => {
                 const res = await getOrderDetails(sessionId)
-                if (!res) return console.log('No data found')
-                console.log('res', res);
+                if (!res) return
                 const orderDetails = res[0]
                 localStorage.setItem('cart', JSON.stringify(orderDetails?.productsForm?.product_details))
                 localStorage.setItem('size', orderDetails?.productsForm?.gloveSize)
@@ -114,7 +113,6 @@ function YourDetils() {
 
 
     async function onSubmit(data) {
-        console.log('data', data)
         localStorage.setItem('yourDetails', JSON.stringify(data))
         const formData = {
             sessionId: localStorage.getItem('sessionId'),
@@ -125,7 +123,6 @@ function YourDetils() {
         }
 
         await orderPlace(formData).then((res) => {
-            console.log(res)
             navigate('/caregiver-details')
         })
     }

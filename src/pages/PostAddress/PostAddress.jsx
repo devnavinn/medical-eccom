@@ -34,17 +34,14 @@ export default function PostAddress() {
     })
 
     async function onSubmit(data) {
-        console.log(data)
         const formData = {
             sessionId: localStorage.getItem('sessionId'),
             postAddressForm: {
                 ...data
             }
         }
-        console.log('formdata', formData);
 
         const res = await orderPlace(formData)
-        console.log('res', res);
         if (res.sessionId) {
             toast({
                 title: "Success",

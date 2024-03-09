@@ -43,7 +43,6 @@ function ContactDetails() {
     })
 
     async function onSubmit(data) {
-        console.log(data)
         const formData = {
             stepPath: "contact-details",
             contactForm: {
@@ -59,7 +58,6 @@ function ContactDetails() {
         localStorage.setItem('contactDetails', JSON.stringify(data))
         await orderPlace(formData).then(res => {
             localStorage.setItem('sessionId', res.sessionId)
-            console.log('res', res);
             if (res?.sessionId) {
                 navigate('/continue')
             }

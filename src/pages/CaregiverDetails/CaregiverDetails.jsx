@@ -45,7 +45,6 @@ export default function CaregiverDetails() {
     })
 
     async function onSubmit(data) {
-        console.log(data)
         localStorage.setItem('caregiverDetails', JSON.stringify(data))
         const formData = {
             sessionId: localStorage.getItem('sessionId'),
@@ -54,7 +53,6 @@ export default function CaregiverDetails() {
             }
         }
         const res = await orderPlace(formData)
-        console.log('res', res);
         if (res.sessionId) {
             navigate('/delivery-options')
         }

@@ -12,7 +12,6 @@ const Home = () => {
     useEffect(() => {
         getProducts().then(data => setProducts(data)).finally(() => setLoading(false))
     }, [])
-    console.log('products', products);
     return (
         <>
             <div className="py-5">
