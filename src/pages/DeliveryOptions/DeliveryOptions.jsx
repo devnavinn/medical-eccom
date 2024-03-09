@@ -48,7 +48,6 @@ export default function DeliveryOptions() {
     })
 
     async function onSubmit(data) {
-        console.log('delivery-data', data);
         if (!isCommissionedServiceSelected) {
             data.Firmenname = undefined;
             data.Straße = undefined;

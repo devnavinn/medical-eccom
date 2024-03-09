@@ -74,7 +74,6 @@ export default function Signature() {
             }
         }
         const res = await orderPlace(formData)
-        console.log('res', res);
         if (res.sessionId) {
             navigate('/thank-you')
         }
@@ -91,7 +90,6 @@ export default function Signature() {
         const imageData = signatureRef.current.toDataURL();
         // You can use imageData for further processing, such as saving to a database or sending it to a server
         setSignature(imageData);
-        console.log(imageData);
     };
 
     const handleDownload = async () => {
@@ -101,7 +99,7 @@ export default function Signature() {
             description: i18n?.language === 'en' ? 'Your PDF is being downloaded.' : 'Ihr PDF wird heruntergeladen.',
         })
         const res = await generatePdf(sessionId)
-        if (!res) return console.log('No data found')
+        if (!res) return
         window.open(res.pdfUrl, '_blank');
     }
     return (

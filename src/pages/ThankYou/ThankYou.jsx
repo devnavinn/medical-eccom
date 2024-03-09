@@ -34,7 +34,7 @@ const ThankYou = () => {
             })
             const sessionId = localStorage.getItem('sessionId')
             const res = await generatePdf(sessionId)
-            if (!res) return console.log('No data found')
+            if (!res) return
             window.open(res.pdfUrl, '_blank');
 
         }

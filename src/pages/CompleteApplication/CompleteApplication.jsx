@@ -12,7 +12,7 @@ const CompleteApplication = () => {
         const sessionId = localStorage.getItem('sessionId')
         const fetchOrderDetails = async () => {
             const res = await getOrderDetails(sessionId)
-            if (res.length === 0) return console.log('No data found')
+            if (res.length === 0) return
             setOrderDetails(res)
         }
         fetchOrderDetails()
